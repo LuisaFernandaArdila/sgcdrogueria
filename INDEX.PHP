@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['usuario'])){
+    header("location: INDEX.PHP");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +18,7 @@
         <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
-			<td id="superior1"><a href="u_login.php">Login</a></td>
+			<td id="superior1"><a href="u_login.html">Login</a></td>
             <td id="superior1"><a href="INDEX.php">Inicio</a></td>
 			<td id="superior1"><a href="indexres1407.php">Resolución 1407</a></td>
 			<td id="superior1"><a href="indexsisinf.php">Información del sistema</a></td>

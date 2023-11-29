@@ -1,42 +1,28 @@
-<?php
-session_start();
-
-if(!isset($_SESSION['usuario'])){
-    echo '
-    <script>
-    alert("Por favor, debe iniciar session");
-    window.location = "u_login.html";
-    </script>
-    ';
-    session_destroy();
-    die();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario devoluci&oacute;n productos</title>
+    <title>Crear Usuario</title>
     <link rel="stylesheet" href="EstiloMP.css">
 </head>
 <body>
-    
+
 <header id="header">
         <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
-			<td id="superior1"><a href="u_login.php">Login</a></td>
-            <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-			<td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-			<td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
+                <td id="superior1"><a href="u_login.php">Login</a></td>
+                <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
+                <td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
+                <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
             </tr></table>
 </header>
+
 <div id="contenido">
 
     <div id="lateral">
-    <nav>
+        <nav>
             <ol>
 		    <ul><h4>Modulo Atenci&oacute;n Al Cliente</h4>
 			<li><a href="educacion.php">Formulario Control educaci&oacute;n al paciente</a></li>
@@ -68,46 +54,22 @@ if(!isset($_SESSION['usuario'])){
     </div>
 <main id="contenidos"> 
 
-<?php
-include_once ("conexion.php");
-$sql = "SELECT * FROM devolucion";
-?>
-<table>
-<tr>
-<th>Id devoluci&oacute;n</th>
-<th>Codigo Producto</th>
-<th>Nombre Producto</th>
-<th>Motivo devoluci&oacute;n del Producto</th>
-<th>Id empleados</th>
-<th>Fecha informaci&oacute;n</th>
-<th>Actualizar</th>
-<th>Eliminar</th>
-</tr>
-<?php
-$resultado = mysqli_query($conn,$sql);
-while($row=mysqli_fetch_assoc($resultado)){?>
-        <tr>
-        <td><?php echo $row ["Iddevolucion"];?></td>
-        <td><?php echo $row ["codigo"];?></td>
-        <td><?php echo $row ["nomproducto"];?></td>
-        <td><?php echo $row ["motivodevolucion"];?></td>
-        <td><?php echo $row ["Idempleado"];?></td>
-        <td><?php echo $row ["fecha"];?></td>
-        <td><a href="devdactualizar.php?Iddevolucion=<?php echo $row ["Iddevolucion"];?>">Actualizar</a></td>
-        <td><a href="develiminar.php?Iddevolucion=<?php echo $row ["Iddevolucion"];?>">Eliminar</a></td>
-        </tr>
-<?php    }
-    mysqli_close($conn);
-?>
-<form action="devolucion.html" method="post">
-<button type="submit">Crear</button>
-</form> 
-<form action="u_inicio.php">
-<button type="submit">Volver</button>
-</form>
-<form action="u_cerrarsesion.php">
-<button type="submit">Salir</button>
-</form>
+    <form action="u_registrarusuario.php" method="post">
+
+        <label for="">ID usuario </label>
+        <input type="hidden" name="Id" id=""><br>  
+        <label for="">Digite usuario: </label>
+        <input type="text" name="usuario" id=""><br>
+        <label for="">Digite contraseña: </label>
+        <input type="text" name="clave" id=""><br>
+        <input type="submit" value="Crear">
+    </form>
+    <form action="persona.php">
+        <button type="submit">Volver</button>
+        </form>
+        <form action="u_cerrarsesion.php">
+        <button type="submit">Salir</button>
+        </form>
 </main>
 </div>
 <footer id="footer">

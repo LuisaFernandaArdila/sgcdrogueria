@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+    alert("Por favor, debe iniciar session");
+    window.location = "u_login.html";
+    </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -61,18 +76,23 @@
         <a href="persona.php"><img src="verde.jpg" alt="persona" height="70" width="70"></a>
         </td>
         <td>
-        <a href="empleados.php"><img src="verde1.jpg" alt="persona" height="70" width="70"></a>
+        <a href="empleados.php"><img src="verde1.jpg" alt="empleados" height="70" width="70"></a>
+        </td>
+        <td>
+        <a href="u_registrousuario.php"><img src="user.jpg" alt="usuarios" height="70" width="70"></a>
         </td>
     </tr>
     <tr>
         <td>
-            <label for="">Personas</label>
+            <label for="">Personas</label></td>
         <td>
-            <label for="">Empleados</label>
+            <label for="">Empleados</label></td>
+        <td>
+            <label for="">Usuarios</label></td>
     </tr>
 </table></center>
 <br />
-<form action="u_login.php">
+<form action="u_cerrarsesion.php">
 <button type="submit">Salir</button>
 </form>
 </main>

@@ -9,7 +9,7 @@
     $sql = "INSERT INTO persona (cedula, nombre, telefono, direccion)
     VALUES ('$cedula', '$nombre', '$telefono', '$direccion')";
     if (mysqli_query($conn, $sql)) {
-    echo "<script>alert('Nuevo registro almacenado exitosamente'); window.location='persona.php';</script>"
+    echo "<script>alert('Nuevo registro almacenado exitosamente'); window.location='persona.php';</script>";
     } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

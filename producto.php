@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+    alert("Por favor, debe iniciar session");
+    window.location = "u_login.html";
+    </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -88,7 +103,7 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 <form action="u_inicio.php">
 <button type="submit">Volver</button>
 </form>
-<form action="u_login.php">
+<form action="u_cerrarsesion.php">
 <button type="submit">Salir</button>
 </form>
 </main>
