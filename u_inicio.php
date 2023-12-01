@@ -23,13 +23,13 @@ if(!isset($_SESSION['usuario'])){
 </head>
 <body>
 <header id="header">
-        <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
+        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
-			<td id="superior1"><a href="u_login.php">Login</a></td>
+			<td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
             <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-			<td id="superior1"><a href="u_resolucion1407.php">Resolución 1407</a></td>
-			<td id="superior1"><a href="u_sistemainf.php">Información del sistema</a></td>
+			<td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
+			<td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
             </tr></table>
 </header>
 <div id="contenido">
@@ -68,18 +68,25 @@ if(!isset($_SESSION['usuario'])){
 <main id="contenidos">    
 
 <h1>Bienvenido al sistema de gestion de calidad</h1>
-<p>Este es el menú principal donde tiene acceso a la creacion de usuarios y asignación de empleados.</p>
+<p>Este es el menú principal para el usuario administrador, donde tiene acceso:
+<ol>
+    <li>Creacion de pacientes, usuarios y asignación de empleados.</li>
+    <li>Acceso a los tres modulos del sistema.</li>
+    <li>Registro en los diferentes formularios.</li>
+    <li>Visualizaci&oacute;n de registos almacenados por cada formulario.</li>
+</ol>
+</p>
 
 <center><table>
     <tr>
         <td>
-        <a href="persona.php"><img src="verde.jpg" alt="persona" height="70" width="70"></a>
+        <a href="persona.php"><img src="imagen/verde.jpg" alt="persona" height="70" width="70"></a>
         </td>
         <td>
-        <a href="empleados.php"><img src="verde1.jpg" alt="empleados" height="70" width="70"></a>
+        <a href="empleados.php"><img src="imagen/verde1.jpg" alt="empleados" height="70" width="70"></a>
         </td>
         <td>
-        <a href="u_registrousuario.php"><img src="user.jpg" alt="usuarios" height="70" width="70"></a>
+        <a href="u_registrousuario.php"><img src="imagen/user.jpg" alt="usuarios" height="70" width="70"></a>
         </td>
     </tr>
     <tr>

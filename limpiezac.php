@@ -1,9 +1,24 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+    alert("Por favor, debe iniciar session");
+    window.location = "u_login.html";
+    </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Persona</title>
+    <title>Formulario control de limpieza</title>
     <link rel="stylesheet" href="EstiloMP.css">
 </head>
 <body>
@@ -12,7 +27,7 @@
         <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
-                <td id="superior1"><a href="u_login.php">Login</a></td>
+                <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
                 <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
                 <td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
                 <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
@@ -44,7 +59,7 @@
         </nav>
         <nav>
             <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n</h4>
+		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
 			<li><a href="producto.php">Inventario de productos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
@@ -54,22 +69,26 @@
     </div>
 <main id="contenidos"> 
 
-    <form action="personareg.php" method="post">
+    <form action="limpiezareg.php" method="post">
 
-        <label for="">Digite la cedula de la persona: </label>
-        <input type="text" name="cedula" id=""><br>
-        <label for="">Digite el nombre de la persona: </label>
-        <input type="text" name="nombre" id=""><br>
-        <label for="">Digite el telefono de la persona: </label>
-        <input type="text" name="telefono" id=""><br>
-        <label for="">Digite la direccion de la persona: </label>
-        <input type="text" name="direccion" id=""><br>
-        <input type="submit" value="Crear">
+        <label for="">Id limpieza</label>
+        <input type="hidden" name="Idlimpieza" id=""><br>
+        <label for="">Digite el producto de aseo: </label>
+        <input type="text" name="productoaseo" id=""><br>
+        <label for="">Digite la zona de aseo: </label>
+        <input type="text" name="zona" id=""><br>
+        <label for="">Informaci&oacute;n proceso de limpieza: </label>
+        <input type="text" name="infoprocesolimpieza" id=""><br>
+        <label for="">Digite el Id empleados: </label>
+        <input type="text" name="Idempleados" id=""><br>
+        <label for="">Digite la fecha informaci&oacute;n: </label>
+        <input type="date" name="fecha" id=""><br>
+        <input type="submit" value="Crear registro">
     </form>
-    <form action="persona.php">
+    <form action="limpieza.php">
         <button type="submit">Volver</button>
         </form>
-        <form action="u_login.php">
+        <form action="u_cerrarsesion.php">
         <button type="submit">Salir</button>
         </form>
 </main>

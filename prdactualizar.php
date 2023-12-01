@@ -24,10 +24,10 @@ if(!isset($_SESSION['usuario'])){
 <body>
     
 <header id="header">
-        <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
+        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
-			<td id="superior1"><a href="u_login.php">Login</a></td>
+			<td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
             <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
 			<td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
 			<td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
@@ -58,7 +58,7 @@ if(!isset($_SESSION['usuario'])){
         </nav>
         <nav>
             <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n</h4>
+		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
 			<li><a href="producto.php">Inventario de productos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
@@ -92,17 +92,18 @@ while($row=mysqli_fetch_assoc($resultado)){?>
         <td><input type="text" name="laboratorio"value="<?php echo $row ["laboratorio"];?>"></td>
         <td><input type="date" name="fechavenc"value="<?php echo $row ["fechavenc"];?>"></td>
         </tr>
+</table> <br>
         <input type="submit" value="Actualizar">
 <?php    }
     mysqli_close($conn);
 ?>
-</form>
+</form> <br>
 <form action="producto.php">
 <button type="submit">Volver</button>
-</form>
+</form> <br>
 <form action="u_cerrarsesion.php">
 <button type="submit">Salir</button>
-</form>
+</form> <br>
 </main>
 </div>
 <footer id="footer">

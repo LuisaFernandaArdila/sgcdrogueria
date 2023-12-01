@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2023 a las 05:26:22
+-- Tiempo de generación: 01-12-2023 a las 01:04:04
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `sgcdrogueria`
 --
-CREATE DATABASE IF NOT EXISTS `sgcdrogueria` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `sgcdrogueria`;
 
 -- --------------------------------------------------------
 
@@ -52,11 +50,11 @@ INSERT INTO `auditoriainterna` (`fecha`, `Idauditoria`, `hallazgos`, `acciones`,
 --
 
 CREATE TABLE `devolucion` (
-  `Iddevolución` varchar(5) NOT NULL DEFAULT 'DP',
-  `codigo_prod:producto` int(11) NOT NULL,
-  `nom_producto` varchar(50) NOT NULL,
-  `motivo_devolución` text NOT NULL,
-  `Id_empleados:empleados` int(11) NOT NULL,
+  `Iddevolucion` int(5) NOT NULL,
+  `codigo` int(11) NOT NULL,
+  `nomproducto` varchar(50) NOT NULL,
+  `motivodevolucion` text NOT NULL,
+  `Idempleado` varchar(5) NOT NULL,
   `fecha` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -64,8 +62,8 @@ CREATE TABLE `devolucion` (
 -- Volcado de datos para la tabla `devolucion`
 --
 
-INSERT INTO `devolucion` (`Iddevolución`, `codigo_prod:producto`, `nom_producto`, `motivo_devolución`, `Id_empleados:empleados`, `fecha`) VALUES
-('DP2', 9, 'amoxicilina sus', 'mal estado', 1002205880, '2023-09-16');
+INSERT INTO `devolucion` (`Iddevolucion`, `codigo`, `nomproducto`, `motivodevolucion`, `Idempleado`, `fecha`) VALUES
+(1, 25, 'advil max', 'vencimiento', 'E3', '2023-11-27');
 
 -- --------------------------------------------------------
 
@@ -90,7 +88,8 @@ CREATE TABLE `educacionpaciente` (
 
 INSERT INTO `educacionpaciente` (`Ideducacionpac`, `cedula`, `nomcliente`, `codigo`, `nomproducto`, `contraindicaciones`, `Idempleados`, `fecha`) VALUES
 (1, 13955486, 'Gerardo Ardila Castillo', 1, 'acetaminofen', 'Vomito', 'E1', '2023-09-17'),
-(2, 1000753001, 'Jose David Cruz Ardila', 4, 'azitromicina', 'fiebre', 'E3', '2023-11-13');
+(2, 1000753001, 'Jose David Cruz Ardila', 4, 'azitromicina', 'fiebre', 'E3', '2023-11-13'),
+(12, 2147483647, 'Juliana Diaz', 2, 'amoxicilina', 'fiebre', 'E3', '2023-11-23');
 
 -- --------------------------------------------------------
 
@@ -111,7 +110,7 @@ CREATE TABLE `empleados` (
 INSERT INTO `empleados` (`Idempleados`, `nomempleado`, `cedula`) VALUES
 ('E1', 'Luisa Fernanda Ardila Rivera', 1101758678),
 ('E2', 'Yisney Pineda Isaza', 1002205880),
-('E3', 'Jose Ruben Ramos Rodriguez', 1000375269);
+('E3', 'Jose Ruben Ramos', 1000375269);
 
 -- --------------------------------------------------------
 
@@ -125,7 +124,7 @@ CREATE TABLE `inyectologia` (
   `nomcliente` varchar(50) NOT NULL,
   `codigo` int(11) NOT NULL,
   `nomproducto` varchar(50) NOT NULL,
-  `glúteoaplicación` varchar(10) NOT NULL,
+  `gluteoaplicacion` varchar(10) NOT NULL,
   `Idempleados` varchar(5) NOT NULL,
   `fecha` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -134,7 +133,7 @@ CREATE TABLE `inyectologia` (
 -- Volcado de datos para la tabla `inyectologia`
 --
 
-INSERT INTO `inyectologia` (`Idinyectologia`, `cedulacliente`, `nomcliente`, `codigo`, `nomproducto`, `glúteoaplicación`, `Idempleados`, `fecha`) VALUES
+INSERT INTO `inyectologia` (`Idinyectologia`, `cedulacliente`, `nomcliente`, `codigo`, `nomproducto`, `gluteoaplicacion`, `Idempleados`, `fecha`) VALUES
 (1, 28477248, 'Rosalba Castillo', 1, 'acetaminofen', 'derecha', 'E1', '2023-11-15'),
 (2, 28477248, 'Rosalba Castillo', 25, 'advil max', 'derecha', 'E2', '2023-11-15');
 
@@ -161,7 +160,7 @@ INSERT INTO `limpieza` (`Idlimpieza`, `productoaseo`, `zona`, `infoprocesolimpie
 (1, 'Clorox', 'baño', 'Se desinfecto con clorox', 'E1', '2023-09-17'),
 (2, 'Clorox', 'pisos', 'Se limpio el piso', 'E1', '2023-09-17'),
 (3, 'Jabon', 'puerta', 'Se lavo la puerta', 'E2', '2023-09-17'),
-(16, 'Jabon', 'Pisos', 'Se lavo la puerta', 'E1', '2023-11-15');
+(17, 'Jabon y agua', 'bano', 'lavado de caneca', 'E2', '2023-11-25');
 
 -- --------------------------------------------------------
 
@@ -181,8 +180,8 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`cedula`, `nombre`, `telefono`, `direccion`) VALUES
-(12456, 'sandra rodriguez', 75869, 'calle 80'),
-(98765, 'natalia franco', 3144463444, 'Calle 77D # 105B '),
+(98765, 'natalia franco diaz', 3144463444, 'Calle 77D # 105B '),
+(123456, 'estefani', 32145, 'carrera 100'),
 (13955486, 'Gerardo Ardila Castillo', 3123098255, 'Cra 30 # 30a 202'),
 (28477248, 'Rosalba Castillo', 3134611947, 'Cra 30 # 50 21'),
 (1000375269, 'José Ruben Ramos Rodriguez', 3224642644, 'calle 127F # 93c 41'),
@@ -230,8 +229,7 @@ INSERT INTO `producto` (`codigo`, `nomproducto`, `lote`, `laboratorio`, `fechave
 (24, 'loratadina tab', 10117, 'la sante', '2023-10-07'),
 (25, 'Advil max', 10118, 'abbout', '2024-02-06'),
 (26, 'Aspirina', 10119, 'Mk', '2024-01-30'),
-(27, 'Noxirim Jab', 10120, 'genoma', '2024-02-20'),
-(28, 'suero marzana', 98758, 'mk', '2024-03-23');
+(27, 'Noxirim Jab', 10120, 'genoma', '2024-02-20');
 
 -- --------------------------------------------------------
 
@@ -243,7 +241,7 @@ CREATE TABLE `quejasreclamos` (
   `Idqr` int(11) NOT NULL,
   `solicitud` text NOT NULL,
   `respuesta` text NOT NULL,
-  `cedulacliente` int(11) NOT NULL,
+  `cedula` int(11) NOT NULL,
   `fecha` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -254,13 +252,22 @@ CREATE TABLE `quejasreclamos` (
 --
 
 CREATE TABLE `recepciontecnica` (
-  `Idrecepción` varchar(5) NOT NULL DEFAULT 'RT',
-  `codigo_prod:producto` int(11) NOT NULL,
-  `nom_producto` varchar(50) NOT NULL,
+  `Idrecepcion` int(5) NOT NULL,
+  `codigo` int(11) NOT NULL,
+  `nomproducto` varchar(50) NOT NULL,
   `observaciones` text NOT NULL,
-  `Id_empleados:empleados` int(11) NOT NULL,
+  `Idempleado` varchar(11) NOT NULL,
   `fecha` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `recepciontecnica`
+--
+
+INSERT INTO `recepciontecnica` (`Idrecepcion`, `codigo`, `nomproducto`, `observaciones`, `Idempleado`, `fecha`) VALUES
+(1, 1, 'acetaminofen', 'ninguna', 'E2', '2023-11-27'),
+(2, 2, 'amoxicilina', 'ninguna', 'E2', '2023-11-27'),
+(3, 25, 'advil max', 'caja de 100 cap', 'E3', '2023-11-27');
 
 -- --------------------------------------------------------
 
@@ -271,9 +278,9 @@ CREATE TABLE `recepciontecnica` (
 CREATE TABLE `residuos` (
   `Idresiduos` int(11) NOT NULL,
   `fecha` date NOT NULL DEFAULT current_timestamp(),
-  `cantidad` varchar(5) NOT NULL DEFAULT 'kg',
   `tiporesiduo` varchar(50) NOT NULL,
-  `infogeneraciónresiduos` text NOT NULL,
+  `cantidad` varchar(5) NOT NULL DEFAULT 'kg',
+  `infogeneracionresiduos` text NOT NULL,
   `Idempleados` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -281,8 +288,8 @@ CREATE TABLE `residuos` (
 -- Volcado de datos para la tabla `residuos`
 --
 
-INSERT INTO `residuos` (`Idresiduos`, `fecha`, `cantidad`, `tiporesiduo`, `infogeneraciónresiduos`, `Idempleados`) VALUES
-(1, '2023-09-17', '2 Kg', 'biosanitario', 'caneca verde', 'E3');
+INSERT INTO `residuos` (`Idresiduos`, `fecha`, `tiporesiduo`, `cantidad`, `infogeneracionresiduos`, `Idempleados`) VALUES
+(1, '2023-09-17', 'biosanitario', '2 Kg', 'caneca verde', 'E3');
 
 -- --------------------------------------------------------
 
@@ -291,21 +298,18 @@ INSERT INTO `residuos` (`Idresiduos`, `fecha`, `cantidad`, `tiporesiduo`, `infog
 --
 
 CREATE TABLE `roles` (
-  `Id_rol` int(5) NOT NULL,
-  `usuario` varchar(10) NOT NULL,
-  `contraseña` int(10) NOT NULL,
-  `cargo` varchar(20) NOT NULL,
-  `funciones` text NOT NULL,
-  `empcedula` int(11) NOT NULL
+  `Idrol` int(5) NOT NULL,
+  `rol` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `roles`
 --
 
-INSERT INTO `roles` (`Id_rol`, `usuario`, `contraseña`, `cargo`, `funciones`, `empcedula`) VALUES
-(1, 'Luisa', 12345, 'administrador', 'Registrar datos', 1101758678),
-(2, 'Yisney', 12345, 'auxiliar', 'Registrar productos', 1002205880);
+INSERT INTO `roles` (`Idrol`, `rol`) VALUES
+(1, 'Administrador'),
+(2, 'Auxiliar'),
+(3, 'Farmaceuta');
 
 -- --------------------------------------------------------
 
@@ -344,6 +348,28 @@ INSERT INTO `temperaturahumedad` (`Idtemhum`, `fecha`, `jornada`, `temperatura`,
 (1, '2023-09-17', 'mañana', '18°C', '56%', 'E1'),
 (2, '2023-09-17', 'tarde', '17°C', '45%', 'E3');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `Id` int(11) NOT NULL,
+  `usuario` varchar(10) NOT NULL,
+  `clave` varchar(40) NOT NULL,
+  `Idrol` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`Id`, `usuario`, `clave`, `Idrol`) VALUES
+(1, 'luisa', 'ad84e91d76bdf66d371564dd2a8fa296f78ac7bf', 1),
+(2, 'yisney', '2c4f49e60bd4795290fe0d9de987db25a6887c36', 1),
+(4, 'ruben', '6634546ac4bd597c52be5bccec8eeaa9a266083b', 2);
+
 --
 -- Índices para tablas volcadas
 --
@@ -359,9 +385,9 @@ ALTER TABLE `auditoriainterna`
 -- Indices de la tabla `devolucion`
 --
 ALTER TABLE `devolucion`
-  ADD PRIMARY KEY (`Iddevolución`),
-  ADD KEY `Id_empleados:empleados` (`Id_empleados:empleados`) USING BTREE,
-  ADD KEY `codigo_prod:producto` (`codigo_prod:producto`) USING BTREE;
+  ADD PRIMARY KEY (`Iddevolucion`),
+  ADD KEY `fk_empleado` (`Idempleado`),
+  ADD KEY `fk_producto` (`codigo`);
 
 --
 -- Indices de la tabla `educacionpaciente`
@@ -412,15 +438,15 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `quejasreclamos`
   ADD PRIMARY KEY (`Idqr`),
-  ADD KEY `cedulacliente` (`cedulacliente`) USING BTREE;
+  ADD KEY `cedulacliente` (`cedula`) USING BTREE;
 
 --
 -- Indices de la tabla `recepciontecnica`
 --
 ALTER TABLE `recepciontecnica`
-  ADD PRIMARY KEY (`Idrecepción`),
-  ADD KEY `codigo_prod:producto` (`codigo_prod:producto`) USING BTREE,
-  ADD KEY `Id_empleados:empleados` (`Id_empleados:empleados`) USING BTREE;
+  ADD PRIMARY KEY (`Idrecepcion`),
+  ADD KEY `fk_empleados` (`Idempleado`),
+  ADD KEY `fk_productos` (`codigo`);
 
 --
 -- Indices de la tabla `residuos`
@@ -433,8 +459,7 @@ ALTER TABLE `residuos`
 -- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
-  ADD PRIMARY KEY (`Id_rol`),
-  ADD UNIQUE KEY `empcedula` (`empcedula`);
+  ADD PRIMARY KEY (`Idrol`);
 
 --
 -- Indices de la tabla `satisfaccióncliente`
@@ -451,50 +476,70 @@ ALTER TABLE `temperaturahumedad`
   ADD KEY `Idempleados` (`Idempleados`) USING BTREE;
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `usuario` (`usuario`),
+  ADD KEY `rol` (`Idrol`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `devolucion`
+--
+ALTER TABLE `devolucion`
+  MODIFY `Iddevolucion` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `educacionpaciente`
 --
 ALTER TABLE `educacionpaciente`
-  MODIFY `Ideducacionpac` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Ideducacionpac` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `inyectologia`
 --
 ALTER TABLE `inyectologia`
-  MODIFY `Idinyectologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Idinyectologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `limpieza`
 --
 ALTER TABLE `limpieza`
-  MODIFY `Idlimpieza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `Idlimpieza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `quejasreclamos`
 --
 ALTER TABLE `quejasreclamos`
-  MODIFY `Idqr` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Idqr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `recepciontecnica`
+--
+ALTER TABLE `recepciontecnica`
+  MODIFY `Idrecepcion` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `residuos`
 --
 ALTER TABLE `residuos`
-  MODIFY `Idresiduos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Idresiduos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `Id_rol` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Idrol` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `satisfaccióncliente`
@@ -506,7 +551,13 @@ ALTER TABLE `satisfaccióncliente`
 -- AUTO_INCREMENT de la tabla `temperaturahumedad`
 --
 ALTER TABLE `temperaturahumedad`
-  MODIFY `Idtemhum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Idtemhum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- Restricciones para tablas volcadas
@@ -522,7 +573,8 @@ ALTER TABLE `auditoriainterna`
 -- Filtros para la tabla `devolucion`
 --
 ALTER TABLE `devolucion`
-  ADD CONSTRAINT `fk_empleadosdp` FOREIGN KEY (`Id_empleados:empleados`) REFERENCES `empleados` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_empleado` FOREIGN KEY (`Idempleado`) REFERENCES `empleados` (`Idempleados`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_producto` FOREIGN KEY (`codigo`) REFERENCES `producto` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `educacionpaciente`
@@ -556,25 +608,20 @@ ALTER TABLE `limpieza`
 -- Filtros para la tabla `quejasreclamos`
 --
 ALTER TABLE `quejasreclamos`
-  ADD CONSTRAINT `fk_clienteqr` FOREIGN KEY (`cedulacliente`) REFERENCES `persona` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_clienteqr` FOREIGN KEY (`cedula`) REFERENCES `persona` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `recepciontecnica`
 --
 ALTER TABLE `recepciontecnica`
-  ADD CONSTRAINT `fk_empleadosrt` FOREIGN KEY (`Id_empleados:empleados`) REFERENCES `empleados` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_empleados` FOREIGN KEY (`Idempleado`) REFERENCES `empleados` (`Idempleados`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_productos` FOREIGN KEY (`codigo`) REFERENCES `producto` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `residuos`
 --
 ALTER TABLE `residuos`
   ADD CONSTRAINT `fk_empleadosrs` FOREIGN KEY (`Idempleados`) REFERENCES `empleados` (`Idempleados`);
-
---
--- Filtros para la tabla `roles`
---
-ALTER TABLE `roles`
-  ADD CONSTRAINT `fk_idempleados` FOREIGN KEY (`empcedula`) REFERENCES `empleados` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `satisfaccióncliente`
@@ -587,6 +634,12 @@ ALTER TABLE `satisfaccióncliente`
 --
 ALTER TABLE `temperaturahumedad`
   ADD CONSTRAINT `fk_empleadosth` FOREIGN KEY (`Idempleados`) REFERENCES `empleados` (`Idempleados`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `fk_roles` FOREIGN KEY (`Idrol`) REFERENCES `roles` (`Idrol`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

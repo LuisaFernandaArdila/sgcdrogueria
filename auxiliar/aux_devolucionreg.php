@@ -1,21 +1,36 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+    alert("Por favor, debe iniciar session");
+    window.location = "u_login.html";
+    </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Persona</title>
+    <title>Formulario devoluci&oacute;n de productos</title>
     <link rel="stylesheet" href="EstiloMP.css">
 </head>
 <body>
 
 <header id="header">
-        <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
+        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
-                <td id="superior1"><a href="u_login.php">Login</a></td>
-                <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-                <td id="superior1"><a href="u_resolucion1407.php">Resolución 1407</a></td>
-                <td id="superior1"><a href="u_sistemainf.php">Información del sistema</a></td>
+            <td id="superior1"><a href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
+                <td id="superior1"><a href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a></td>
+                <td id="superior1"><a href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
+                <td id="superior1"><a href="aux_sistemainf.php">Informaci&oacute;n del sistema</a></td>
             </tr></table>
 </header>
 
@@ -24,37 +39,17 @@
     <div id="lateral">
         <nav>
             <ol>
-		    <ul><h4>Modulo Atenci&oacute;n Al Cliente</h4>
-			<li><a href="educacion.php">Formulario Control educaci&oacute;n al paciente</a></li>
-			<li><a href="inyectologia.php">Formulario Control pacientes de inyectolog&iacute;a</a></li>
-            <li><a href="rencuesta.php">Registro encuesta de satisfacci&oacute;n al cliente</a></li>
-            <li><a href="qr.php">Registro quejas y reclamos</a></li>
-			</ul>
-            </ol>
-        </nav>
-        <nav>
-            <ol>
-		    <ul><h4>Modulo Entorno</h4>
-			<li><a href="limpieza.php">Formulario Control de limpieza</a></li>
-            <li><a href="residuos.php">Formulario Control de residuos</a></li>
-			<li><a href="temperatura.php">Formulario Control temperatura y humedad</a></li>
-            <li><a href="auditoria.php">Auditoria Interna</a></li>
-			</ul>
-            </ol>
-        </nav>
-        <nav>
-            <ol>
 		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n</h4>
-			<li><a href="producto.php">Inventario de productos</a></li>
-            <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
-            <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
+			<li><a href="aux_productoreg.php">Ingreso nuevos productos</a></li>
+            <li><a href="aux_recepcionreg.php">Nuevo registro: Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
+            <li><a href="aux_devolucionreg.php">Nuevo registro: Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>
             </ol>
         </nav>
     </div>
 <main id="contenidos"> 
 
-    <form action="devolucionreg.php" method="post">
+    <form action="aux_devolucion.php" method="post">
 
         <label for="">Id recepci&oacute;n t&eacute;cnica</label>
         <input type="text" name="Idrecepcion" id=""><br>
@@ -68,12 +63,14 @@
         <input type="text" name="Idempleados" id=""><br>
         <label for="">Digite la fecha información: </label>
         <input type="date" name="fecha" id=""><br>
-        <input type="submit" value="Crear">
+        <input type="submit" value="Registrar devoluci&oacute;n producto">
     </form>
-    <form action="devolucion.php">
+    <br>
+    <form action="http://localhost/sgcdrogueria/auxiliar/moduloatencion.php">
         <button type="submit">Volver</button>
         </form>
-        <form action="u_login.php">
+    <br>
+    <form action="http://localhost/sgcdrogueria/u_cerrarsesion.php">
         <button type="submit">Salir</button>
         </form>
 </main>

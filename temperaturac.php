@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Inyectolog&iacute;a</title>
+    <title>Formulario control de temperatura y humedad</title>
     <link rel="stylesheet" href="EstiloMP.css">
 </head>
 <body>
 
 <header id="header">
-        <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
+        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
-                <td id="superior1"><a href="u_login.php">Login</a></td>
+                <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
                 <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
                 <td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
                 <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
@@ -44,7 +44,7 @@
         </nav>
         <nav>
             <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n</h4>
+		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
 			<li><a href="producto.php">Inventario de productos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
@@ -54,30 +54,27 @@
     </div>
 <main id="contenidos"> 
 
-    <form action="inyectologiareg.php" method="post">
+    <form action="temperaturareg.php" method="post">
 
-        <label for="">Id Educaci&oacute;n Paciente</label>
-        <input type="hidden" name="Idinyectologia" id=""><br>
-        <label for="">Digite la cedula del paciente: </label>
-        <input type="text" name="cedulacliente" id=""><br>
-        <label for="">Digite el nombre del paciente: </label>
-        <input type="text" name="nomcliente" id=""><br>
-        <label for="">Digite el codigo del producto: </label>
-        <input type="text" name="codigo" id=""><br>
-        <label for="">Digite el nombre del producto: </label>
-        <input type="text" name="nomproducto" id=""><br>
-        <label for="">Digite el gl&uacute;teo aplicaci&oacute;n: </label>
-        <input type="text" name="gluteoaplicacion" id=""><br>
-        <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id=""><br>
+        <label for="">Id temperatura humedad</label>
+        <input type="hidden" name="Idtemhum" id=""><br>
         <label for="">Digite la fecha informaci&oacute;n: </label>
         <input type="date" name="fecha" id=""><br>
-        <input type="submit" value="Crear">
+        <label for="">Digite la jornada: </label>
+        <input type="text" name="jornada" id=""><br>
+        <label for="">Digite la temperatura: </label>
+        <input type="text" name="temperatura" id=""><br>
+        <label for="">Digite la humedad: </label>
+        <input type="text" name="humedad" id=""><br>
+        <label for="">Digite el Id empleados: </label>
+        <input type="text" name="Idempleados" id=""><br>
+
+        <input type="submit" value="Crear registro">
     </form>
-    <form action="inyectologia.php">
+    <form action="residuos.php">
         <button type="submit">Volver</button>
         </form>
-        <form action="u_login.php">
+        <form action="u_cerrarsesion.php">
         <button type="submit">Salir</button>
         </form>
 </main>

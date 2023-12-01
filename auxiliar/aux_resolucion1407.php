@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+    alert("Por favor, debe iniciar session");
+    window.location = "u_login.html";
+    </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,20 +23,37 @@
 </head>
 <body>
 <header id="header">
-        <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
+        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
-			<td id="superior1"><a href="u_login.php">Login</a></td>
-            <td id="superior1"><a href="INDEX.php">Inicio</a></td>
-			<td id="superior1"><a href="indexres1407.php">Resolución 1407</a></td>
-			<td id="superior1"><a href="indexsisinf.php">Información del sistema</a></td>
+            <td id="superior1"><a href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
+            <td id="superior1"><a href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a></td>
+            <td id="superior1"><a href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
+            <td id="superior1"><a href="aux_sistemainf.php">Informaci&oacute;n del sistema</a></td>
             </tr></table>
 </header>
 <div id="contenido">
 
 <div id="lateral">
+        <nav>
+            <ol>
+		    <ul><h4>Modulo Atenci&oacute;n Al Cliente</h4>
+			</ul>
+            </ol>
+        </nav>
+        <nav>
+            <ol>
+		    <ul><h4>Modulo Entorno</h4>
+			</ul>
+            </ol>
+        </nav>
+        <nav>
+            <ol>
+		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n</h4>
+			</ul>
+            </ol>
+        </nav>
 </div>
-
 <main id="contenidos">    
 <p>Todo servicio farmacéutico debe desarrollar, implementar y mantener un Sistema de Gestión de la Calidad (SGC). 
 Este sistema es responsable de asegurar que las prestaciones brindadas por el servicio sean de alta calidad y 

@@ -24,10 +24,10 @@ if(!isset($_SESSION['usuario'])){
 <body>
     
 <header id="header">
-        <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
+        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
-			<td id="superior1"><a href="u_login.php">Login</a></td>
+            <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
             <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
 			<td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
 			<td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
