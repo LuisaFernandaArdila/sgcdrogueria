@@ -11,14 +11,14 @@ if(!isset($_SESSION['usuario'])){
     session_destroy();
     die();
 }
-?>n
+?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de quejas y reclamos</title>
+    <title>Actualizar recepci&oacute;n t&eacute;cnica</title>
     <link rel="stylesheet" href="EstiloMP.css">
 </head>
 <body>
@@ -70,8 +70,10 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM quejasreclamos";
+$Idqr = $_GET['Idqr'];
+$sql = "SELECT * FROM quejasreclamos WHERE Idqr = '$Idqr'";
 ?>
+<form action="qrc.php" method="post">
 <table>
 <tr>
 <th>Id quejas y reclamos</th>
@@ -81,24 +83,24 @@ $sql = "SELECT * FROM quejasreclamos";
 <th>Respuesta</th>
 <th>Id empleado</th>
 <th>Fecha Registro</th>
-<th>Dar Respuesta</th>
 </tr>
 <?php
-$resultado = mysqli_query($conn,$sql);
+$resultado = mysqli_query($conn, $sql);
 while($row=mysqli_fetch_assoc($resultado)){?>
         <tr>
-        <td><?php echo $row ["Idqr"];?></td>
-        <td><?php echo $row ["tiposolicitud"];?></td>
-        <td><?php echo $row ["cedula"];?></td>      
-        <td><?php echo $row ["solicitud"];?></td>
-        <td><?php echo $row ["respuesta"];?></td>
-        <td><?php echo $row ["Idempleado"];?></td>
-        <td><?php echo $row ["fecha"];?></td>
-        <td><a href="qrdregistro.php?Idqr=<?php echo $row ["Idqr"];?>">Respuesta</a></td>
+        <td><input type="text" name="Idqr"value="<?php echo $row ["Idqr"];?>"></td>
+        <td><input type="text" name="tiposolicitud"value="<?php echo $row ["tiposolicitud"];?>"></td>
+        <td><input type="text" name="cedula"value="<?php echo $row ["cedula"];?>"></td>
+        <td><input type="text" name="solicitud"value="<?php echo $row ["solicitud"];?>"></td>
+        <td><input type="text" name="respuesta" value="<?php echo $row ["respuesta"];?>"></td>
+        <td><input type="text" name="Idempleado" value="<?php echo $row ["Idempleado"];?>"></td>
+        <td><input type="date" name="fecha"value="<?php echo $row ["fecha"];?>"></td>
         </tr>
+        <input type="submit" value="Registrar respuesta">
 <?php    }
     mysqli_close($conn);
 ?>
+</form>
 <form action="u_inicio.php">
 <button type="submit">Volver</button>
 </form>

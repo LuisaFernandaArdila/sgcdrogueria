@@ -70,31 +70,25 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM quejasreclamos";
+$sql = "SELECT * FROM satisfaccioncliente";
 ?>
 <table>
 <tr>
-<th>Id quejas y reclamos</th>
-<th>Tipo de solicitud</th>
+<th>Id satisfacci&oacute;n cliente</th>
 <th>Cedula del cliente</th>
-<th>Solicitud</th>
-<th>Respuesta</th>
-<th>Id empleado</th>
+<th>Calificaci&oacute;n del cliente</th>
+<th>Sugerencias del cliente</th>
 <th>Fecha Registro</th>
-<th>Dar Respuesta</th>
 </tr>
 <?php
 $resultado = mysqli_query($conn,$sql);
 while($row=mysqli_fetch_assoc($resultado)){?>
         <tr>
-        <td><?php echo $row ["Idqr"];?></td>
-        <td><?php echo $row ["tiposolicitud"];?></td>
-        <td><?php echo $row ["cedula"];?></td>      
-        <td><?php echo $row ["solicitud"];?></td>
-        <td><?php echo $row ["respuesta"];?></td>
-        <td><?php echo $row ["Idempleado"];?></td>
+        <td><?php echo $row ["Idsatisfaccion"];?></td>
+        <td><?php echo $row ["cedulacliente"];?></td>    
+        <td><?php echo $row ["calificacion"];?></td>
+        <td><?php echo $row ["sugerencias"];?></td>
         <td><?php echo $row ["fecha"];?></td>
-        <td><a href="qrdregistro.php?Idqr=<?php echo $row ["Idqr"];?>">Respuesta</a></td>
         </tr>
 <?php    }
     mysqli_close($conn);
