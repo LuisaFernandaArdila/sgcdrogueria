@@ -1,74 +1,125 @@
-  body {
-    background-image: url('imagen/fondo.jpg');
+body {
+    background-image: url("imagen/fondo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: #b0e57c; 
-    font-family: Arial, sans-serif;
+    background-color: #b0e57c;
+    font-family: 'Arial', 'Helvetica', sans-serif;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
+
 #header {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    background-color: rgba(0, 128, 0, 0.8); 
+    background-color: rgba(0, 128, 0, 0.8);
     color: #fff;
 }
 
-    #header img {
-        vertical-align: middle;
-        margin-right: 10px;
-    }
-
-#superior {
-    text-align: center;
-    background-color: #4caf50; 
-    padding: 10px 0;
+#header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1; 
 }
 
-    #superior a {
-        text-decoration: none;
-        color: #fff;
-        margin: 0 20px;
-        font-weight: bold;
-    }
+#header-logo img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
 
-        #superior a:hover {
-            text-decoration: underline;
-        }
+#header h2 {
+    margin: 0;
+    text-align: middle;
+    padding: 10px 0;
+    vertical-align: middle;
+}
 
+#superior {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+}
+#superior2 {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+#superior table {
+    border-collapse: collapse;
+    width: 70%; 
+    margin-bottom: 20px; 
+}
+
+#superior a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 20px;
+    font-weight: bold;
+}
+
+#superior a:hover {
+    text-decoration: underline;
+}
+
+
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+button {
+    background-color: rgba(0, 128, 0, 0.8);
+    color: #ffffff;
+    padding: 12px 25px;
+    border: 2px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    align-content: center;
+}
+
+button:hover {
+    background-color: #006400;
+}
 
 #contenido {
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; 
+    align-items: flex-start;
     margin: 20px;
 }
 
-#lateral {
-    flex-basis: 250px; 
-    background-color: #fff; 
+#lateral,
+#contenidos {
+    flex-basis: 250px;
+    background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    height: calc(80vh - 170px); 
-    overflow: auto; 
+    height: calc(80vh - 170px);
+    overflow: auto;
 }
 
 #contenidos {
-    flex-basis: calc(100% - 250px); 
-    background-color: #fff; 
+    flex-basis: calc(100% - 250px);
+    background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    height: calc(80vh - 170px); 
-    overflow: auto; 
+    height: calc(80vh - 170px);
+    overflow: auto;
 }
-
 
 #footer {
     text-align: center;
@@ -77,22 +128,50 @@
     color: #fff;
 }
 
-
-#inferior {
-    text-align: center;
+#inferior td {
+    padding: 5px 10px;
 }
-
-    #inferior td {
-        padding: 5px 10px;
-    }
 
 #footer a {
     text-decoration: none;
     color: #fff;
 }
 
-    #footer a:hover {
-        text-decoration: underline;
-    }
+#footer a:hover {
+    text-decoration: underline;
+}
 
-        
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+input[type="submit"] {
+    background-color: rgba(0, 128, 0, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; 
+}
+
+
+input[type="submit"]:hover {
+    background-color: #006400;
+}

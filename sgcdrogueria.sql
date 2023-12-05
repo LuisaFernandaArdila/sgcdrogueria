@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2023 a las 01:04:04
+-- Tiempo de generación: 03-12-2023 a las 22:49:10
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -171,7 +171,7 @@ INSERT INTO `limpieza` (`Idlimpieza`, `productoaseo`, `zona`, `infoprocesolimpie
 CREATE TABLE `persona` (
   `cedula` int(11) NOT NULL,
   `nombre` varchar(70) NOT NULL,
-  `telefono` bigint(20) NOT NULL,
+  `telefono` bigint(10) NOT NULL,
   `direccion` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -180,15 +180,19 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`cedula`, `nombre`, `telefono`, `direccion`) VALUES
+(9870, 'roman', 3144463444, 'Calle 77D'),
 (98765, 'natalia franco diaz', 3144463444, 'Calle 77D # 105B '),
-(123456, 'estefani', 32145, 'carrera 100'),
+(3456287, 'roman', 3144463444, 'Calle 77D 105B 39'),
 (13955486, 'Gerardo Ardila Castillo', 3123098255, 'Cra 30 # 30a 202'),
+(23456777, 'roman', 3144463444, 'Calle 77D'),
+(28477244, 'sandra sanchez', 3134611947, 'Cra 30 # 50 21'),
 (28477248, 'Rosalba Castillo', 3134611947, 'Cra 30 # 50 21'),
 (1000375269, 'José Ruben Ramos Rodriguez', 3224642644, 'calle 127F # 93c 41'),
 (1000753001, 'Jose David Cruz Ardila', 3224565670, 'cra 101 sur 78j 70'),
 (1002205880, 'Yisney Pineda Isaza', 3122301304, 'Diag 64A # 21 - 38'),
 (1101234322, 'Mayuliseth Gonsalez', 3224563422, 'calle 11 # 34 - 23 sur'),
 (1101758678, 'Luisa Fernanda Ardila Rivera', 3144463444, 'Calle 77d # 105b 39'),
+(1234568768, 'martha', 75855886878797, 'calle 120'),
 (2147483647, 'Juliana Diaz', 2134566778, 'Calle 77D # 105B - 45');
 
 -- --------------------------------------------------------
@@ -239,11 +243,21 @@ INSERT INTO `producto` (`codigo`, `nomproducto`, `lote`, `laboratorio`, `fechave
 
 CREATE TABLE `quejasreclamos` (
   `Idqr` int(11) NOT NULL,
+  `tiposolicitud` varchar(10) NOT NULL,
+  `cedula` int(11) NOT NULL,
   `solicitud` text NOT NULL,
   `respuesta` text NOT NULL,
-  `cedula` int(11) NOT NULL,
+  `Idempleado` int(11) DEFAULT NULL,
   `fecha` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `quejasreclamos`
+--
+
+INSERT INTO `quejasreclamos` (`Idqr`, `tiposolicitud`, `cedula`, `solicitud`, `respuesta`, `Idempleado`, `fecha`) VALUES
+(1, 'queja', 13955486, 'devolucion medicamento', 'se cambia por un producto del mismo valor', 1101758678, '2023-12-02'),
+(2, 'queja', 1000753001, 'cambio producto', 'si', 1101758678, '2023-12-02');
 
 -- --------------------------------------------------------
 
@@ -314,16 +328,25 @@ INSERT INTO `roles` (`Idrol`, `rol`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `satisfaccióncliente`
+-- Estructura de tabla para la tabla `satisfaccioncliente`
 --
 
-CREATE TABLE `satisfaccióncliente` (
+CREATE TABLE `satisfaccioncliente` (
   `Idsatisfaccion` int(11) NOT NULL,
-  `calificación` char(5) NOT NULL,
-  `sugerencias` text NOT NULL,
   `cedulacliente` int(11) NOT NULL,
+  `calificacion` varchar(10) NOT NULL,
+  `sugerencias` text NOT NULL,
   `fecha` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `satisfaccioncliente`
+--
+
+INSERT INTO `satisfaccioncliente` (`Idsatisfaccion`, `cedulacliente`, `calificacion`, `sugerencias`, `fecha`) VALUES
+(1, 28477248, 'Buena', 'ninguna', '2023-12-02'),
+(2, 1101758678, 'Buena', 'ninguna', '2023-12-02'),
+(6, 1101758678, 'excelente', 'ninguna', '2023-12-02');
 
 -- --------------------------------------------------------
 
@@ -438,7 +461,8 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `quejasreclamos`
   ADD PRIMARY KEY (`Idqr`),
-  ADD KEY `cedulacliente` (`cedula`) USING BTREE;
+  ADD KEY `cedulacliente` (`cedula`) USING BTREE,
+  ADD KEY `Idempleado` (`Idempleado`);
 
 --
 -- Indices de la tabla `recepciontecnica`
@@ -462,9 +486,9 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`Idrol`);
 
 --
--- Indices de la tabla `satisfaccióncliente`
+-- Indices de la tabla `satisfaccioncliente`
 --
-ALTER TABLE `satisfaccióncliente`
+ALTER TABLE `satisfaccioncliente`
   ADD PRIMARY KEY (`Idsatisfaccion`),
   ADD KEY `cedulacliente` (`cedulacliente`) USING BTREE;
 
@@ -521,7 +545,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `quejasreclamos`
 --
 ALTER TABLE `quejasreclamos`
-  MODIFY `Idqr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Idqr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `recepciontecnica`
@@ -542,10 +566,10 @@ ALTER TABLE `roles`
   MODIFY `Idrol` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `satisfaccióncliente`
+-- AUTO_INCREMENT de la tabla `satisfaccioncliente`
 --
-ALTER TABLE `satisfaccióncliente`
-  MODIFY `Idsatisfaccion` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `satisfaccioncliente`
+  MODIFY `Idsatisfaccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `temperaturahumedad`
@@ -608,7 +632,8 @@ ALTER TABLE `limpieza`
 -- Filtros para la tabla `quejasreclamos`
 --
 ALTER TABLE `quejasreclamos`
-  ADD CONSTRAINT `fk_clienteqr` FOREIGN KEY (`cedula`) REFERENCES `persona` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_clienteqr` FOREIGN KEY (`cedula`) REFERENCES `persona` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_empleadoqr` FOREIGN KEY (`Idempleado`) REFERENCES `empleados` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `recepciontecnica`
@@ -624,9 +649,9 @@ ALTER TABLE `residuos`
   ADD CONSTRAINT `fk_empleadosrs` FOREIGN KEY (`Idempleados`) REFERENCES `empleados` (`Idempleados`);
 
 --
--- Filtros para la tabla `satisfaccióncliente`
+-- Filtros para la tabla `satisfaccioncliente`
 --
-ALTER TABLE `satisfaccióncliente`
+ALTER TABLE `satisfaccioncliente`
   ADD CONSTRAINT `fk_clientesat` FOREIGN KEY (`cedulacliente`) REFERENCES `persona` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

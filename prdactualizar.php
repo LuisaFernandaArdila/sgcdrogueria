@@ -20,6 +20,7 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar producto</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     
@@ -74,6 +75,7 @@ $codigo = $_GET['codigo'];
 $sql = "SELECT * FROM producto WHERE codigo = '$codigo'";
 ?>
 <form action="prpactualizar.php" method="post">
+<center>
 <table>
 <tr>
 <th>Codigo</th>
@@ -92,18 +94,18 @@ while($row=mysqli_fetch_assoc($resultado)){?>
         <td><input type="text" name="laboratorio"value="<?php echo $row ["laboratorio"];?>"></td>
         <td><input type="date" name="fechavenc"value="<?php echo $row ["fechavenc"];?>"></td>
         </tr>
-</table> <br>
+        </table> <br>
         <input type="submit" value="Actualizar">
 <?php    }
     mysqli_close($conn);
 ?>
+</table>
+</center>
 </form> <br>
 <form action="producto.php">
 <button type="submit">Volver</button>
 </form> <br>
-<form action="u_cerrarsesion.php">
-<button type="submit">Salir</button>
-</form> <br>
+
 </main>
 </div>
 <footer id="footer">

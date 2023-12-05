@@ -20,19 +20,39 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Persona</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     
-<header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-			<td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
+<div id="header">
+<table>
+        <tr>
+            <td><img src="imagen/LogoSGC.png" align="left" height="80"></td>
+            <td></td>
+
+            <td id="superior1" colspan="2"><h2>Droguería Punto Express</h2></td>
+        </tr>
+    </table>
+
+    <table id="superior">
+        <tr>
             <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-			<td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-			<td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
-</header>
+            <td id="superior1"><a href="u_resolucion1407.php">Resolución 1407</a></td>
+            <td id="superior1"><a href="u_sistemainf.php">Información del sistema</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesión</a></td>
+        </tr>
+    </table>
+
+</div>
+
 <div id="contenido">
 
     <div id="lateral">
@@ -97,17 +117,17 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 ?>
 </table>
 <br>
+<center>
 <form action="personaregu.php" method="post">
 <button type="submit">Registrar nueva persona</button>
 </form>
+</center>
 <br>
 <form action="u_inicio.php">
 <button type="submit">Volver</button>
 </form>
 <br>
-<form action="u_cerrarsesion.php">
-<button type="submit">Salir</button>
-</form>
+
 </main>
 </div>
 <footer id="footer">

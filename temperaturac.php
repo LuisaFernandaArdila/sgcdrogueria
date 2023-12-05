@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario control de temperatura y humedad</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 
@@ -56,6 +57,8 @@
 
     <form action="temperaturareg.php" method="post">
 
+    <center>
+
         <label for="">Id temperatura humedad</label>
         <input type="hidden" name="Idtemhum" id=""><br>
         <label for="">Digite la fecha informaci&oacute;n: </label>
@@ -71,12 +74,11 @@
 
         <input type="submit" value="Crear registro">
     </form>
+</center>
     <form action="residuos.php">
         <button type="submit">Volver</button>
         </form>
-        <form action="u_cerrarsesion.php">
-        <button type="submit">Salir</button>
-        </form>
+      
 </main>
 </div>
 <footer id="footer">

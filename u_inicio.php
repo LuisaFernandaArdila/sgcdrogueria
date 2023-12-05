@@ -20,6 +20,7 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 <header id="header">
@@ -99,9 +100,7 @@ if(!isset($_SESSION['usuario'])){
     </tr>
 </table></center>
 <br />
-<form action="u_cerrarsesion.php">
-<button type="submit">Salir</button>
-</form>
+
 </main>
 </div>
 <footer id="footer">

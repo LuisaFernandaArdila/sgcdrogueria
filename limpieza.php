@@ -20,6 +20,7 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario control de limpieza</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     
@@ -99,15 +100,16 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 <?php    }
     mysqli_close($conn);
 ?>
+</table><br>
 <form action="limpiezac.php" method="post">
+<center>
 <button type="submit">Crear</button>
+</center>
 </form>
 <form action="u_inicio.php">
 <button type="submit">Volver</button>
 </form>
-<form action="u_cerrarsesion.php">
-<button type="submit">Salir</button>
-</form>
+
 </main>
 </div>
 <footer id="footer">
