@@ -74,15 +74,15 @@ if(!isset($_SESSION['usuario'])){
 <center>
 
         <label for="">Digite Fecha Informaci&oacute;n: </label>
-        <input type="date" name="fecha"><br>
+        <input type="date" name="fecha" required><br>
         <label for=""></label>
         <input type="hidden" name="Idauditoria" id=""><br>
         <label for="">Digite los hallazgos encontrados: </label>
-        <input type="text" name="hallazgos" id=""><br>
+        <input type="text" name="hallazgos" id="" required><br>
         <label for="">Digite las acciones a realizar: </label>
-        <input type="text" name="acciones" id=""><br>
+        <input type="text" name="acciones" id="" required><br>
         <label for="">Id empleados: </label>
-        <input type="text" name="Idempleados" id=""><br>
+        <input type="text" name="Idempleados" id="" required><br>
         <br>
         <input type="submit" value="Registrar">
     </form>

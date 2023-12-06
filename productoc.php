@@ -76,13 +76,13 @@ if(!isset($_SESSION['usuario'])){
         <label for="">Codigo de producto </label>
         <input type="hidden" name="codigo" id=""><br>
         <label for="">Digite el nombre del producto: </label>
-        <input type="text" name="nomproducto" id=""><br>
+        <input type="text" name="nomproducto" id="" required><br>
         <label for="">Digite el lote del producto: </label>
-        <input type="text" name="lote" id=""><br>
+        <input type="text" name="lote" id="" required><br>
         <label for="">Digite el laboratorio del producto: </label>
-        <input type="text" name="laboratorio" id=""><br>
+        <input type="text" name="laboratorio" id="" required><br>
         <label for="">Digite la fecha de vencimiento del producto: </label>
-        <input type="date" name="fechavenc" id=""><br><br>
+        <input type="date" name="fechavenc" id="" required><br><br>
         <input type="submit" value="Crear registro">
     </form>
 </center>

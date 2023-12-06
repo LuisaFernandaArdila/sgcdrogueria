@@ -77,19 +77,19 @@ if(!isset($_SESSION['usuario'])){
         <label for="">Id Educacion Paciente</label>
         <input type="hidden" name="Ideducacionpac" id=""><br>
         <label for="">Digite la cedula del paciente: </label>
-        <input type="text" name="cedula" id=""><br>
+        <input type="text" name="cedula" id="" required><br>
         <label for="">Digite el nombre del paciente: </label>
-        <input type="text" name="nomcliente" id=""><br>
+        <input type="text" name="nomcliente" id="" required><br>
         <label for="">Digite el codigo del producto: </label>
-        <input type="text" name="codigo" id=""><br>
+        <input type="text" name="codigo" id="" required><br>
         <label for="">Digite el nombre del producto: </label>
-        <input type="text" name="nomproducto" id=""><br>
+        <input type="text" name="nomproducto" id="" required><br>
         <label for="">Digite las contraindicaciones: </label>
-        <input type="text" name="contraindicaciones" id=""><br>
+        <input type="text" name="contraindicaciones" id="" required><br>
         <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id=""><br>
+        <input type="text" name="Idempleados" id="" required><br>
         <label for="">Digite la fecha informaci&oacute;n: </label>
-        <input type="date" name="fecha" id=""><br><br>
+        <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Crear registro">
     </form>
     </center>

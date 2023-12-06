@@ -75,15 +75,15 @@ if(!isset($_SESSION['usuario'])){
         <label for="">Id recepci&oacute;n t&eacute;cnica</label>
         <input type="text" name="Idrecepcion" id=""><br>
         <label for="">Codigo de producto </label>
-        <input type="text" name="codigo" id=""><br>
+        <input type="text" name="codigo" id="" required><br>
         <label for="">Digite el nombre del producto: </label>
-        <input type="text" name="nomproducto" id=""><br>
+        <input type="text" name="nomproducto" id="" required><br>
         <label for="">Digite el motivo de la devolucion del producto: </label>
-        <input type="text" name="motivodevolucion" id=""><br>
+        <input type="text" name="motivodevolucion" id="" required><br>
         <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id=""><br>
+        <input type="text" name="Idempleados" id="" required><br>
         <label for="">Digite la fecha información: </label>
-        <input type="date" name="fecha" id=""><br><br>
+        <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Registrar datos">
     </form>
 </center>

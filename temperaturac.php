@@ -62,15 +62,15 @@
         <label for="">Id temperatura humedad</label>
         <input type="hidden" name="Idtemhum" id=""><br>
         <label for="">Digite la fecha informaci&oacute;n: </label>
-        <input type="date" name="fecha" id=""><br>
+        <input type="date" name="fecha" id="" required><br>
         <label for="">Digite la jornada: </label>
-        <input type="text" name="jornada" id=""><br>
+        <input type="text" name="jornada" id="" required><br>
         <label for="">Digite la temperatura: </label>
-        <input type="text" name="temperatura" id=""><br>
+        <input type="text" name="temperatura" id="" required><br>
         <label for="">Digite la humedad: </label>
-        <input type="text" name="humedad" id=""><br>
+        <input type="text" name="humedad" id="" required><br>
         <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id=""><br>
+        <input type="text" name="Idempleados" id="" required><br>
 
         <input type="submit" value="Crear registro">
     </form>

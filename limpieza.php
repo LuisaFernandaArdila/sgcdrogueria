@@ -90,7 +90,7 @@ $sql = "SELECT * FROM limpieza";
 <th>Actualizar</th>
 <th>Eliminar</th>
 </tr>
-<thead>
+</thead>
 <tbody>
 <?php
 $resultado = mysqli_query($conn,$sql);
@@ -108,18 +108,11 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 <?php    }
     mysqli_close($conn);
 ?>
-<<<<<<< HEAD
-<tbody>
+</tbody>
 </table><br>
 <form action="limpiezac.php" method="post">
 <center>
 <button type="submit">Crear registro</button>
-=======
-</table><br>
-<form action="limpiezac.php" method="post">
-<center>
-<button type="submit">Crear</button>
->>>>>>> c760684d18cff769b6f658ed66bc24dfc6c24dac
 </center>
 </form>
 <form action="u_inicio.php">

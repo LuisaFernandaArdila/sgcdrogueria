@@ -76,16 +76,12 @@ if(!isset($_SESSION['usuario'])){
         <label for="">ID usuario </label>
         <input type="hidden" name="Id" id=""><br>  
         <label for="">Digite usuario: </label>
-        <input type="text" name="usuario" id=""><br>
+        <input type="text" name="usuario" id="" required><br>
         <label for="">Digite contraseña: </label>
-        <input type="text" name="clave" id=""><br><br>
-<<<<<<< HEAD
+        <input type="text" name="clave" id="" required><br><br>
         <label for="">Selecione rol </label>
-        <input type="text" name="Idrol" id=""><br><br>
+        <input type="text" name="Idrol" id="" required><br><br>
         <input type="submit" value="Crear usuario">
-=======
-        <input type="submit" value="Crear">
->>>>>>> c760684d18cff769b6f658ed66bc24dfc6c24dac
     </form> 
     </center><br>
     <form action="u_inicio.php">

@@ -76,15 +76,15 @@ if(!isset($_SESSION['usuario'])){
         <label for="">Id limpieza</label>
         <input type="hidden" name="Idlimpieza" id=""><br>
         <label for="">Digite el producto de aseo: </label>
-        <input type="text" name="productoaseo" id=""><br>
+        <input type="text" name="productoaseo" id="" required><br>
         <label for="">Digite la zona de aseo: </label>
-        <input type="text" name="zona" id=""><br>
+        <input type="text" name="zona" id="" required><br>
         <label for="">Informaci&oacute;n proceso de limpieza: </label>
-        <input type="text" name="infoprocesolimpieza" id=""><br>
+        <input type="text" name="infoprocesolimpieza" id="" required><br>
         <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id=""><br>
+        <input type="text" name="Idempleados" id="" required><br>
         <label for="">Digite la fecha informaci&oacute;n: </label>
-        <input type="date" name="fecha" id=""><br><br>
+        <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Crear registro">
     </form>
 </center>
