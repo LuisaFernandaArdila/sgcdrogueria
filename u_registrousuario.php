@@ -79,9 +79,13 @@ if(!isset($_SESSION['usuario'])){
         <input type="text" name="usuario" id=""><br>
         <label for="">Digite contraseña: </label>
         <input type="text" name="clave" id=""><br><br>
+<<<<<<< HEAD
         <label for="">Selecione rol </label>
         <input type="text" name="Idrol" id=""><br><br>
         <input type="submit" value="Crear usuario">
+=======
+        <input type="submit" value="Crear">
+>>>>>>> c760684d18cff769b6f658ed66bc24dfc6c24dac
     </form> 
     </center><br>
     <form action="u_inicio.php">

@@ -20,7 +20,10 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empleados</title>
     <link rel="stylesheet" href="EstiloMP.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+=======
+>>>>>>> c760684d18cff769b6f658ed66bc24dfc6c24dac
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
@@ -98,7 +101,10 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 <?php    }
     mysqli_close($conn);
 ?>
+<<<<<<< HEAD
 </tbody>
+=======
+>>>>>>> c760684d18cff769b6f658ed66bc24dfc6c24dac
 </table> <br>
 <form action="empleadosc.php" method="post">
 <center>
