@@ -12,6 +12,7 @@ if(isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INDEX</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 <header id="header">
@@ -24,21 +25,21 @@ if(isset($_SESSION['usuario'])){
 			<td id="superior1"><a href="indexsisinf.html">Información del sistema</a></td>
             </tr></table>
 </header>
-<div id="contenido">
+<div id="contenido1">
 <main id="contenidos">
 
-<h1>Bienvenido al sistema de gestion de calidad</h1>
+<h1>Bienvenido al sistema de gestion de calidad</h1><br>
 
 <p>Para nuestra compañia es muy importante cumplir con las normas del gobierno y garantiar su seguridad y la de cada persona que use
    nuestros servicios y productos; al igual que el personal que labora en nuestra compañia, por eso lo invitamos a navegar por
    nuestra pagina web para conocer el programa de gestion de calidad.
-</p>
+</p><br>
 
 <form id="" action="scpersonainf.html" method="post">
-<p>Puede dejarnos sus comentarios y/o sugerencias en nuestra encuesta de safisfaccion de cliente.<br />
+<p>Puede dejarnos sus comentarios y/o sugerencias en nuestra encuesta de safisfaccion de cliente.<br /><br>
 <button type="submit">Encuesta Satisfacción al cliente</button>
 </p>
-<p>Para quejas y reclamos puede dearlos en el siguiente formulario y nuestro personal lo contactara para dar pronta respuesta.<br />
+<p>Para quejas y reclamos puede dearlos en el siguiente formulario y nuestro personal lo contactara para dar pronta respuesta.<br /><br>
 <button type="submit">Quejas y/o Reclamos</button>
 </p>
 </main>

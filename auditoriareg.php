@@ -18,24 +18,26 @@ if(!isset($_SESSION['usuario'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Registrar Auditoria</title>
     <link rel="stylesheet" href="EstiloMP.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+
 <header id="header">
         <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
-			<td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-            <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-			<td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-			<td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
+			    <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
+                <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
+                <td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
+                <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
             </tr></table>
 </header>
+
 <div id="contenido">
 
-<div id="lateral">
+    <div id="lateral">
         <nav>
             <ol>
 		    <ul><h4>Modulo Atenci&oacute;n Al Cliente</h4>
@@ -58,49 +60,39 @@ if(!isset($_SESSION['usuario'])){
         </nav>
         <nav>
             <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n</h4>
+		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
 			<li><a href="producto.php">Inventario de productos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>
             </ol>
         </nav>
-</div>
-<main id="contenidos">    
+    </div>
+<main id="contenidos"> 
 
-<h1>Bienvenido al sistema de gestion de calidad</h1>
-<p>Este es el menú principal para el usuario administrador, donde tiene acceso:
-<ol>
-    <li>Creacion de pacientes, usuarios y asignación de empleados.</li>
-    <li>Acceso a los tres modulos del sistema.</li>
-    <li>Registro en los diferentes formularios.</li>
-    <li>Visualizaci&oacute;n de registos almacenados por cada formulario.</li>
-</ol>
-</p>
+    <form action="auditoriaregu.php" method="post">
+<center>
 
-<center><table>
-    <tr>
-        <td>
-        <a href="persona.php"><img src="imagen/verde.jpg" alt="persona" height="70" width="70"></a>
-        </td>
-        <td>
-        <a href="empleados.php"><img src="imagen/verde1.jpg" alt="empleados" height="70" width="70"></a>
-        </td>
-        <td>
-        <a href="u_registrousu.html"><img src="imagen/user.jpg" alt="usuarios" height="70" width="70"></a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <label for="">Personas</label></td>
-        <td>
-            <label for="">Empleados</label></td>
-        <td>
-            <label for="">Usuarios</label></td>
-    </tr>
-</table></center>
-<br />
-
+        <label for="">Digite Fecha Informaci&oacute;n: </label>
+        <input type="date" name="fecha"><br>
+        <label for=""></label>
+        <input type="hidden" name="Idauditoria" id=""><br>
+        <label for="">Digite los hallazgos encontrados: </label>
+        <input type="text" name="hallazgos" id=""><br>
+        <label for="">Digite las acciones a realizar: </label>
+        <input type="text" name="acciones" id=""><br>
+        <label for="">Id empleados: </label>
+        <input type="text" name="Idempleados" id=""><br>
+        <br>
+        <input type="submit" value="Registrar">
+    </form>
+</center>
+    <br>
+    <form action="u_inicio.php">
+        <button type="submit">Volver</button>
+        </form>
+        <br>
+       
 </main>
 </div>
 <footer id="footer">

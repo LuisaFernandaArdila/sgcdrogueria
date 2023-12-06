@@ -20,6 +20,7 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Educaci&oacute;n al paciente</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 
@@ -48,8 +49,10 @@ if(!isset($_SESSION['usuario'])){
         </nav>
     </div>
 <main id="contenidos"> 
-
+<center>
+<fieldset>
     <form action="aux_educacion.php" method="post">
+    
 
         <label for="">Id Educacion Paciente</label>
         <input type="hidden" name="Ideducacionpac" id=""><br>
@@ -69,13 +72,14 @@ if(!isset($_SESSION['usuario'])){
         <input type="date" name="fecha" id=""><br>
 
         <input type="submit" value="Registrar paciente">
+        
     </form>
+</fieldset>
+</center>
+   
+
 <form action="http://localhost/sgcdrogueria/auxiliar/moduloatencion.php">
 <button type="submit">Volver</button>
-</form>
-<br>
-<form action="http://localhost/sgcdrogueria/u_cerrarsesion.php">
-<button type="submit">Salir</button>
 </form>
 </main>
 </div>

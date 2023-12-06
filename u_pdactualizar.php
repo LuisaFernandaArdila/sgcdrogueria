@@ -18,11 +18,12 @@ if(!isset($_SESSION['usuario'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Actualizar Persona</title>
     <link rel="stylesheet" href="EstiloMP.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+    
 <header id="header">
         <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
@@ -35,8 +36,8 @@ if(!isset($_SESSION['usuario'])){
 </header>
 <div id="contenido">
 
-<div id="lateral">
-        <nav>
+    <div id="lateral">
+    <nav>
             <ol>
 		    <ul><h4>Modulo Atenci&oacute;n Al Cliente</h4>
 			<li><a href="educacion.php">Formulario Control educaci&oacute;n al paciente</a></li>
@@ -58,48 +59,49 @@ if(!isset($_SESSION['usuario'])){
         </nav>
         <nav>
             <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n</h4>
+		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
 			<li><a href="producto.php">Inventario de productos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>
             </ol>
         </nav>
-</div>
-<main id="contenidos">    
+    </div>
+<main id="contenidos"> 
 
-<h1>Bienvenido al sistema de gestion de calidad</h1>
-<p>Este es el menú principal para el usuario administrador, donde tiene acceso:
-<ol>
-    <li>Creacion de pacientes, usuarios y asignación de empleados.</li>
-    <li>Acceso a los tres modulos del sistema.</li>
-    <li>Registro en los diferentes formularios.</li>
-    <li>Visualizaci&oacute;n de registos almacenados por cada formulario.</li>
-</ol>
-</p>
-
-<center><table>
-    <tr>
-        <td>
-        <a href="persona.php"><img src="imagen/verde.jpg" alt="persona" height="70" width="70"></a>
-        </td>
-        <td>
-        <a href="empleados.php"><img src="imagen/verde1.jpg" alt="empleados" height="70" width="70"></a>
-        </td>
-        <td>
-        <a href="u_registrousu.html"><img src="imagen/user.jpg" alt="usuarios" height="70" width="70"></a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <label for="">Personas</label></td>
-        <td>
-            <label for="">Empleados</label></td>
-        <td>
-            <label for="">Usuarios</label></td>
-    </tr>
-</table></center>
-<br />
+<?php
+include_once ("conexion.php");
+$Id = $_GET['Id'];
+$sql = "SELECT * FROM usuarios WHERE Id = '$Id'";
+?>
+<form action="u_ppactualizar.php" method="post">
+<center>
+<table>
+<tr>
+<th>ID</th>
+<th>Usuario</th>
+<th>Contraseña</th>
+<th>Id Rol</th>
+</tr>
+<?php
+$resultado = mysqli_query($conn, $sql);
+while($row=mysqli_fetch_assoc($resultado)){?>
+        <tr>
+        <td><input type="text" name="Id"value="<?php echo $row ["Id"];?>"></td>
+        <td><input type="text" name="usuario"value="<?php echo $row ["usuario"];?>"></td>
+        <td><input type="text" name="clave"value="<?php echo $row ["clave"];?>"></td>
+        <td><input type="text" name="Idrol"value="<?php echo $row ["Idrol"];?>"></td>
+        </tr></table> <br>
+        <input type="submit" value="Actualizar">
+<?php    }
+    mysqli_close($conn);
+?>
+</table>
+</center>
+</form> <br>
+<form action="u_inicio.php">
+<button type="submit">Volver</button>
+</form> <br>
 
 </main>
 </div>

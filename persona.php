@@ -20,19 +20,41 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Persona</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
 </head>
 <body>
     
-<header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-			<td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
+<div id="header">
+<table>
+        <tr>
+            <td><img src="imagen/LogoSGC.png" align="left" height="80"></td>
+            <td></td>
+
+            <td id="superior1" colspan="2"><h2>Droguería Punto Express</h2></td>
+        </tr>
+    </table>
+
+    <table id="superior">
+        <tr>
             <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-			<td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-			<td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
-</header>
+            <td id="superior1"><a href="u_resolucion1407.php">Resolución 1407</a></td>
+            <td id="superior1"><a href="u_sistemainf.php">Información del sistema</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesión</a></td>
+        </tr>
+    </table>
+
+</div>
+
 <div id="contenido">
 
     <div id="lateral">
@@ -72,7 +94,8 @@ if(!isset($_SESSION['usuario'])){
 include_once ("conexion.php");
 $sql = "SELECT * FROM persona";
 ?>
-<table>
+<table id="persona">
+<thead>
 <tr>
 <th>Cedula</th>
 <th>Nombre</th>
@@ -81,6 +104,8 @@ $sql = "SELECT * FROM persona";
 <th>Actualizar</th>
 <th>Eliminar</th>
 </tr>
+</thead>
+<tbody>
 <?php
 $resultado = mysqli_query($conn,$sql);
 while($row=mysqli_fetch_assoc($resultado)){?>
@@ -95,19 +120,30 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 <?php    }
     mysqli_close($conn);
 ?>
+</tbody>
+<tfoot>
+<tr>
+<th>Cedula</th>
+<th>Nombre</th>
+<th>Telefono</th>
+<th>Direccion</th>
+<th>Actualizar</th>
+<th>Eliminar</th>
+</tr>
+</tfoot>
 </table>
 <br>
+<center>
 <form action="personaregu.php" method="post">
 <button type="submit">Registrar nueva persona</button>
 </form>
+</center>
 <br>
 <form action="u_inicio.php">
 <button type="submit">Volver</button>
 </form>
 <br>
-<form action="u_cerrarsesion.php">
-<button type="submit">Salir</button>
-</form>
+
 </main>
 </div>
 <footer id="footer">
@@ -119,5 +155,24 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 		</tr></table>
        </center>
 </footer>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+<script>
+        $(document).ready(function() {
+    $('#persona').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+</script>
 </body>
 </html>

@@ -20,6 +20,7 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Persona</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 
@@ -70,9 +71,10 @@ if(!isset($_SESSION['usuario'])){
 <main id="contenidos"> 
 
     <form action="personareg.php" method="post">
+<center>
 
         <label for="">Digite la cedula de la persona: </label>
-        <input type="text" name="cedula" id=""><br>
+        <input type="text" name="cedula" id="" max="12" min="10"><br>
         <label for="">Digite el nombre de la persona: </label>
         <input type="text" name="nombre" id=""><br>
         <label for="">Digite el telefono de la persona: </label>
@@ -82,14 +84,13 @@ if(!isset($_SESSION['usuario'])){
         <br>
         <input type="submit" value="Registrar">
     </form>
+</center>
     <br>
     <form action="persona.php">
         <button type="submit">Volver</button>
         </form>
         <br>
-        <form action="u_cerrarsesion.php">
-        <button type="submit">Salir</button>
-        </form>
+       
 </main>
 </div>
 <footer id="footer">

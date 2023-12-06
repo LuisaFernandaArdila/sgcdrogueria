@@ -11,7 +11,7 @@ if(!isset($_SESSION['usuario'])){
     session_destroy();
     die();
 }
-?>n
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -20,6 +20,9 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de quejas y reclamos</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
 </head>
 <body>
     
@@ -72,7 +75,8 @@ if(!isset($_SESSION['usuario'])){
 include_once ("conexion.php");
 $sql = "SELECT * FROM quejasreclamos";
 ?>
-<table>
+<table id="qr">
+<thead>
 <tr>
 <th>Id quejas y reclamos</th>
 <th>Tipo de solicitud</th>
@@ -83,6 +87,8 @@ $sql = "SELECT * FROM quejasreclamos";
 <th>Fecha Registro</th>
 <th>Dar Respuesta</th>
 </tr>
+</thead>
+<tbody>
 <?php
 $resultado = mysqli_query($conn,$sql);
 while($row=mysqli_fetch_assoc($resultado)){?>
@@ -99,6 +105,9 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 <?php    }
     mysqli_close($conn);
 ?>
+</tbody>
+</table>
+<br>
 <form action="u_inicio.php">
 <button type="submit">Volver</button>
 </form>
@@ -113,5 +122,24 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 		</tr></table>
        </center>
 </footer>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+<script>
+        $(document).ready(function() {
+    $('#qr').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+</script>
 </body>
 </html>

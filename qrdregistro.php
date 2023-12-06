@@ -20,6 +20,7 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar recepci&oacute;n t&eacute;cnica</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     
@@ -74,6 +75,7 @@ $Idqr = $_GET['Idqr'];
 $sql = "SELECT * FROM quejasreclamos WHERE Idqr = '$Idqr'";
 ?>
 <form action="qrc.php" method="post">
+<center>
 <table>
 <tr>
 <th>Id quejas y reclamos</th>
@@ -95,11 +97,13 @@ while($row=mysqli_fetch_assoc($resultado)){?>
         <td><input type="text" name="respuesta" value="<?php echo $row ["respuesta"];?>"></td>
         <td><input type="text" name="Idempleado" value="<?php echo $row ["Idempleado"];?>"></td>
         <td><input type="date" name="fecha"value="<?php echo $row ["fecha"];?>"></td>
-        </tr>
+        </tr></table><br>
         <input type="submit" value="Registrar respuesta">
 <?php    }
     mysqli_close($conn);
 ?>
+</table>
+</center>
 </form>
 <form action="u_inicio.php">
 <button type="submit">Volver</button>

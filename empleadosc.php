@@ -20,6 +20,7 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Empleado</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 
@@ -68,23 +69,32 @@ if(!isset($_SESSION['usuario'])){
         </nav>
     </div>
 <main id="contenidos"> 
-
+</center>
     <form action="empleadosreg.php" method="post">
-
         <label for="">Id empleados: </label>
         <input type="text" name="Idempleados" id=""><br>
+        <label for="">Nombre del empleado: </label>
+        <select class="form-select" name="nomempleado">
+            <option selected disabled>--Seleccionar empleado--</option>
+        </select>
+        <?php
+        include_once("conexion.php")
+        $sql=$conn->("SELECT * FROM persona");
+        while ($resultado = $sql->fetch_assoc()){
+            echo "<option value='".$resultado['cedula']."'>".$resultado['Nombre']."</option>";
+        }
+        ?>
         <label for="">Digite el nombre del empleado: </label>
         <input type="text" name="nomempleado" id=""><br>
         <label for="">Digite la cedula del empleado: </label>
-        <input type="text" name="cedula" id=""><br>
+        <input type="text" name="cedula" id=""><br><br>
         <input type="submit" value="Crear">
-    </form> <br>
+    </form> 
+</center><br>
     <form action="empleados.php">
         <button type="submit">Volver</button>
-        </form> <br>
-        <form action="u_cerrarsesion.php">
-        <button type="submit">Salir</button>
-        </form>
+        </form> 
+        
 </main>
 </div>
 <footer id="footer">

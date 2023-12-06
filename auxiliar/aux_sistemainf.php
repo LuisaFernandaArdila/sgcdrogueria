@@ -20,6 +20,7 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resolucion 1407</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 <header id="header">
@@ -32,28 +33,9 @@ if(!isset($_SESSION['usuario'])){
             <td id="superior1"><a href="aux_sistemainf.php">Informaci&oacute;n del sistema</a></td>
             </tr></table>
 </header>
-<div id="contenido">
+<div id="contenido1">
 
-<div id="lateral">
-        <nav>
-            <ol>
-		    <ul><h4>Modulo Atenci&oacute;n Al Cliente</h4>
-			</ul>
-            </ol>
-        </nav>
-        <nav>
-            <ol>
-		    <ul><h4>Modulo Entorno</h4>
-			</ul>
-            </ol>
-        </nav>
-        <nav>
-            <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n</h4>
-			</ul>
-            </ol>
-        </nav>
-</div>
+
 <main id="contenidos">
 <h3>Objetivo General del sistema</h3>
 Diseñar un sistema de información para garantizar el cumplimiento de la normatividad exigida en la 

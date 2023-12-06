@@ -20,11 +20,15 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario control de temperatura y humedad</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+
 </head>
 <body>
     
 <header id="header">
-        <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
+        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="200"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
             <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
@@ -72,7 +76,8 @@ if(!isset($_SESSION['usuario'])){
 include_once ("conexion.php");
 $sql = "SELECT * FROM temperaturahumedad";
 ?>
-<table>
+<table id="temhum">
+<thead>
 <tr>
 <th>Id temperatura humedad</th>
 <th>Fecha informaci&oacute;n</th>
@@ -83,6 +88,8 @@ $sql = "SELECT * FROM temperaturahumedad";
 <th>Actualizar</th>
 <th>Eliminar</th>
 </tr>
+</thead>
+<tbody>
 <?php
 $resultado = mysqli_query($conn,$sql);
 while($row=mysqli_fetch_assoc($resultado)){?>
@@ -99,15 +106,17 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 <?php    }
     mysqli_close($conn);
 ?>
+</tbody>
+</table><br>
 <form action="temperaturac.php" method="post">
+<center>
 <button type="submit">Crear registro</button>
+</center>
 </form>
 <form action="u_inicio.php">
 <button type="submit">Volver</button>
 </form>
-<form action="u_cerrarsesion.php">
-<button type="submit">Salir</button>
-</form>
+
 </main>
 </div>
 <footer id="footer">
@@ -119,5 +128,25 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 		</tr></table>
        </center>
 </footer>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+<script>
+        $(document).ready(function() {
+    $('#temhum').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+</script>
 </body>
 </html>

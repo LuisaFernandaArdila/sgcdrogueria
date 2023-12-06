@@ -20,11 +20,12 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario devoluci&oacute;n de productos</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
+        <img src="imagen/logo.jpg" ver ="left" height="117" width="150"/>
 		<h2>Drogueria punto express</h2>
 			<table id="superior"><tr>
             <td id="superior1"><a href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
@@ -65,14 +66,13 @@ if(!isset($_SESSION['usuario'])){
         <input type="date" name="fecha" id=""><br>
         <input type="submit" value="Registrar devoluci&oacute;n producto">
     </form>
+</table>
     <br>
     <form action="http://localhost/sgcdrogueria/auxiliar/moduloatencion.php">
         <button type="submit">Volver</button>
         </form>
     <br>
-    <form action="http://localhost/sgcdrogueria/u_cerrarsesion.php">
-        <button type="submit">Salir</button>
-        </form>
+   
 </main>
 </div>
 <footer id="footer">

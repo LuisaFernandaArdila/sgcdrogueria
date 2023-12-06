@@ -18,25 +18,43 @@ if(!isset($_SESSION['usuario'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producto</title>
-    <link rel="stylesheet" href="EstiloMP.css">   
+    <title>Persona</title>
+    <link rel="stylesheet" href="EstiloMP.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-
 </head>
 <body>
     
-<header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-            <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
+<div id="header">
+<table>
+        <tr>
+            <td><img src="imagen/LogoSGC.png" align="left" height="80"></td>
+            <td></td>
+
+            <td id="superior1" colspan="2"><h2>Droguería Punto Express</h2></td>
+        </tr>
+    </table>
+
+    <table id="superior">
+        <tr>
             <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-			<td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-			<td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
-</header>
+            <td id="superior1"><a href="u_resolucion1407.php">Resolución 1407</a></td>
+            <td id="superior1"><a href="u_sistemainf.php">Información del sistema</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesión</a></td>
+        </tr>
+    </table>
+
+</div>
+
 <div id="contenido">
 
     <div id="lateral">
@@ -71,18 +89,18 @@ if(!isset($_SESSION['usuario'])){
         </nav>
     </div>
 <main id="contenidos"> 
+
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM producto";
+$sql = "SELECT * FROM usuarios";
 ?>
-<table id="producto">
+<table id="mostrar">
 <thead>
 <tr>
-<th>Codigo</th>
-<th>Nombre Producto</th>
-<th>Lote Producto</th>
-<th>Laboratorio del Producto</th>
-<th>Fecha Vencimiento Producto</th>
+<th>Id</th>
+<th>usuario</th>
+<th>clave</th>
+<th>Idrol</th>
 <th>Actualizar</th>
 <th>Eliminar</th>
 </tr>
@@ -92,29 +110,26 @@ $sql = "SELECT * FROM producto";
 $resultado = mysqli_query($conn,$sql);
 while($row=mysqli_fetch_assoc($resultado)){?>
         <tr>
-        <td><?php echo $row ["codigo"];?></td>
-        <td><?php echo $row ["nomproducto"];?></td>
-        <td><?php echo $row ["lote"];?></td>
-        <td><?php echo $row ["laboratorio"];?></td>
-        <td><?php echo $row ["fechavenc"];?></td>
-        <td><a href="prdactualizar.php?codigo=<?php echo $row ["codigo"];?>">Actualizar</a></td>
-        <td><a href="prpeliminar.php?codigo=<?php echo $row ["codigo"];?>">Eliminar</a></td>
+        <td><?php echo $row ["Id"];?></td>
+        <td><?php echo $row ["usuario"];?></td>
+        <td><?php echo $row ["clave"];?></td>
+        <td><?php echo $row ["Idrol"];?></td>
+        <td><a href="u_pdactualizar.php?Id=<?php echo $row ["Id"];?>">Actualizar</a></td>
+        <td><a href="u_ppeliminar.php?Id=<?php echo $row ["Id"];?>">Eliminar</a></td>
         </tr>
 <?php    }
     mysqli_close($conn);
 ?>
 </tbody>
-</table><br>
-</div>
-<form action="productoc.php" method="post">
-<center>
-<button type="submit">Registrar producto</button>
-</center>
-</form>
+</table>
+<br>
 <form action="u_inicio.php">
-<button type="submit" class="boton">Volver</button>
+<button type="submit">Volver</button>
 </form>
+<br>
+
 </main>
+</div>
 <footer id="footer">
       <center>
         <table id="inferior"><tr>
@@ -124,8 +139,6 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 		</tr></table>
        </center>
 </footer>
-
-
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
@@ -137,13 +150,13 @@ while($row=mysqli_fetch_assoc($resultado)){?>
 
 <script>
         $(document).ready(function() {
-    $('#producto').DataTable( {
+    $('#mostrar').DataTable( {
         dom: 'Bfrtip',
         buttons: [
             'excel', 'pdf', 'print'
         ]
     } );
 } );
-</script>  
+</script>
 </body>
 </html>

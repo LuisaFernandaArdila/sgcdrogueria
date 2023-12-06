@@ -20,6 +20,7 @@ if(!isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Persona</title>
     <link rel="stylesheet" href="EstiloMP.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     
@@ -74,6 +75,7 @@ $Iddevolucion = $_GET['Iddevolucion'];
 $sql = "SELECT * FROM devolucion WHERE Iddevolucion = '$Iddevolucion'";
 ?>
 <form action="devactualizar.php" method="post">
+    <center>
 <table>
 <tr>
 <th>Id devoluci&oacute;n</th>
@@ -93,18 +95,18 @@ while($row=mysqli_fetch_assoc($resultado)){?>
         <td><input type="text" name="motivodevolucion"value="<?php echo $row ["motivodevolucion"];?>"></td>
         <td><input type="text" name="Idempleados"value="<?php echo $row ["Idempleados"];?>"></td>
         <td><input type="date" name="fecha"value="<?php echo $row ["fecha"];?>"></td>
-        </tr>
+        </tr></table>
         <input type="submit" value="Actualizar">
 <?php    }
     mysqli_close($conn);
 ?>
 </form>
+</table>
+</center>
 <form action="devolucion.php">
 <button type="submit">Volver</button>
 </form>
-<form action="u_cerrarsesion.php">
-<button type="submit">Salir</button>
-</form>
+
 </main>
 </div>
 <footer id="footer">
