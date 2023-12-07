@@ -73,7 +73,6 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$educacion = "SELECT * FROM educacionpaciente";
 ?>
 <table id="educacion">
 <thead> 
@@ -92,17 +91,19 @@ $educacion = "SELECT * FROM educacionpaciente";
 </thead>
 <tbody>
 <?php
-$resultadoedu = mysqli_query($conn,$educacion);
-while($row=mysqli_fetch_assoc($resultadoedu)){?>
+$sql = mysqli_query($conn, "SELECT * FROM educacionpaciente
+INNER JOIN empleados ON educacionpaciente.Idempleados = empleados.Idempleados
+");
+while($resultado=mysqli_fetch_array($sql)){?>
         <tr>
-        <td><?php echo $row ["Ideducacionpac"];?></td>
-        <td><?php echo $row ["cedula"];?></td>
-        <td><?php echo $row ["nomcliente"];?></td>
-        <td><?php echo $row ["codigo"];?></td>
-        <td><?php echo $row ["nomproducto"];?></td>
-        <td><?php echo $row ["contraindicaciones"];?></td>
-        <td><?php echo $row ["Idempleados"];?></td>
-        <td><?php echo $row ["fecha"];?></td>
+        <td><?php echo $resultado["Ideducacionpac"];?></td>
+        <td><?php echo $resultado["cedula"];?></td>
+        <td><?php echo $resultado["nomcliente"];?></td>
+        <td><?php echo $resultado["codigo"];?></td>
+        <td><?php echo $resultado["nomproducto"];?></td>
+        <td><?php echo $resultado["contraindicaciones"];?></td>
+        <td><?php echo $resultado["nomempleado"];?></td>
+        <td><?php echo $resultado["fecha"];?></td>
         <td><a href="eddactualizar.php?Ideducacionpac=<?php echo $row ["Ideducacionpac"];?>">Actualizar</a></td>
         <td><a href="edeliminar.php?Ideducacionpac=<?php echo $row ["Ideducacionpac"];?>">Eliminar</a></td>
         </tr>

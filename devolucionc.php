@@ -81,7 +81,7 @@ if(!isset($_SESSION['usuario'])){
         <label for="">Digite el motivo de la devolucion del producto: </label>
         <input type="text" name="motivodevolucion" id="" required><br>
         <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id="" required><br>
+        <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
         <label for="">Digite la fecha información: </label>
         <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Registrar datos">

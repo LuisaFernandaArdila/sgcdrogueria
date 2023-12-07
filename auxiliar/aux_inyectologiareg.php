@@ -56,19 +56,19 @@ if(!isset($_SESSION['usuario'])){
         <label for="">Id Educaci&oacute;n Paciente</label>
         <input type="hidden" name="Idinyectologia" id=""><br>
         <label for="">Digite la cedula del paciente: </label>
-        <input type="text" name="cedulacliente" id=""><br>
+        <input type="text" name="cedulacliente" id="" required><br>
         <label for="">Digite el nombre del paciente: </label>
-        <input type="text" name="nomcliente" id=""><br>
+        <input type="text" name="nomcliente" id="" required><br>
         <label for="">Digite el codigo del producto: </label>
-        <input type="text" name="codigo" id=""><br>
+        <input type="text" name="codigo" id="" required><br>
         <label for="">Digite el nombre del producto: </label>
-        <input type="text" name="nomproducto" id=""><br>
+        <input type="text" name="nomproducto" id="" required><br>
         <label for="">Digite el gl&uacute;teo aplicaci&oacute;n: </label>
-        <input type="text" name="gluteoaplicacion" id=""><br>
+        <input type="text" name="gluteoaplicacion" id="" required><br>
         <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id=""><br>
+        <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
         <label for="">Digite la fecha informaci&oacute;n: </label>
-        <input type="date" name="fecha" id=""><br>
+        <input type="date" name="fecha" id="" required><br>
         <input type="submit" value="Registrar paciente">
     </form>
     <form action="http://localhost/sgcdrogueria/auxiliar/moduloatencion.php">

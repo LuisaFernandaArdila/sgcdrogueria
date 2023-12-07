@@ -92,7 +92,6 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM auditoriainterna";
 ?>
 <table id="auditoria">
 <thead>
@@ -106,14 +105,16 @@ $sql = "SELECT * FROM auditoriainterna";
 </thead>
 <tbody>
 <?php
-$resultado = mysqli_query($conn,$sql);
-while($row=mysqli_fetch_assoc($resultado)){?>
+$sql = mysqli_query($conn, "SELECT * FROM auditoriainterna
+INNER JOIN empleados ON auditoriainterna.Idempleados = empleados.Idempleados
+");
+while($row=mysqli_fetch_assoc($sql)){?>
         <tr>
         <td><?php echo $row ["fecha"];?></td>
         <td><?php echo $row ["Idauditoria"];?></td>
         <td><?php echo $row ["hallazgos"];?></td>
         <td><?php echo $row ["acciones"];?></td>
-        <td><?php echo $row ["Idempleados"];?></td>
+        <td><?php echo $row ["nomempleado"];?></td>
         </tr>
 <?php    }
     mysqli_close($conn);

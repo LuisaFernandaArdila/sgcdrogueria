@@ -73,13 +73,13 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM satisfaccioncliente";
 ?>
 <table id="satisfacion">
 <thead>
 <tr>
 <th>Id satisfacci&oacute;n cliente</th>
 <th>Cedula del cliente</th>
+<th>Nombre del cliente</th>
 <th>Calificaci&oacute;n del cliente</th>
 <th>Sugerencias del cliente</th>
 <th>Fecha Registro</th>
@@ -87,14 +87,17 @@ $sql = "SELECT * FROM satisfaccioncliente";
 </thead>
 <tbody>
 <?php
-$resultado = mysqli_query($conn,$sql);
-while($row=mysqli_fetch_assoc($resultado)){?>
+$sql = mysqli_query($conn, "SELECT * FROM satisfaccioncliente
+INNER JOIN persona ON satisfaccioncliente.cedulacliente = persona.cedula
+");
+while($row=mysqli_fetch_array($sql)){?>
         <tr>
-        <td><?php echo $row ["Idsatisfaccion"];?></td>
-        <td><?php echo $row ["cedulacliente"];?></td>    
-        <td><?php echo $row ["calificacion"];?></td>
-        <td><?php echo $row ["sugerencias"];?></td>
-        <td><?php echo $row ["fecha"];?></td>
+        <td><?php echo $row["Idsatisfaccion"];?></td>
+        <td><?php echo $row["cedulacliente"];?></td>
+        <td><?php echo $row["nombre"];?></td>
+        <td><?php echo $row["calificacion"];?></td>
+        <td><?php echo $row["sugerencias"];?></td>
+        <td><?php echo $row["fecha"];?></td>
         </tr>
 <?php    }
     mysqli_close($conn);

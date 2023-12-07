@@ -73,7 +73,6 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM recepciontecnica";
 ?>
 <table id="recepcion">
 <thead>
@@ -90,14 +89,16 @@ $sql = "SELECT * FROM recepciontecnica";
 </thead>
 <tbody>
 <?php
-$resultado = mysqli_query($conn,$sql);
-while($row=mysqli_fetch_assoc($resultado)){?>
+$sql = mysqli_query($conn, "SELECT * FROM recepciontecnica
+INNER JOIN empleados ON recepciontecnica.Idempleado = empleados.Idempleados
+");
+while($row=mysqli_fetch_assoc($sql)){?>
         <tr>
         <td><?php echo $row ["Idrecepcion"];?></td>
         <td><?php echo $row ["codigo"];?></td>
         <td><?php echo $row ["nomproducto"];?></td>
         <td><?php echo $row ["observaciones"];?></td>
-        <td><?php echo $row ["Idempleado"];?></td>
+        <td><?php echo $row ["nomempleado"];?></td>
         <td><?php echo $row ["fecha"];?></td>
         <td><a href="rectdactualizar.php?Idrecepcion=<?php echo $row ["Idrecepcion"];?>">Actualizar</a></td>
         <td><a href="recteliminar.php?Idrecepcion=<?php echo $row ["Idrecepcion"];?>">Eliminar</a></td>

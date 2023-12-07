@@ -55,15 +55,15 @@ if(!isset($_SESSION['usuario'])){
         <label for="">Id residuos</label>
         <input type="hidden" name="Idresiduos" id=""><br>
         <label for="">Digite la fecha información: </label>
-        <input type="date" name="fecha" id=""><br>
+        <input type="date" name="fecha" id="" required><br>
         <label for="">Digite el tipo residuo: </label>
-        <input type="text" name="tiporesiduo" id=""><br>
+        <input type="text" name="tiporesiduo" id="" required><br>
         <label for="">Digite la cantidad residuos: </label>
-        <input type="text" name="cantidad" id=""><br>
+        <input type="text" name="cantidad" id="" required><br>
         <label for="">Informacion generación de residuos: </label>
-        <input type="text" name="infogeneracionresiduos" id=""><br>
+        <input type="text" name="infogeneracionresiduos" id="" required><br>
         <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id=""><br>
+        <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
 
         <input type="submit" value="Registrar residuos">
     </form>

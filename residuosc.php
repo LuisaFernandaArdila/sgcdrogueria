@@ -84,7 +84,7 @@ if(!isset($_SESSION['usuario'])){
         <label for="">Informacion generación de residuos: </label>
         <input type="text" name="infogeneracionresiduos" id="" required><br>
         <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id="" required><br><br>
+        <input type="text" name="Idempleados" id="" required placeholder="E1"><br><br>
 
         <input type="submit" value="Crear registro">
     </form><br>

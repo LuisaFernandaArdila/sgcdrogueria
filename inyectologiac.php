@@ -86,7 +86,7 @@ if(!isset($_SESSION['usuario'])){
         <label for="">Digite el gl&uacute;teo aplicaci&oacute;n: </label>
         <input type="text" name="gluteoaplicacion" id="" required><br>
         <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id="" required><br>
+        <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
         <label for="">Digite la fecha informaci&oacute;n: </label>
         <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Registrar paciente">

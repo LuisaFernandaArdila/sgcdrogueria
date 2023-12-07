@@ -73,7 +73,6 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM temperaturahumedad";
 ?>
 <table id="temhum">
 <thead>
@@ -90,15 +89,17 @@ $sql = "SELECT * FROM temperaturahumedad";
 </thead>
 <tbody>
 <?php
-$resultado = mysqli_query($conn,$sql);
-while($row=mysqli_fetch_assoc($resultado)){?>
+$sql = mysqli_query($conn, "SELECT * FROM temperaturahumedad
+INNER JOIN empleados ON temperaturahumedad.Idempleados = empleados.Idempleados
+");
+while($row=mysqli_fetch_assoc($sql)){?>
         <tr>
         <td><?php echo $row ["Idtemhum"];?></td>
         <td><?php echo $row ["fecha"];?></td>
         <td><?php echo $row ["jornada"];?></td>
         <td><?php echo $row ["temperatura"];?></td>
         <td><?php echo $row ["humedad"];?></td>
-        <td><?php echo $row ["Idempleados"];?></td>
+        <td><?php echo $row ["nomempleado"];?></td>
         <td><a href="thdactualizar.php?Idtemhum=<?php echo $row ["Idtemhum"];?>">Actualizar</a></td>
         <td><a href="theliminar.php?Idtemhum=<?php echo $row ["Idtemhum"];?>">Eliminar</a></td>
         </tr>

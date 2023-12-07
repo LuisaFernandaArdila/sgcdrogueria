@@ -72,20 +72,21 @@ if(!isset($_SESSION['usuario'])){
 </center>
     <form action="empleadosreg.php" method="post">
         <label for="">Id empleados: </label>
-        <input type="text" name="Idempleados" id=""><br>
-        <label for="">Nombre del empleado: </label>
-        <select class="form-select" name="nomempleado">
-            <option selected disabled>--Seleccionar empleado--</option>
-           <?php /* <select type="text" name="genero" id="genero" class="form-select" required>
-                            <option value="">Seleccionar...</option>
-                            <?php while ($row_persona = $persona->fetch_assoc()) { ?>
-                                <option value="<?php echo $row_genero["id"]; ?>"><?= $row_genero["nombre"]; ?></option>
-                        </select> */ ?>
+        <input type="text" name="Idempleados" id="" placeholder="E1"><br>
+        <label for="nombreempleados">Nombre del empleado: </label>
+        <select class="form-select" name="nombreempleados">
+            <option selected disabled>--Seleccionar nombre--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM persona");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['cedula']."'style='color:black'>".$resultado['nombre']."</option>";
+                }}
+                ?>
         </select>
-        <label for="">Digite el nombre del empleado: </label>
-        <input type="text" name="nomempleado" id="" required><br>
         <label for="">Digite la cedula del empleado: </label>
-        <input type="text" name="cedula" id="" required><br><br>
+        <input type="text" name="cedula" for="" id="" required><br><br>
         <input type="submit" value="Crear">
     </form> 
 </center><br>

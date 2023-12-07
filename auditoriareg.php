@@ -82,7 +82,7 @@ if(!isset($_SESSION['usuario'])){
         <label for="">Digite las acciones a realizar: </label>
         <input type="text" name="acciones" id="" required><br>
         <label for="">Id empleados: </label>
-        <input type="text" name="Idempleados" id="" required><br>
+        <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
         <br>
         <input type="submit" value="Registrar">
     </form>

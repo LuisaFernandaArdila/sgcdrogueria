@@ -73,7 +73,6 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM quejasreclamos";
 ?>
 <table id="qr">
 <thead>
@@ -81,6 +80,7 @@ $sql = "SELECT * FROM quejasreclamos";
 <th>Id quejas y reclamos</th>
 <th>Tipo de solicitud</th>
 <th>Cedula del cliente</th>
+<th>Nombre del cliente</th>
 <th>Solicitud</th>
 <th>Respuesta</th>
 <th>Id empleado</th>
@@ -90,12 +90,15 @@ $sql = "SELECT * FROM quejasreclamos";
 </thead>
 <tbody>
 <?php
-$resultado = mysqli_query($conn,$sql);
-while($row=mysqli_fetch_assoc($resultado)){?>
+$sql = mysqli_query($conn, "SELECT * FROM quejasreclamos
+INNER JOIN persona ON quejasreclamos.cedula = persona.cedula
+");
+while($row=mysqli_fetch_assoc($sql)){?>
         <tr>
         <td><?php echo $row ["Idqr"];?></td>
         <td><?php echo $row ["tiposolicitud"];?></td>
-        <td><?php echo $row ["cedula"];?></td>      
+        <td><?php echo $row ["cedula"];?></td>
+        <td><?php echo $row["nombre"];?></td>
         <td><?php echo $row ["solicitud"];?></td>
         <td><?php echo $row ["respuesta"];?></td>
         <td><?php echo $row ["Idempleado"];?></td>

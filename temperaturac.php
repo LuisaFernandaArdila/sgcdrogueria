@@ -70,7 +70,7 @@
         <label for="">Digite la humedad: </label>
         <input type="text" name="humedad" id="" required><br>
         <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id="" required><br>
+        <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
 
         <input type="submit" value="Crear registro">
     </form>

@@ -21,11 +21,8 @@ if(!isset($_SESSION['usuario'])){
     <title>Formulario control de limpieza</title>
     <link rel="stylesheet" href="EstiloMP.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-=======
->>>>>>> c760684d18cff769b6f658ed66bc24dfc6c24dac
 </head>
 <body>
 
@@ -76,7 +73,6 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM limpieza";
 ?>
 <table id="limpieza">
 <thead>
@@ -93,14 +89,16 @@ $sql = "SELECT * FROM limpieza";
 </thead>
 <tbody>
 <?php
-$resultado = mysqli_query($conn,$sql);
-while($row=mysqli_fetch_assoc($resultado)){?>
+$sql = mysqli_query($conn, "SELECT * FROM limpieza
+INNER JOIN empleados ON limpieza.Idempleados = empleados.Idempleados
+");
+while($row=mysqli_fetch_assoc($sql)){?>
         <tr>
         <td><?php echo $row ["Idlimpieza"];?></td>
         <td><?php echo $row ["productoaseo"];?></td>
         <td><?php echo $row ["zona"];?></td>
         <td><?php echo $row ["infoprocesolimpieza"];?></td>
-        <td><?php echo $row ["Idempleados"];?></td>
+        <td><?php echo $row ["nomempleado"];?></td>
         <td><?php echo $row ["fecha"];?></td>
         <td><a href="limdactualizar.php?Idlimpieza=<?php echo $row ["Idlimpieza"];?>">Actualizar</a></td>
         <td><a href="limeliminar.php?Idlimpieza=<?php echo $row ["Idlimpieza"];?>">Eliminar</a></td>

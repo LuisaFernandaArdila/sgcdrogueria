@@ -73,7 +73,6 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM residuos";
 ?>
 <table id="residuos">
 <thead>
@@ -90,15 +89,17 @@ $sql = "SELECT * FROM residuos";
 </thead>
 <tbody>
 <?php
-$resultado = mysqli_query($conn,$sql);
-while($row=mysqli_fetch_assoc($resultado)){?>
+$sql = mysqli_query($conn, "SELECT * FROM residuos
+INNER JOIN empleados ON residuos.Idempleados = empleados.Idempleados
+");
+while($row=mysqli_fetch_assoc($sql)){?>
         <tr>
         <td><?php echo $row ["Idresiduos"];?></td>
         <td><?php echo $row ["fecha"];?></td>
         <td><?php echo $row ["tiporesiduo"];?></td>
         <td><?php echo $row ["cantidad"];?></td>
         <td><?php echo $row ["infogeneracionresiduos"];?></td>
-        <td><?php echo $row ["Idempleados"];?></td>
+        <td><?php echo $row ["nomempleado"];?></td>
         <td><a href="resdactualizar.php?Idresiduos=<?php echo $row ["Idresiduos"];?>">Actualizar</a></td>
         <td><a href="reseliminar.php?Idresiduos=<?php echo $row ["Idresiduos"];?>">Eliminar</a></td>
         </tr>

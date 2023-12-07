@@ -21,11 +21,8 @@ if(!isset($_SESSION['usuario'])){
     <title>Formulario Inyectolog&iacute;a</title>
     <link rel="stylesheet" href="EstiloMP.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-=======
->>>>>>> c760684d18cff769b6f658ed66bc24dfc6c24dac
 </head>
 <body>
     
@@ -76,7 +73,6 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$inyectologia = "SELECT * FROM inyectologia";
 ?>
 <table id="inyectologia">
 <thead>
@@ -95,17 +91,19 @@ $inyectologia = "SELECT * FROM inyectologia";
 </thead>
 <tbody>
 <?php
-$resultadoiny = mysqli_query($conn,$inyectologia);
-while($row=mysqli_fetch_assoc($resultadoiny)){?>
+$sql = mysqli_query($conn, "SELECT * FROM inyectologia
+INNER JOIN empleados ON inyectologia.Idempleados = empleados.Idempleados
+");
+while($row=mysqli_fetch_array($sql)){?>
         <tr>
-        <td><?php echo $row ["Idinyectologia"];?></td>
-        <td><?php echo $row ["cedulacliente"];?></td>
-        <td><?php echo $row ["nomcliente"];?></td>
-        <td><?php echo $row ["codigo"];?></td>
-        <td><?php echo $row ["nomproducto"];?></td>
-        <td><?php echo $row ["gluteoaplicacion"];?></td>
-        <td><?php echo $row ["Idempleados"];?></td>
-        <td><?php echo $row ["fecha"];?></td>
+        <td><?php echo $row["Idinyectologia"];?></td>
+        <td><?php echo $row["cedulacliente"];?></td>
+        <td><?php echo $row["nomcliente"];?></td>
+        <td><?php echo $row["codigo"];?></td>
+        <td><?php echo $row["nomproducto"];?></td>
+        <td><?php echo $row["gluteoaplicacion"];?></td>
+        <td><?php echo $row["nomempleado"];?></td>
+        <td><?php echo $row["fecha"];?></td>
         <td><a href="inydactualizar.php?Idinyectologia=<?php echo $row ["Idinyectologia"];?>">Actualizar</a></td>
         <td><a href="inyeliminar.php?Idinyectologia=<?php echo $row ["Idinyectologia"];?>">Eliminar</a></td>
         </tr>
