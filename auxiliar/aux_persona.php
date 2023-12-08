@@ -14,7 +14,7 @@ if(!isset($_SESSION['usuario'])){
 ?>
 
 <?php
-    include_once ("conexion.php");
+    include_once ("../conexion.php");
     error_reporting(0);
     $cedula = $_POST["cedula"];
     $nombre = $_POST["nombre"];

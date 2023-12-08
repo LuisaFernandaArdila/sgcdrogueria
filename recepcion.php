@@ -63,7 +63,7 @@ if(!isset($_SESSION['usuario'])){
         <nav>
             <ol>
 		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
-			<li><a href="producto.php">Inventario de productos</a></li>
+			<li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>
@@ -92,6 +92,7 @@ include_once ("conexion.php");
 <?php
 $sql = mysqli_query($conn, "SELECT * FROM recepciontecnica
 INNER JOIN empleados ON recepciontecnica.Idempleado = empleados.Idempleados
+INNER JOIN producto ON recepciontecnica.codigo = producto.codigo
 ");
 while($row=mysqli_fetch_assoc($sql)){?>
         <tr>

@@ -62,7 +62,7 @@ if(!isset($_SESSION['usuario'])){
         <nav>
             <ol>
 		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
-			<li><a href="producto.php">Inventario de productos</a></li>
+			<li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>
@@ -79,8 +79,8 @@ if(!isset($_SESSION['usuario'])){
 
     <form action="devolucionreg.php" method="post">
 
-        <label for="" class="col-sm-3 col-form-label">Id recepci&oacute;n t&eacute;cnica</label>
-        <input type="text" name="Idrecepcion" id=""><br>
+        <label for="" class="col-sm-3 col-form-label">Id devoluci&oacute;n</label>
+        <input type="hidden" name="Iddevolucion" id=""><br>
         <label for="" class="col-sm-3 col-form-label">Codigo de producto </label>
         <input type="text" name="codigo" id="" required><br>
         <label for="" class="col-sm-3 col-form-label">Digite el nombre del producto: </label>

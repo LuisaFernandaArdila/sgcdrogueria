@@ -18,7 +18,7 @@ if(!isset($_SESSION['usuario'])){
     error_reporting(0);
     $Idempleados = $_POST["Idempleados"];
     $nomempleado = $_POST["nombreempleados"];
-    $cedula = $_POST["cedula"];
+    $cedula = $_POST["cedulaempleados"];
         
     $sql = "INSERT INTO empleados (Idempleados, nomempleado, cedula)
     VALUES ('$Idempleados', '$nomempleado', '$cedula')";

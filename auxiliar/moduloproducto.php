@@ -43,7 +43,7 @@ if(!isset($_SESSION['usuario'])){
         <nav>
             <ol>
 		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
-			<li><a href="aux_productoreg.php">Ingreso nuevos productos</a></li>
+			<li><a href="aux_productoreg.php">Ingresar nuevos medicamento y/o dispositivo m&eacute;dico</a></li>
             <li><a href="aux_recepcionreg.php">Nuevo registro: Formulario Control recepci&oacute;n t&eacute;cnica de productos</a></li>
             <li><a href="aux_devolucionreg.php">Nuevo registro: Formulario Control devoluci&oacute;n de productos</a></li>
 			</ul>
@@ -56,7 +56,7 @@ if(!isset($_SESSION['usuario'])){
 <h3>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h3>
 <p>En este men&uacute;, el cargo de auxiliar puede:
     <ol>
-        <li>Registrar nuevos productos.</li>
+        <li>Registrar nuevos medicamento y/o dispositivo m&eacute;dico.</li>
         <li>Registrar los productos que ingresan al establecimiento.</li>
         <li>Registrar las devoluciones de los productos con alguna inconsistencia.</li>
     </ol> 

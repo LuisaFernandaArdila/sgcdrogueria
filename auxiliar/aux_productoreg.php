@@ -43,7 +43,7 @@ if(!isset($_SESSION['usuario'])){
         <nav>
             <ol>
 		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
-			<li><a href="aux_productoreg.php">Ingreso nuevos productos</a></li>
+			<li><a href="aux_productoreg.php">Ingresar nuevos medicamento y/o dispositivo m&eacute;dico</a></li>
             <li><a href="aux_recepcionreg.php">Nuevo registro: Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="aux_devolucionreg.php">Nuevo registro: Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>

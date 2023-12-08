@@ -63,7 +63,7 @@ if(!isset($_SESSION['usuario'])){
         <nav>
             <ol>
 		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
-			<li><a href="producto.php">Inventario de productos</a></li>
+			<li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>
@@ -87,11 +87,13 @@ include_once ("conexion.php");
 </thead>
 <tbody>
 <?php
-$sql = mysqli_query($conn, "SELECT * FROM empleados");
+$sql = mysqli_query($conn, "SELECT * FROM empleados
+INNER JOIN persona ON empleados.cedula = persona.cedula
+");
 while($row=mysqli_fetch_array($sql)){?>
         <tr>
         <td><?php echo $row ["Idempleados"];?></td>
-        <td><?php echo $row ["nomempleado"];?></td>
+        <td><?php echo $row ["nombre"];?></td>
         <td><?php echo $row ["cedula"];?></td>
         <td><a href="empdactualizar.php?Idempleados=<?php echo $row ["Idempleados"];?>">Actualizar</a></td>
         <td><a href="empeliminar.php?Idempleados=<?php echo $row ["Idempleados"];?>">Eliminar</a></td>

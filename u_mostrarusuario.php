@@ -64,7 +64,7 @@ if(!isset($_SESSION['usuario'])){
         <nav>
             <ol>
 		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
-			<li><a href="producto.php">Inventario de productos</a></li>
+			<li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>
@@ -75,7 +75,6 @@ if(!isset($_SESSION['usuario'])){
 
 <?php
 include_once ("conexion.php");
-$sql = "SELECT * FROM usuarios";
 ?>
 <table id="mostrar">
 <thead>
@@ -84,20 +83,21 @@ $sql = "SELECT * FROM usuarios";
 <th>usuario</th>
 <th>clave</th>
 <th>Idrol</th>
-<th>Actualizar</th>
 <th>Eliminar</th>
 </tr>
 </thead>
 <tbody>
 <?php
-$resultado = mysqli_query($conn,$sql);
-while($row=mysqli_fetch_assoc($resultado)){?>
+$sql = "SELECT * FROM usuarios";
+$sql = mysqli_query($conn, "SELECT * FROM usuarios
+INNER JOIN roles ON usuarios.Idrol = roles.Idrol
+");
+while($row=mysqli_fetch_assoc($sql)){?>
         <tr>
         <td><?php echo $row ["Id"];?></td>
         <td><?php echo $row ["usuario"];?></td>
         <td><?php echo $row ["clave"];?></td>
-        <td><?php echo $row ["Idrol"];?></td>
-        <td><a href="u_pdactualizar.php?Id=<?php echo $row ["Id"];?>">Actualizar</a></td>
+        <td><?php echo $row ["rol"];?></td>
         <td><a href="u_ppeliminar.php?Id=<?php echo $row ["Id"];?>">Eliminar</a></td>
         </tr>
 <?php    }

@@ -44,7 +44,7 @@ if(!isset($_SESSION['usuario'])){
         <nav>
             <ol>
 		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
-			<li><a href="aux_productoreg.php">Ingreso nuevos productos</a></li>
+			<li><a href="aux_productoreg.php">Ingresar nuevos medicamento y/o dispositivo m&eacute;dico</a></li>
             <li><a href="aux_recepcionreg.php">Nuevo registro: Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="aux_devolucionreg.php">Nuevo registro: Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>
@@ -61,8 +61,8 @@ if(!isset($_SESSION['usuario'])){
     <div class="form-group">
     <form action="aux_devolucion.php" method="post">
 
-        <label for="" class="col-sm-3 col-form-label">Id recepci&oacute;n t&eacute;cnica</label>
-        <input type="text" name="Idrecepcion" id=""><br>
+        <label for="" class="col-sm-3 col-form-label">Id devoluci&oacute;n</label>
+        <input type="hidden" name="Iddevolucion" id=""><br>
         <label for="" class="col-sm-3 col-form-label">Codigo de producto </label>
         <input type="text" name="codigo" id="" required><br>
         <label for="" class="col-sm-3 col-form-label">Digite el nombre del producto: </label>
@@ -70,7 +70,7 @@ if(!isset($_SESSION['usuario'])){
         <label for="" class="col-sm-3 col-form-label">Digite el motivo de la devolucion del producto: </label>
         <input type="text" name="motivodevolucion" id="" required><br>
         <label for="" class="col-sm-3 col-form-label">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
+        <input type="text" name="Idempleado" id="" required placeholder="E1"><br>
         <label for="" class="col-sm-3 col-form-label">Digite la fecha información: </label>
         <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Registrar devoluci&oacute;n producto">

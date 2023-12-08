@@ -61,7 +61,7 @@ if(!isset($_SESSION['usuario'])){
         <nav>
             <ol>
 		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
-			<li><a href="producto.php">Inventario de productos</a></li>
+			<li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>
@@ -94,7 +94,7 @@ while($row=mysqli_fetch_assoc($resultado)){?>
         <td><input type="text" name="codigo"value="<?php echo $row ["codigo"];?>"></td>
         <td><input type="text" name="nomproducto"value="<?php echo $row ["nomproducto"];?>"></td>
         <td><input type="text" name="observaciones"value="<?php echo $row ["observaciones"];?>"></td>
-        <td><input type="text" name="Idempleados"value="<?php echo $row ["Idempleados"];?>"></td>
+        <td><input type="text" name="Idempleado"value="<?php echo $row ["Idempleado"];?>"></td>
         <td><input type="date" name="fecha"value="<?php echo $row ["fecha"];?>"></td>
         </tr></table><br>
         <input type="submit" value="Actualizar">

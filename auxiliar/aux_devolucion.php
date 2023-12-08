@@ -14,10 +14,10 @@ if(!isset($_SESSION['usuario'])){
 ?>
 
 <?php
-    include_once ("conexion.php");
+    include_once ("../conexion.php");
     error_reporting(0);
     $Iddevolucion = $_POST["Iddevolucion"];
-    $codigo = $_POST["codigo"]
+    $codigo = $_POST["codigo"];
     $nomproducto = $_POST["nomproducto"];
     $motivodevolucion = $_POST["motivodevolucion"];
     $Idempleado = $_POST["Idempleado"];

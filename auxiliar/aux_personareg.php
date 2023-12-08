@@ -59,7 +59,7 @@ if(!isset($_SESSION['usuario'])){
 <div class="mb-3 row">
     <div class="form-group">
 
-    <form action="aux_paciente.php" method="post">
+    <form action="aux_persona.php" method="post">
 
         <label for="" class="col-sm-3 col-form-label">Digite la cedula de la persona: </label>
         <input type="text" name="cedula" id="" required><br>

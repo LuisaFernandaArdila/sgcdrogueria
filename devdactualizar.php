@@ -94,7 +94,7 @@ while($row=mysqli_fetch_assoc($resultado)){?>
         <td><input type="text" name="codigo"value="<?php echo $row ["codigo"];?>"></td>
         <td><input type="text" name="nomproducto"value="<?php echo $row ["nomproducto"];?>"></td>
         <td><input type="text" name="motivodevolucion"value="<?php echo $row ["motivodevolucion"];?>"></td>
-        <td><input type="text" name="Idempleados"value="<?php echo $row ["Idempleados"];?>"></td>
+        <td><input type="text" name="Idempleados"value="<?php echo $row ["Idempleado"];?>"></td>
         <td><input type="date" name="fecha"value="<?php echo $row ["fecha"];?>"></td>
         </tr></table>
         <input type="submit" value="Actualizar">

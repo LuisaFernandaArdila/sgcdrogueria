@@ -62,14 +62,14 @@ if(!isset($_SESSION['usuario'])){
         <nav>
             <ol>
 		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
-			<li><a href="producto.php">Inventario de productos</a></li>
+			<li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
             <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
 			</ul>
             </ol>
         </nav>
     </div>
-<main id="contenidos"> 
+<main id="contenidos"> d
 
 <center>
 <fieldset class="form-group border p-3">
@@ -79,9 +79,9 @@ if(!isset($_SESSION['usuario'])){
 
     <form action="empleadosreg.php" method="post">
         <label for="" class="col-sm-3 col-form-label">Id empleados: </label>
-        <input type="text" name="Idempleados" id="" placeholder="E1"><br><br>
+        <input type="text" name="Idempleados" id="" placeholder="E1" required><br><br>
         <label for="nombreempleados" class="col-sm-3 col-form-label">Nombre del empleado: </label>
-        <select class="col-sm-3 col-form-label" class="form-select" name="nombreempleados">
+        <select class="col-sm-3 col-form-label" class="form-select" name="nombreempleados" required>
             <option selected disabled>--Seleccionar nombre--</option>
                 <?php
                 include_once("conexion.php");
@@ -93,8 +93,18 @@ if(!isset($_SESSION['usuario'])){
                 ?>
         </select>
         <br><br>
-        <label for="" class="col-sm-3 col-form-label">Digite la cedula del empleado: </label>
-        <input type="text" name="cedula" for="" id="" required><br><br>
+        <label for="" class="col-sm-3 col-form-label">Cedula del empleado: </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="cedulaempleados" required>
+            <option selected disabled>--Seleccionar nombre--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM persona");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['cedula']."'style='color:black'>".$resultado['nombre']."</option>";
+                }}
+                ?>
+        </select>
         
         <input type="submit" value="Crear">
     </form> 

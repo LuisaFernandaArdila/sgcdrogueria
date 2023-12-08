@@ -14,21 +14,21 @@ if(!isset($_SESSION['usuario'])){
 ?>
 
 <?php
-    include_once ("conexion.php");
+    include_once ("../conexion.php");
     error_reporting(0);
-    $Idresiduos = $_POST["Idresiduos"];
+    $Idtemhum = $_POST["Idtemhum"];
     $fecha = $_POST["fecha"];
-    $tiporesiduo = $_POST["tiporesiduo"];
-    $cantidad = $_POST["cantidad"];
-    $infogeneracionresiduos = $_POST["infogeneracionresiduos"];
+    $jornada = $_POST["jornada"];
+    $temperatura = $_POST["temperatura"];
+    $humedad = $_POST["humedad"];
     $Idempleados = $_POST["Idempleados"];
 
-    $residuos = "INSERT INTO residuos (Idresiduos, fecha, tiporesiduo, cantidad, infogeneracionresiduos, Idempleados)
-    VALUES ('$Idresiduos', '$fecha', '$tiporesiduo', '$cantidad', '$infogeneracionresiduos', '$Idempleados')";
-    if (mysqli_query($conn, $residuos)) {
+    $temperatura = "INSERT INTO temperaturahumedad (Idtemhum, fecha, jornada, temperatura, humedad, Idempleados)
+    VALUES ('$Idtemhum', '$fecha', '$jornada', '$temperatura', '$humedad', '$Idempleados')";
+    if (mysqli_query($conn, $temperatura)) {
     echo "<script>alert('Nuevo registro almacenado exitosamente'); window.location='moduloentorno.php';</script>";
     } else {
-    echo "Error: " . $residuos . "<br>" . mysqli_error($conn);
+    echo "Error: " . $temperatura . "<br>" . mysqli_error($conn);
     }
     mysqli_close($conn);
 ?>

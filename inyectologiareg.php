@@ -21,13 +21,13 @@ if(!isset($_SESSION['usuario'])){
     $nomcliente = $_POST["nomcliente"];
     $codigo = $_POST["codigo"];
     $nomproducto = $_POST["nomproducto"];
-    $glúteoaplicación = $_POST["glúteoaplicación"];
+    $gluteoaplicacion = $_POST["gluteoaplicacion"];
     $Idempleados = $_POST["Idempleados"];
     $fecha = $_POST["fecha"];
         
     $inyectologia = "INSERT INTO inyectologia (Idinyectologia, cedulacliente, nomcliente, codigo, nomproducto, 
-    glúteoaplicación, Idempleados, fecha)
-    VALUES ('$Idinyectologia', '$cedulacliente', '$nomcliente', '$codigo', '$nomproducto', '$glúteoaplicación', 
+    gluteoaplicacion, Idempleados, fecha)
+    VALUES ('$Idinyectologia', '$cedulacliente', '$nomcliente', '$codigo', '$nomproducto', '$gluteoaplicacion', 
     '$Idempleados', '$fecha')";
     if (mysqli_query($conn, $inyectologia)) {
     echo "<script>alert('Nuevo registro almacenado exitosamente'); window.location='inyectologia.php';</script>";

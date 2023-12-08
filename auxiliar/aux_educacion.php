@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if(!isset($_SESSION['usuario'])){
     echo '
     <script>
@@ -14,7 +13,7 @@ if(!isset($_SESSION['usuario'])){
 ?>
 
 <?php
-    include_once ("conexion.php");
+    include_once ("../conexion.php");
     error_reporting(0);
     $Ideducacionpac = $_POST["Ideducacionpac"];
     $cedula = $_POST["cedula"];

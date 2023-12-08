@@ -14,7 +14,7 @@ if(!isset($_SESSION['usuario'])){
 ?>
 
 <?php
-    include_once ("conexion.php");
+    include_once ("../conexion.php");
     error_reporting(0);
     $codigo = $_POST["codigo"];
     $nomproducto = $_POST["nomproducto"];
