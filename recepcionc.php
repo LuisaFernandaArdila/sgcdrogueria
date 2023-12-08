@@ -25,14 +25,15 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-                <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-                <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-                <td id="superior1"><a href="u_resolucion1407.php">Resolució&oacute; 1407</a></td>
-                <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
+<img src="imagen/LogoSGC.png" align="left" height="100">
+<h2>Droguería Punto Express</h2>
+<br>
+<div id="superior">
+<a id = "inicio" href="u_inicio.php">Inicio</a>
+<a id = "superior1" href="u_resolucion1407.php">Resolución 1407</a>
+<a id= "superior1" href="u_sistemainf.php">Información del sistema</a>
+<a id="cerrar" href="u_cerrarsesion.php">Cerrar sesión</a>
+
 </header>
 
 <div id="contenido">
@@ -69,24 +70,32 @@ if(!isset($_SESSION['usuario'])){
         </nav>
     </div>
 <main id="contenidos"> 
+
 <center>
+<fieldset class="form-group border p-3">
+<h3>REGISTRO RECEPCIÓN DE PRODUCTOS</h3>
+<div class="mb-3 row">
+    <div class="form-group">
+
     <form action="recepcionreg.php" method="post">
 
-        <label for="">Id recepci&oacute;n t&eacute;cnica</label>
+        <label for="" class="col-sm-3 col-form-label">Id recepci&oacute;n t&eacute;cnica</label>
         <input type="hidden" name="Idrecepcion" id=""><br>
-        <label for="">Codigo de producto </label>
+        <label for="" class="col-sm-3 col-form-label">Codigo de producto </label>
         <input type="text" name="codigo" id="" required><br>
-        <label for="">Digite el nombre del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el nombre del producto: </label>
         <input type="text" name="nomproducto" id="" required><br>
-        <label for="">Digite las observaciones del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite las observaciones del producto: </label>
         <input type="text" name="observaciones" id="" required><br>
-        <label for="">Digite el Id empleados: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el Id empleados: </label>
         <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
-        <label for="">Digite la fecha información: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite la fecha información: </label>
         <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Crear registro">
     </form>
 </center>
+</fieldset>
+<br>
     <form action="recepcion.php">
         <button type="submit">Volver</button>
         </form>

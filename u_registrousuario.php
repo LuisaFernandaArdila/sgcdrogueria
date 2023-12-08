@@ -25,14 +25,14 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-			<td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-                <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-                <td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-                <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
+<img src="imagen/LogoSGC.png" align="left" height="100">
+<h2>Droguería Punto Express</h2>
+<br>
+<div id="superior">
+<a id = "inicio" href="u_inicio.php">Inicio</a>
+<a id = "superior1" href="u_resolucion1407.php">Resolución 1407</a>
+<a id= "superior1" href="u_sistemainf.php">Información del sistema</a>
+<a id="cerrar" href="u_cerrarsesion.php">Cerrar sesión</a>
 </header>
 
 <div id="contenido">
@@ -68,22 +68,32 @@ if(!isset($_SESSION['usuario'])){
             </ol>
         </nav>
     </div>
+   
 <main id="contenidos"> 
 
-    <form action="u_registrarusuario.php" method="post">
-        <center>
+<center>
+<fieldset class="form-group border p-3">
+<h3>USUARIO NUEVO</h3>
+<div class="mb-3 row">
+    <div class="form-group">
 
-        <label for="">ID usuario </label>
+    <form action="u_registrarusuario.php" method="post">
+       
+
+        <label for="" class="col-sm-3 col-form-label">ID usuario </label>
         <input type="hidden" name="Id" id=""><br>  
-        <label for="">Digite usuario: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite usuario: </label>
         <input type="text" name="usuario" id="" required><br>
-        <label for="">Digite contraseña: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite contraseña: </label>
         <input type="text" name="clave" id="" required><br><br>
-        <label for="">Selecione rol </label>
+        <label for="" class="col-sm-3 col-form-label">Selecione rol </label>
         <input type="text" name="Idrol" id="" required><br><br>
         <input type="submit" value="Crear usuario">
-    </form> 
-    </center><br>
+    </form>
+    </fieldset> 
+    </center>
+    <br>
+
     <form action="u_inicio.php">
         <button type="submit">Volver</button>
         </form><br>

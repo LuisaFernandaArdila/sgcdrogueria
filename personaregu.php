@@ -25,14 +25,16 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-			    <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-                <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-                <td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-                <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
+<img src="imagen/LogoSGC.png" align="left" height="100">
+<h2>Droguería Punto Express</h2>
+<br>
+<div id="superior">
+<a id = "inicio" href="u_inicio.php">Inicio</a>
+<a id = "superior1" href="u_resolucion1407.php">Resolución 1407</a>
+<a id= "superior1" href="u_sistemainf.php">Información del sistema</a>
+<a id="cerrar" href="u_cerrarsesion.php">Cerrar sesión</a>
+
+
 </header>
 
 <div id="contenido">
@@ -70,22 +72,32 @@ if(!isset($_SESSION['usuario'])){
     </div>
 <main id="contenidos"> 
 
-    <form action="personareg.php" method="post">
 <center>
+<div class="mb-3 row">
+<fieldset class="form-group border p-3">
+<h3>REGISTRO NUEVA PERSONA</h3>
+<br>
+    <div class="form-group">
 
-        <label for="">Digite la cedula de la persona: </label>
+<form action="personareg.php" method="post">
+
+        <label for=""class="col-sm-3 col-form-label">Digite la cedula de la persona: </label>
         <input type="text" name="cedula" id="" required><br>
-        <label for="">Digite el nombre de la persona: </label>
+        <label for=""class="col-sm-3 col-form-label">Digite el nombre de la persona: </label>
         <input type="text" name="nombre" id="" required><br>
-        <label for="">Digite el telefono de la persona: </label>
+        <label for=""class="col-sm-3 col-form-label">Digite el telefono de la persona: </label>
         <input type="text" name="telefono" id="" required><br>
-        <label for="">Digite la direccion de la persona: </label>
+        <label for=""class="col-sm-3 col-form-label">Digite la direccion de la persona: </label>
         <input type="text" name="direccion" id="" required><br>
         <br>
         <input type="submit" value="Registrar">
     </form>
+</fieldset>
 </center>
-    <br>
+<br>
+
+</table>
+
     <form action="persona.php">
         <button type="submit">Volver</button>
         </form>

@@ -9,16 +9,16 @@
 </head>
 <body>
 <header id="header">
-    <table></table>
-       <td> <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/></td>
-		<td><h2>Drogueria punto express</h2> </td>
-    </table>
-			<table id="superior"><tr>
-			<td id="superior1"><a href="u_login.html">Login</a></td>
-            <td id="superior1"><a href="INDEX.php">Inicio</a></td>
-			<td id="superior1"><a href="indexres1407.html">Resolución 1407</a></td>
-			<td id="superior1"><a href="indexsisinf.html">Información del sistema</a></td>
-            </tr></table>
+    
+    <img src="imagen/LogoSGC.png" align="left" height="100">
+		<h2>Drogueria punto express</h2> 
+        <br>
+			<div id="superior">
+            <a id="inicio" href="INDEX.php">Inicio</a>
+			<a id="superior1" href="indexres1407.html">Resolución 1407</a>
+			<a id="superior1" href="indexsisinf.html">Información del sistema</a>
+            <a id="login" href="u_login.html">Login</a>
+           
 </header>
 <div id="contenido">
     <div id="lateral">
@@ -52,31 +52,40 @@
             </ol>
         </nav>
     </div>
+    
 <main id="contenidos">
     <center>
+        <fieldset class="form-group border p-3">
+        
+        <div class="mb-3 row">
+            <div class="form-group">
     <form action="u_registrousuario.php" method="post">
 
-        <label for="">Crear nuevo usuario</label>
+        <label for="" class="col-sm-3 col-form-label">Crear nuevo usuario</label>
         <input type="submit" value="Cliente Nuevo" name="clientenuevo"></button><br>
 
     </form>
     <br>
     <form action="u_mostrarusuario.php" method="post">
-        <label for="">Mostrar usuarios registrados</label>
+        <label for="" class="col-sm-3 col-form-label">Mostrar usuarios registrados</label>
         <input type="submit" value="usuarios ya registrado" name="clienteantiguo"></button><br>
-        </form><br>
+        </form>
+    </fieldset>
+    </center>
+    <br>
 
-        
+        <center>
         <form action="INDEX.PHP" method="post"><br>
 
-            <center>
+           
             <table>
                 <tr>
                     <td><button type="submit">Regresar</button></td>
                 </tr>
               </table>
-              </center>
+            
             </form>
+        </center>
     </form>
     </center>
     <br>

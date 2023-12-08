@@ -25,19 +25,22 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
+<img src="imagen/LogoSGC.png" align="left" height="100">
 		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-            <td id="superior1"><a href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-            <td id="superior1"><a href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a></td>
-            <td id="superior1"><a href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-            <td id="superior1"><a href="aux_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
+        <br>
+			<div id="superior">
+            
+                <a id="inicio" href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a>
+                <a id="superior1" href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a>
+                <a id="superior1" href="aux_sistemainf.php">Informaci&oacute;n del sistema</a>
+                <a id="cerrar" href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
+            
 </header>
 
 <div id="contenido">
 
     <div id="lateral">
+        <br>
         <nav>
             <ol>
 		    <ul><h4>Modulo Entorno</h4>
@@ -50,24 +53,34 @@ if(!isset($_SESSION['usuario'])){
     </div>
 <main id="contenidos"> 
 
+<center>
+<fieldset class="form-group border p-3">
+<h3>REGISTRO CONTROL DE TEMPERATURA Y HUMEDAD</h3>
+<div class="mb-3 row">
+    <div class="form-group">
+
     <form action="aux_temperatura.php" method="post">
 
-        <label for="">Id temperatura humedad</label>
+        <label for=""class="col-sm-3 col-form-label">Id temperatura humedad</label>
         <input type="hidden" name="Idtemhum" id=""><br>
-        <label for="">Digite la fecha informaci&oacute;n: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite la fecha informaci&oacute;n: </label>
         <input type="date" name="fecha" id="" required><br>
-        <label for="">Digite la jornada: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite la jornada: </label>
         <input type="text" name="jornada" id="" required><br>
-        <label for="">Digite la temperatura: </label>
-        <input type="text" name="temperatura" id="" required><br>
-        <label for="">Digite la humedad: </label>
-        <input type="text" name="humedad" id="" required><br>
-        <label for="">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
+        <label for="" class="col-sm-3 col-form-label">Digite la temperatura: </label>
+        <input type="text" name="temperatura" id="" required placeholder="1°C"><br>
+        <label for="" class="col-sm-3 col-form-label">Digite la humedad: </label>
+        <input type="text" name="humedad" id="" required placeholder="%"><br>
+        <label for="" class="col-sm-3 col-form-label">Digite el Id empleados: </label>
+        <input type="text" name="Idempleados" id="" required placeholder="E1"><br><br>
 
         <input type="submit" value="Registrar temperatura/humedad">
-    </form> <br>
-    <form action="http://localhost/sgcdrogueria/auxiliar/moduloatencion.php">
+    </form> 
+</fieldset>
+</center>
+<br>
+
+    <form action="http://localhost/sgcdrogueria/auxiliar/moduloentorno.php">
         <button type="submit">Volver</button>
         </form> <br>
         

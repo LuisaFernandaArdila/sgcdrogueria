@@ -24,14 +24,16 @@ if(!isset($_SESSION['usuario'])){
 </head>
 <body>
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-			<td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-            <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-			<td id="superior1"><a href="u_resolucion1407.php">Resolución 1407</a></td>
-			<td id="superior1"><a href="u_sistemainf.php">Información del sistema</a></td>
-            </tr></table>
+        
+<img src="imagen/LogoSGC.png" align="left" height="100">
+<h2>Droguería Punto Express</h2>
+<br>
+<div id="superior">
+<a id = "inicio" href="u_inicio.php">Inicio</a>
+<a id = "superior1" href="u_resolucion1407.php">Resolución 1407</a>
+<a id= "superior1" href="u_sistemainf.php">Información del sistema</a>
+<a id="cerrar" href="u_cerrarsesion.php">Cerrar sesión</a>
+
 </header>
 <div id="contenido1">
 
@@ -39,17 +41,17 @@ if(!isset($_SESSION['usuario'])){
 <main id="contenidos">
 <h3>Objetivo General del sistema</h3>
 Diseñar un sistema de información para garantizar el cumplimiento de la normatividad exigida en la 
-resolución 1403 del 2007 capítulo IV sistema de gestión de calidad en una droguería.</h3>
+resolución 1403 del 2007 capítulo IV sistema de gestión de calidad en una droguería.</h3><br><br>
 
 <h3>Objetivos Específicos del del sistema</h3>
 <ul>
 <li>Diseñar los formularios digitales que serán diligenciados para llevar el control de los clientes 
     de la droguería, cumpliendo con la política de calidad y manual de gestión de calidad exigidos por 
-    la resolución 1403 del 2007.</li>
+    la resolución 1403 del 2007.</li><br>
 <li>Implementar un módulo que permita llevar un control de las condiciones del entorno en una farmacia, 
-    según la normatividad vigente.</li>
+    según la normatividad vigente.</li><br>
 <li>Registrar la validación de la información de todos los medicamentos e insumos médicos, para verificar
-    que se cumplan los estándares de calidad.</li>
+    que se cumplan los estándares de calidad.</li><br>
 </ul>
 </main>
 </div>

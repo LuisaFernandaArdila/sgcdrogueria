@@ -25,18 +25,23 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-			    <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-                <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-                <td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-                <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
+
+        
+<img src="imagen/LogoSGC.png" align="left" height="100">
+<h2>Droguería Punto Express</h2>
+<br>
+<div id="superior">
+<a id = "inicio" href="u_inicio.php">Inicio</a>
+<a id = "superior1" href="u_resolucion1407.php">Resolución 1407</a>
+<a id= "superior1" href="u_sistemainf.php">Información del sistema</a>
+<a id="cerrar" href="u_cerrarsesion.php">Cerrar sesión</a>
+
+
 </header>
 
-<div id="contenido">
 
+<div id="contenido">
+<br>
     <div id="lateral">
         <nav>
             <ol>
@@ -70,22 +75,28 @@ if(!isset($_SESSION['usuario'])){
     </div>
 <main id="contenidos"> 
 
-    <form action="auditoriaregu.php" method="post">
-<center>
+    <center>
+<fieldset class="form-group border p-3">
+<h3>REGISTRO AUDITORIA INTERNA</h3>
+<div class="mb-3 row">
+    <div class="form-group">
 
-        <label for="">Digite Fecha Informaci&oacute;n: </label>
-        <input type="date" name="fecha" required><br>
-        <label for=""></label>
+    <form action="auditoriaregu.php" method="post">
+
+       <label for="" class="col-sm-3 col-form-label">Id auditoria</label>
         <input type="hidden" name="Idauditoria" id=""><br>
-        <label for="">Digite los hallazgos encontrados: </label>
+        <label for=""class="col-sm-3 col-form-label">Digite Fecha Informaci&oacute;n: </label>
+        <input type="date" name="fecha" required><br>
+        <label for="" class="col-sm-3 col-form-label">Digite los hallazgos encontrados: </label>
         <input type="text" name="hallazgos" id="" required><br>
-        <label for="">Digite las acciones a realizar: </label>
+        <label for=""class="col-sm-3 col-form-label">Digite las acciones a realizar: </label>
         <input type="text" name="acciones" id="" required><br>
-        <label for="">Id empleados: </label>
+        <label for=""class="col-sm-3 col-form-label">Id empleados: </label>
         <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
         <br>
         <input type="submit" value="Registrar">
     </form>
+</fieldset>
 </center>
     <br>
     <form action="u_inicio.php">

@@ -25,14 +25,14 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-                <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-                <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-                <td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-                <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
+<img src="imagen/LogoSGC.png" align="left" height="100">
+<h2>Droguería Punto Express</h2>
+<br>
+<div id="superior">
+<a id = "inicio" href="u_inicio.php">Inicio</a>
+<a id = "superior1" href="u_resolucion1407.php">Resolución 1407</a>
+<a id= "superior1" href="u_sistemainf.php">Información del sistema</a>
+<a id="cerrar" href="u_cerrarsesion.php">Cerrar sesión</a>
 </header>
 
 <div id="contenido">
@@ -71,23 +71,30 @@ if(!isset($_SESSION['usuario'])){
 <main id="contenidos"> 
 
 <center>
+<fieldset class="form-group border p-3">
+<h3>REGISTRO PROCESO DE LIMPIEZA</h3>
+<div class="mb-3 row">
+    <div class="form-group">
+
     <form action="limpiezareg.php" method="post">
 
-        <label for="">Id limpieza</label>
+        <label for="" class="col-sm-3 col-form-label">Id limpieza</label>
         <input type="hidden" name="Idlimpieza" id=""><br>
-        <label for="">Digite el producto de aseo: </label>
+        <label for=""class="col-sm-3 col-form-label">Digite el producto de aseo: </label>
         <input type="text" name="productoaseo" id="" required><br>
-        <label for="">Digite la zona de aseo: </label>
+        <label for=""class="col-sm-3 col-form-label">Digite la zona de aseo: </label>
         <input type="text" name="zona" id="" required><br>
-        <label for="">Informaci&oacute;n proceso de limpieza: </label>
+        <label for=""class="col-sm-3 col-form-label">Informaci&oacute;n proceso de limpieza: </label>
         <input type="text" name="infoprocesolimpieza" id="" required><br>
-        <label for="">Digite el Id empleados: </label>
+        <label for=""class="col-sm-3 col-form-label">Digite el Id empleados: </label>
         <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
-        <label for="">Digite la fecha informaci&oacute;n: </label>
+        <label for=""class="col-sm-3 col-form-label">Digite la fecha informaci&oacute;n: </label>
         <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Crear registro">
     </form>
+</fieldset>
 </center>
+<br>
     <form action="limpieza.php">
         <button type="submit">Volver</button>
         </form>

@@ -25,19 +25,22 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
+<img src="imagen/LogoSGC.png" align="left" height="100">
 		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-                <td id="superior1"><a href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-                <td id="superior1"><a href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a></td>
-                <td id="superior1"><a href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-                <td id="superior1"><a href="aux_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
+        <br>
+			<div id="superior">
+            
+                <a id="inicio" href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a>
+                <a id="superior1" href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a>
+                <a id="superior1" href="aux_sistemainf.php">Informaci&oacute;n del sistema</a>
+                <a id="cerrar" href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
+            
 </header>
 
 <div id="contenido">
 
     <div id="lateral">
+        <br>
         <nav>
             <ol>
 		    <ul><h4>Modulo Atenci&oacute;n al Cliente</h4>
@@ -50,18 +53,26 @@ if(!isset($_SESSION['usuario'])){
     </div>
 <main id="contenidos"> 
 
+<center>
+<fieldset class="form-group border p-3">
+<h3>REGISTRO PACIENTE</h3>
+<div class="mb-3 row">
+    <div class="form-group">
+
     <form action="aux_paciente.php" method="post">
 
-        <label for="">Digite la cedula de la persona: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite la cedula de la persona: </label>
         <input type="text" name="cedula" id="" required><br>
-        <label for="">Digite el nombre de la persona: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el nombre de la persona: </label>
         <input type="text" name="nombre" id="" required><br>
-        <label for="">Digite el telefono de la persona: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el telefono de la persona: </label>
         <input type="text" name="telefono" id="" required><br>
-        <label for="">Digite la direccion de la persona: </label>
-        <input type="text" name="direccion" id="" required><br>
+        <label for="" class="col-sm-3 col-form-label">Digite la direccion de la persona: </label>
+        <input type="text" name="direccion" id="" required><br><br>
         <input type="submit" value="Registrar paciente">
     </form>
+</fieldset>
+</center>
     <br>
     <form action="http://localhost/sgcdrogueria/auxiliar/moduloatencion.php">
         <button type="submit">Volver</button>

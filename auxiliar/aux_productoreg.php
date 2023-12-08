@@ -25,22 +25,24 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
+<img src="imagen/LogoSGC.png" align="left" height="100">
 		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-            <td id="superior1"><a href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-            <td id="superior1"><a href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a></td>
-            <td id="superior1"><a href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-            <td id="superior1"><a href="aux_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
+        <br>
+			<div id="superior">
+            
+                <a id="inicio" href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a>
+                <a id="superior1" href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a>
+                <a id="superior1" href="aux_sistemainf.php">Informaci&oacute;n del sistema</a>
+                <a id="cerrar" href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
+            
 </header>
-
 <div id="contenido">
 
     <div id="lateral">
+        <br>
         <nav>
             <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n</h4>
+		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
 			<li><a href="aux_productoreg.php">Ingreso nuevos productos</a></li>
             <li><a href="aux_recepcionreg.php">Nuevo registro: Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
             <li><a href="aux_devolucionreg.php">Nuevo registro: Formulario Control devoluci&oacute;n productos</a></li>
@@ -50,22 +52,30 @@ if(!isset($_SESSION['usuario'])){
     </div>
 <main id="contenidos"> 
 
+<center>
+<fieldset class="form-group border p-3">
+<h3>REGISTRO NUEVO PRODUCTO</h3>
+<div class="mb-3 row">
+    <div class="form-group">
+
     <form action="aux_producto.php" method="post">
 
-        <label for="">Codigo de producto </label>
+        <label for="" class="col-sm-3 col-form-label">Codigo de producto </label>
         <input type="hidden" name="codigo" id=""><br>
-        <label for="">Digite el nombre del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el nombre del producto: </label>
         <input type="text" name="nomproducto" id="" required><br>
-        <label for="">Digite el lote del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el lote del producto: </label>
         <input type="text" name="lote" id="" required><br>
-        <label for="">Digite el laboratorio del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el laboratorio del producto: </label>
         <input type="text" name="laboratorio" id="" required><br>
-        <label for="">Digite la fecha de vencimiento del producto: </label>
-        <input type="date" name="fechavenc" id="" required><br>
+        <label for="" class="col-sm-3 col-form-label">Digite la fecha de vencimiento del producto: </label>
+        <input type="date" name="fechavenc" id="" required><br><br>
         <input type="submit" value="Registrar nuevo producto">
     </form>
+</fieldset>
+</center>
     <br>
-    <form action="http://localhost/sgcdrogueria/auxiliar/moduloatencion.php">
+    <form action="http://localhost/sgcdrogueria/auxiliar/moduloproducto.php">
         <button type="submit">Volver</button>
         </form>
     <br>

@@ -25,14 +25,15 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-			    <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-                <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-                <td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-                <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
+<img src="imagen/LogoSGC.png" align="left" height="100">
+<h2>Droguería Punto Express</h2>
+<br>
+<div id="superior">
+<a id = "inicio" href="u_inicio.php">Inicio</a>
+<a id = "superior1" href="u_resolucion1407.php">Resolución 1407</a>
+<a id= "superior1" href="u_sistemainf.php">Información del sistema</a>
+<a id="cerrar" href="u_cerrarsesion.php">Cerrar sesión</a>
+
 </header>
 
 <div id="contenido">
@@ -69,29 +70,35 @@ if(!isset($_SESSION['usuario'])){
         </nav>
     </div>
 <main id="contenidos"> 
-    <center>
+<center>
+<fieldset class="form-group border p-3">
+<h3>REGISTRO INYECTOLOGIA DEL PACIENTE</h3>
+<div class="mb-3 row">
+    <div class="form-group">
 
     <form action="inyectologiareg.php" method="post">
 
-        <label for="">Id Educaci&oacute;n Paciente</label>
+        <label for="" class="col-sm-3 col-form-label">Id Educaci&oacute;n Paciente</label>
         <input type="hidden" name="Idinyectologia" id=""><br>
-        <label for="">Digite la cedula del paciente: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite la cedula del paciente: </label>
         <input type="text" name="cedulacliente" id="" required><br>
-        <label for="">Digite el nombre del paciente: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el nombre del paciente: </label>
         <input type="text" name="nomcliente" id="" required><br>
-        <label for="">Digite el codigo del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el codigo del producto: </label>
         <input type="text" name="codigo" id="" required><br>
-        <label for="">Digite el nombre del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el nombre del producto: </label>
         <input type="text" name="nomproducto" id="" required><br>
-        <label for="">Digite el gl&uacute;teo aplicaci&oacute;n: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el gl&uacute;teo aplicaci&oacute;n: </label>
         <input type="text" name="gluteoaplicacion" id="" required><br>
-        <label for="">Digite el Id empleados: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el Id empleados: </label>
         <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
-        <label for="">Digite la fecha informaci&oacute;n: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite la fecha informaci&oacute;n: </label>
         <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Registrar paciente">
     </form>
+</fieldset>
 </center>
+<br>
     <form action="inyectologia.php">
         <button type="submit">Volver</button>
         </form>

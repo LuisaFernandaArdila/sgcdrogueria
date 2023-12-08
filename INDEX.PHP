@@ -16,15 +16,19 @@ if(isset($_SESSION['usuario'])){
 </head>
 <body>
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-			<td id="superior1"><a href="u_login.html">Login</a></td>
-            <td id="superior1"><a href="INDEX.php">Inicio</a></td>
-			<td id="superior1"><a href="indexres1407.html">Resolución 1407</a></td>
-			<td id="superior1"><a href="indexsisinf.html">Información del sistema</a></td>
-            </tr></table>
+
+    
+    <img src="imagen/LogoSGC.png" align="left" height="100">
+		<h2>Drogueria punto express</h2> 
+        <br>
+			<div id="superior">
+            <a id="inicio" href="INDEX.php">Inicio</a>
+			<a id="superior1" href="indexres1407.html">Resolución 1407</a>
+			<a id="superior1" href="indexsisinf.html">Información del sistema</a>
+            <a id="login" href="u_login.html">Login</a>
+        
 </header>
+
 <div id="contenido1">
 <main id="contenidos">
 

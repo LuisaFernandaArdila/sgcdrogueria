@@ -26,34 +26,18 @@ if(!isset($_SESSION['usuario'])){
 </head>
 <body>
     
-<div id="header">
-<table>
-        <tr>
-            <td><img src="imagen/LogoSGC.png" align="left" height="80"></td>
-            <td></td>
+<header id="header">
+<img src="imagen/LogoSGC.png" align="left" height="100">
+<h2>Droguería Punto Express</h2>
+<br>
+<div id="superior">
+<a id = "inicio" href="u_inicio.php">Inicio</a>
+<a id = "superior1" href="u_resolucion1407.php">Resolución 1407</a>
+<a id= "superior1" href="u_sistemainf.php">Información del sistema</a>
+<a id="cerrar" href="u_cerrarsesion.php">Cerrar sesión</a>
 
-            <td id="superior1" colspan="2"><h2>Droguería Punto Express</h2></td>
-        </tr>
-    </table>
+</header>
 
-    <table id="superior">
-        <tr>
-            <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-            <td id="superior1"><a href="u_resolucion1407.php">Resolución 1407</a></td>
-            <td id="superior1"><a href="u_sistemainf.php">Información del sistema</a></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesión</a></td>
-        </tr>
-    </table>
-
-</div>
 
 <div id="contenido">
 
@@ -88,6 +72,8 @@ if(!isset($_SESSION['usuario'])){
             </ol>
         </nav>
     </div>
+
+
 <main id="contenidos"> 
 
 <?php
@@ -121,6 +107,7 @@ while($row=mysqli_fetch_assoc($sql)){?>
 ?>
 </tbody>
 </table>
+
 <br>
 <center>
 <form action="auditoriareg.php" method="post">
@@ -135,15 +122,17 @@ while($row=mysqli_fetch_assoc($sql)){?>
 
 </main>
 </div>
+
 <footer id="footer">
-      <center>
+      
         <table id="inferior"><tr>
 			<td id="inferior1">Direcci&oacute;n: Cra 101 No. 25 - 45</td>
 			<td id="inferior1">Tel&eacute;fono: 601 745 7898</td>
 			<td id="inferior1">E-mail:<a href="mailto:drogueriapuntoexpress@gmail.com">drogueriapuntoexpress@gmail.com</a></td>
 		</tr></table>
-       </center>
+
 </footer>
+
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>

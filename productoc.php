@@ -25,14 +25,15 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" ver ="left" height="117" width="150"/>
-		<h2>Drogueria punto express</h2>
-			<table id="superior"><tr>
-            <td id="superior1"><a href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a></td>
-                <td id="superior1"><a href="u_inicio.php">Inicio</a></td>
-                <td id="superior1"><a href="u_resolucion1407.php">Resoluci&oacute;n 1407</a></td>
-                <td id="superior1"><a href="u_sistemainf.php">Informaci&oacute;n del sistema</a></td>
-            </tr></table>
+<img src="imagen/LogoSGC.png" align="left" height="100">
+<h2>Droguería Punto Express</h2>
+<br>
+<div id="superior">
+<a id = "inicio" href="u_inicio.php">Inicio</a>
+<a id = "superior1" href="u_resolucion1407.php">Resolución 1407</a>
+<a id= "superior1" href="u_sistemainf.php">Información del sistema</a>
+<a id="cerrar" href="u_cerrarsesion.php">Cerrar sesión</a>
+
 </header>
 
 <div id="contenido">
@@ -69,23 +70,30 @@ if(!isset($_SESSION['usuario'])){
         </nav>
     </div>
 <main id="contenidos"> 
-    <center>
+    
+<center>
+<fieldset class="form-group border p-3">
+<h3>RREGISTRO NUEVO PRODUCTO</h3>
+<div class="mb-3 row">
+    <div class="form-group">
 
     <form action="productoreg.php" method="post">
 
-        <label for="">Codigo de producto </label>
+        <label for="" class="col-sm-3 col-form-label">Codigo de producto </label>
         <input type="hidden" name="codigo" id=""><br>
-        <label for="">Digite el nombre del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el nombre del producto: </label>
         <input type="text" name="nomproducto" id="" required><br>
-        <label for="">Digite el lote del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el lote del producto: </label>
         <input type="text" name="lote" id="" required><br>
-        <label for="">Digite el laboratorio del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite el laboratorio del producto: </label>
         <input type="text" name="laboratorio" id="" required><br>
-        <label for="">Digite la fecha de vencimiento del producto: </label>
+        <label for="" class="col-sm-3 col-form-label">Digite la fecha de vencimiento del producto: </label>
         <input type="date" name="fechavenc" id="" required><br><br>
         <input type="submit" value="Crear registro">
     </form>
+</fieldset>
 </center>
+<br>
     <form action="producto.php">
         <button type="submit">Volver</button>
         </form>
