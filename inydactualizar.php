@@ -93,7 +93,7 @@ $resultado = mysqli_query($conn, $sql);
 while($row=mysqli_fetch_assoc($resultado)){?>
         <tr>
         <td><input type="text" name="Idinyectologia"value="<?php echo $row ["Idinyectologia"];?>"></td>
-        <td><input type="text" name="cedulacliente"value="<?php echo $row ["cedulacliente"];?>"></td>
+        <td><input type="text" name="cedula"value="<?php echo $row ["cedula"];?>"></td>
         <td><input type="text" name="nomcliente"value="<?php echo $row ["nomcliente"];?>"></td>
         <td><input type="text" name="codigo"value="<?php echo $row ["codigo"];?>"></td>
         <td><input type="text" name="nomproducto"value="<?php echo $row ["nomproducto"];?>"></td>

@@ -43,6 +43,8 @@ if(isset($_SESSION['usuario'])){
 <p>Puede dejarnos sus comentarios y/o sugerencias en nuestra encuesta de safisfaccion de cliente.<br /><br>
 <button type="submit">Encuesta Satisfacción al cliente</button>
 </p>
+</form>
+<form action="qrpersonaform.html">
 <p>Para quejas y reclamos puede dearlos en el siguiente formulario y nuestro personal lo contactara para dar pronta respuesta.<br /><br>
 <button type="submit">Quejas y/o Reclamos</button>
 </p>

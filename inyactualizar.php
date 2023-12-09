@@ -17,7 +17,7 @@ if(!isset($_SESSION['usuario'])){
     include_once ("conexion.php");
     error_reporting(0);
     $Idinyectologia = $_POST["Idinyectologia"];
-    $cedulacliente = $_POST["cedulacliente"];
+    $cedula = $_POST["cedula"];
     $nomcliente = $_POST["nomcliente"];
     $codigo = $_POST["codigo"];
     $nomproducto = $_POST["nomproducto"];
@@ -25,7 +25,7 @@ if(!isset($_SESSION['usuario'])){
     $Idempleados = $_POST["Idempleados"];
     $fecha = $_POST["fecha"];
     
-    $inyectologia = "UPDATE inyectologia SET Idinyectologia='$Idinyectologia', cedulacliente='$cedulacliente', 
+    $inyectologia = "UPDATE inyectologia SET Idinyectologia='$Idinyectologia', cedula='$cedula', 
     nomcliente='$nomcliente', codigo='$codigo', nomproducto='$nomproducto', gluteoaplicacion='$gluteoaplicacion', 
     Idempleados='$Idempleados', fecha='$fecha' WHERE Idinyectologia='$Idinyectologia'";
     $resultadoeduc = mysqli_query($conn, $inyectologia);

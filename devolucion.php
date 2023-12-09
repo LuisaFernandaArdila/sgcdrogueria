@@ -92,6 +92,7 @@ include_once ("conexion.php");
 <?php
 $sql = mysqli_query($conn, "SELECT * FROM devolucion
 INNER JOIN empleados ON devolucion.Idempleado = empleados.Idempleados
+INNER JOIN producto ON devolucion.codigo = producto.codigo
 ");
 while($row=mysqli_fetch_assoc($sql)){?>
         <tr>

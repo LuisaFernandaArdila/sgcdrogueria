@@ -71,8 +71,19 @@ if(!isset($_SESSION['usuario'])){
         <input type="text" name="temperatura" id="" required placeholder="1°C"><br>
         <label for="" class="col-sm-3 col-form-label">Digite la humedad: </label>
         <input type="text" name="humedad" id="" required placeholder="%"><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id="" required placeholder="E1"><br><br>
+        <label for="Idempleados" class="col-sm-3 col-form-label">Id empleados: </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="Idempleados" required>
+            <option selected disabled>--Seleccionar empleado--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM empleados");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['Idempleados']."'style='color:black'>".$resultado['nomempleado']."</option>";
+                }}
+                ?>
+        </select>
+        <br>
 
         <input type="submit" value="Registrar temperatura/humedad">
     </form> 

@@ -69,8 +69,19 @@ if(!isset($_SESSION['usuario'])){
 <input type="text" name="zona" id="" required><br>
 <label for="" class="col-sm-3 col-form-label">Informaci&oacute;n proceso de limpieza: </label>
 <input type="text" name="infoprocesolimpieza" id="" required><br>
-<label for="" class="col-sm-3 col-form-label">Digite el Id empleados: </label>
-<input type="text" name="Idempleados" id="" required placeholder="E1"><br>
+<label for="Idempleados" class="col-sm-3 col-form-label">Id empleados: </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="Idempleados" required>
+            <option selected disabled>--Seleccionar empleado--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM empleados");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['Idempleados']."'style='color:black'>".$resultado['nomempleado']."</option>";
+                }}
+                ?>
+        </select>
+        <br>
 <label for="" class="col-sm-3 col-form-label">Digite la fecha informaci&oacute;n: </label>
 <input type="date" name="fecha" id="" required><br><BR>
 <input type="submit" value="Registrar proceso limpieza">

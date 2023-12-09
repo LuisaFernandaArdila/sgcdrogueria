@@ -81,14 +81,47 @@ if(!isset($_SESSION['usuario'])){
 
         <label for="" class="col-sm-3 col-form-label">Id devoluci&oacute;n</label>
         <input type="hidden" name="Iddevolucion" id=""><br>
-        <label for="" class="col-sm-3 col-form-label">Codigo de producto </label>
-        <input type="text" name="codigo" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el nombre del producto: </label>
-        <input type="text" name="nomproducto" id="" required><br>
+        <label for="codigo" class="col-sm-3 col-form-label">Codigo de producto </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="codigo" required>
+            <option selected disabled>--Seleccionar producto--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM producto");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['codigo']."'style='color:black'>".$resultado['nomproducto']."</option>";
+                }}
+                ?>
+        </select>
+        <br>
+        <label for="nomproducto" class="col-sm-3 col-form-label">Nombre del producto: </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="nomproducto" required>
+            <option selected disabled>--Seleccionar producto--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM producto");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['codigo']."'style='color:black'>".$resultado['nomproducto']."</option>";
+                }}
+                ?>
+        </select>
+        <br>
         <label for="" class="col-sm-3 col-form-label">Digite el motivo de la devolucion del producto: </label>
         <input type="text" name="motivodevolucion" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
+        <label for="Idempleados" class="col-sm-3 col-form-label">Id empleados: </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="Idempleados" required>
+            <option selected disabled>--Seleccionar empleado--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM empleados");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['Idempleados']."'style='color:black'>".$resultado['nomempleado']."</option>";
+                }}
+                ?>
+        </select>
+        <br>
         <label for="" class="col-sm-3 col-form-label">Digite la fecha información: </label>
         <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Registrar datos">

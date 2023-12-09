@@ -81,18 +81,73 @@ if(!isset($_SESSION['usuario'])){
         
         <label for="" class="col-sm-3 col-form-label">Id Educacion Paciente</label>
         <input type="hidden" name="Ideducacionpac" id=""><br>
-        <label for="" class="col-sm-3 col-form-label">Digite la cedula del paciente: </label>
-        <input type="text" name="cedula" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el nombre del paciente: </label>
-        <input type="text" name="nomcliente" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el codigo del producto: </label>
-        <input type="text" name="codigo" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el nombre del producto: </label>
-        <input type="text" name="nomproducto" id="" required><br>
+        <label for="cedula" class="col-sm-3 col-form-label">Cedula del paciente: </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="cedula" required>
+            <option selected disabled>--Seleccionar paciente--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM persona");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['cedula']."'style='color:black'>".$resultado['nombre']."</option>";
+                }}
+                ?>
+        </select>
+        <br>
+        <label for="nomcliente" class="col-sm-3 col-form-label">Nombre del paciente: </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="nomcliente" required>
+            <option selected disabled>--Seleccionar paciente--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM persona");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['cedula']."'style='color:black'>".$resultado['nombre']."</option>";
+                }}
+                ?>
+        </select>
+        <br>
+        <label for="codigo" class="col-sm-3 col-form-label">Codigo de producto </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="codigo" required>
+            <option selected disabled>--Seleccionar producto--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM producto");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['codigo']."'style='color:black'>".$resultado['nomproducto']."</option>";
+                }}
+                ?>
+        </select>
+        <br>
+        <label for="nomproducto" class="col-sm-3 col-form-label">Nombre del producto: </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="nomproducto" required>
+            <option selected disabled>--Seleccionar producto--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM producto");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['codigo']."'style='color:black'>".$resultado['nomproducto']."</option>";
+                }}
+                ?>
+        </select>
+        <br>
         <label for="" class="col-sm-3 col-form-label">Digite las contraindicaciones: </label>
         <input type="text" name="contraindicaciones" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el Id empleados: </label>
-        <input type="text" name="Idempleados" id="" required placeholder="E1"><br>
+        <label for="Idempleados" class="col-sm-3 col-form-label">Id empleados: </label>
+        <select class="col-sm-3 col-form-label" class="form-select" name="Idempleados" required>
+            <option selected disabled>--Seleccionar empleado--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM empleados");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['Idempleados']."'style='color:black'>".$resultado['nomempleado']."</option>";
+                }}
+                ?>
+        </select>
+        <br>
         <label for=""class="col-sm-3 col-form-label">Digite la fecha informaci&oacute;n: </label>
         <input type="date" name="fecha" id="" required><br><br>
         <input type="submit" value="Crear registro">

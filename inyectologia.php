@@ -94,12 +94,14 @@ include_once ("conexion.php");
 <?php
 $sql = mysqli_query($conn, "SELECT * FROM inyectologia
 INNER JOIN empleados ON inyectologia.Idempleados = empleados.Idempleados
+INNER JOIN persona ON inyectologia.cedula = persona.cedula
+INNER JOIN producto ON producto.codigo = producto.codigo
 ");
 while($row=mysqli_fetch_array($sql)){?>
         <tr>
         <td><?php echo $row["Idinyectologia"];?></td>
-        <td><?php echo $row["cedulacliente"];?></td>
-        <td><?php echo $row["nomcliente"];?></td>
+        <td><?php echo $row["cedula"];?></td>
+        <td><?php echo $row["nombre"];?></td>
         <td><?php echo $row["codigo"];?></td>
         <td><?php echo $row["nomproducto"];?></td>
         <td><?php echo $row["gluteoaplicacion"];?></td>
