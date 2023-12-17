@@ -16,14 +16,14 @@ if(!isset($_SESSION['usuario'])){
 <?php
 include_once("conexion.php");
 error_reporting(0);
-$Id = $_POST["Id"];
+
 $usuario = $_POST["usuario"];
 $clave = $_POST["clave"];
 $Idrol = $_POST["Idrol"];
 
 $clave = hash('sha1', $clave);
 
-$sql = "INSERT INTO usuarios(Id, usuario, clave, Idrol) VALUES ('$Id', '$usuario', '$clave', '$Idrol')";
+$sql = "INSERT INTO usuarios(usuario, clave, Idrol) VALUES ('$usuario', '$clave', '$Idrol')";
 
 if (mysqli_query($conn, $sql)) {
     echo "<script>alert('Nuevo registro almacenado exitosamente'); window.location='u_inicio.php';</script>";

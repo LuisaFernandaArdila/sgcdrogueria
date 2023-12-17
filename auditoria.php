@@ -18,7 +18,7 @@ if(!isset($_SESSION['usuario'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Persona</title>
+    <title>Auditoria</title>
     <link rel="stylesheet" href="EstiloMP.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
@@ -64,10 +64,10 @@ if(!isset($_SESSION['usuario'])){
         </nav>
         <nav>
             <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
+		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de medicamentos</h4>
 			<li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
-            <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
-            <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
+            <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica medicamentos</a></li>
+            <li><a href="devolucion.php">Formulario Control devoluci&oacute;n medicamentos</a></li>
 			</ul>
             </ol>
         </nav>

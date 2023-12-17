@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2023 a las 22:49:10
+-- Tiempo de generación: 09-12-2023 a las 01:20:28
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `auditoriainterna` (
   `fecha` date NOT NULL DEFAULT current_timestamp(),
-  `Idauditoria` varchar(5) NOT NULL DEFAULT 'AI',
+  `Idauditoria` int(11) NOT NULL,
   `hallazgos` text NOT NULL,
   `acciones` text NOT NULL,
   `Idempleados` varchar(5) NOT NULL
@@ -40,8 +40,9 @@ CREATE TABLE `auditoriainterna` (
 --
 
 INSERT INTO `auditoriainterna` (`fecha`, `Idauditoria`, `hallazgos`, `acciones`, `Idempleados`) VALUES
-('2023-09-17', 'AI1', 'Falta organizar', 'Crear un programa de organización semanal', 'E1'),
-('2023-09-20', 'AI2', 'Falta organizar', 'Crear un programa de organización semanal', 'E3');
+('2023-12-06', 1, 'falta limpieza', 'limpieza en dos jornadas', 'E1'),
+('2023-12-06', 2, 'Limpieza', 'Debe limpiarse en la mañana y tarde', 'e2'),
+('2023-12-08', 3, 'Desorganizado', 'Firma compromiso de limpieza', 'e2');
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,10 @@ CREATE TABLE `devolucion` (
 --
 
 INSERT INTO `devolucion` (`Iddevolucion`, `codigo`, `nomproducto`, `motivodevolucion`, `Idempleado`, `fecha`) VALUES
-(1, 25, 'advil max', 'vencimiento', 'E3', '2023-11-27');
+(1, 25, 'advil max', 'vencimiento', 'E3', '2023-11-27'),
+(7, 2, 'amoxicilina', 'vencimiento', 'e2', '2023-12-08'),
+(11, 33, 'piroxicam', 'vencimiento', 'e3', '2023-12-08'),
+(12, 2, '2', 'fecha vencimiento', 'E1', '2023-12-08');
 
 -- --------------------------------------------------------
 
@@ -89,7 +93,10 @@ CREATE TABLE `educacionpaciente` (
 INSERT INTO `educacionpaciente` (`Ideducacionpac`, `cedula`, `nomcliente`, `codigo`, `nomproducto`, `contraindicaciones`, `Idempleados`, `fecha`) VALUES
 (1, 13955486, 'Gerardo Ardila Castillo', 1, 'acetaminofen', 'Vomito', 'E1', '2023-09-17'),
 (2, 1000753001, 'Jose David Cruz Ardila', 4, 'azitromicina', 'fiebre', 'E3', '2023-11-13'),
-(12, 2147483647, 'Juliana Diaz', 2, 'amoxicilina', 'fiebre', 'E3', '2023-11-23');
+(12, 2147483647, 'Juliana Diaz', 2, 'amoxicilina', 'fiebre', 'E3', '2023-11-23'),
+(23, 13955486, 'Gerardo Ardila', 1, 'acetaminofen', 'vomito', 'e2', '2023-12-08'),
+(24, 28477248, 'Rosalba Castillo', 1, 'Acetaminofen', 'vomito', 'e2', '2023-12-08'),
+(25, 98765, '98765', 2, '2', 'vomito', 'E1', '2023-12-08');
 
 -- --------------------------------------------------------
 
@@ -120,7 +127,7 @@ INSERT INTO `empleados` (`Idempleados`, `nomempleado`, `cedula`) VALUES
 
 CREATE TABLE `inyectologia` (
   `Idinyectologia` int(11) NOT NULL,
-  `cedulacliente` int(11) NOT NULL,
+  `cedula` int(11) NOT NULL,
   `nomcliente` varchar(50) NOT NULL,
   `codigo` int(11) NOT NULL,
   `nomproducto` varchar(50) NOT NULL,
@@ -133,9 +140,11 @@ CREATE TABLE `inyectologia` (
 -- Volcado de datos para la tabla `inyectologia`
 --
 
-INSERT INTO `inyectologia` (`Idinyectologia`, `cedulacliente`, `nomcliente`, `codigo`, `nomproducto`, `gluteoaplicacion`, `Idempleados`, `fecha`) VALUES
-(1, 28477248, 'Rosalba Castillo', 1, 'acetaminofen', 'derecha', 'E1', '2023-11-15'),
-(2, 28477248, 'Rosalba Castillo', 25, 'advil max', 'derecha', 'E2', '2023-11-15');
+INSERT INTO `inyectologia` (`Idinyectologia`, `cedula`, `nomcliente`, `codigo`, `nomproducto`, `gluteoaplicacion`, `Idempleados`, `fecha`) VALUES
+(1, 28477248, 'Rosalba Castillo', 1, 'piroxicam', 'derecha', 'E1', '2023-11-15'),
+(2, 28477248, 'Rosalba Castillo', 25, 'advil max', 'derecha', 'E2', '2023-11-15'),
+(4, 13955486, 'Gerardo Ardila', 14, 'clindamicina', 'derecho', 'e2', '2023-12-08'),
+(5, 13955486, 'Gerardo Ardila', 32, 'diclofenaco', 'izquierdo', 'e3', '2023-12-08');
 
 -- --------------------------------------------------------
 
@@ -160,7 +169,10 @@ INSERT INTO `limpieza` (`Idlimpieza`, `productoaseo`, `zona`, `infoprocesolimpie
 (1, 'Clorox', 'baño', 'Se desinfecto con clorox', 'E1', '2023-09-17'),
 (2, 'Clorox', 'pisos', 'Se limpio el piso', 'E1', '2023-09-17'),
 (3, 'Jabon', 'puerta', 'Se lavo la puerta', 'E2', '2023-09-17'),
-(17, 'Jabon y agua', 'bano', 'lavado de caneca', 'E2', '2023-11-25');
+(17, 'Jabon y agua', 'bano', 'lavado de caneca', 'E2', '2023-11-25'),
+(19, 'Clorox', 'mostrador', 'se barre', 'e2', '2023-12-08'),
+(20, 'clorox', 'baño', 'limpieza baño', 'e3', '2023-12-08'),
+(21, 'jabon', 'vitrina', 'con esponja se limpia', 'E1', '2023-12-08');
 
 -- --------------------------------------------------------
 
@@ -180,13 +192,14 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`cedula`, `nombre`, `telefono`, `direccion`) VALUES
-(9870, 'roman', 3144463444, 'Calle 77D'),
 (98765, 'natalia franco diaz', 3144463444, 'Calle 77D # 105B '),
-(3456287, 'roman', 3144463444, 'Calle 77D 105B 39'),
+(13067890, 'Patricia Hernandez', 3214567897, 'Calle 77D 56'),
 (13955486, 'Gerardo Ardila Castillo', 3123098255, 'Cra 30 # 30a 202'),
-(23456777, 'roman', 3144463444, 'Calle 77D'),
+(23456456, 'Marta Perez', 3124567890, 'calle 80 25'),
 (28477244, 'sandra sanchez', 3134611947, 'Cra 30 # 50 21'),
 (28477248, 'Rosalba Castillo', 3134611947, 'Cra 30 # 50 21'),
+(134561234, 'Tatiana Diaz', 3124563434, 'Calle 80 # 23'),
+(1000335018, 'Carlos Arias Rios', 3006273138, 'cra 81f 49a 33 sur'),
 (1000375269, 'José Ruben Ramos Rodriguez', 3224642644, 'calle 127F # 93c 41'),
 (1000753001, 'Jose David Cruz Ardila', 3224565670, 'cra 101 sur 78j 70'),
 (1002205880, 'Yisney Pineda Isaza', 3122301304, 'Diag 64A # 21 - 38'),
@@ -233,7 +246,10 @@ INSERT INTO `producto` (`codigo`, `nomproducto`, `lote`, `laboratorio`, `fechave
 (24, 'loratadina tab', 10117, 'la sante', '2023-10-07'),
 (25, 'Advil max', 10118, 'abbout', '2024-02-06'),
 (26, 'Aspirina', 10119, 'Mk', '2024-01-30'),
-(27, 'Noxirim Jab', 10120, 'genoma', '2024-02-20');
+(27, 'Noxirim Jab', 10120, 'genoma', '2024-02-20'),
+(32, 'Diclofenaco', 678906, 'mk', '2023-12-08'),
+(33, 'piroxicam', 78655, 'la sante', '2023-12-08'),
+(34, 'Aspirina', 97865, 'Tecnoquimicas', '2024-02-29');
 
 -- --------------------------------------------------------
 
@@ -257,7 +273,8 @@ CREATE TABLE `quejasreclamos` (
 
 INSERT INTO `quejasreclamos` (`Idqr`, `tiposolicitud`, `cedula`, `solicitud`, `respuesta`, `Idempleado`, `fecha`) VALUES
 (1, 'queja', 13955486, 'devolucion medicamento', 'se cambia por un producto del mismo valor', 1101758678, '2023-12-02'),
-(2, 'queja', 1000753001, 'cambio producto', 'si', 1101758678, '2023-12-02');
+(2, 'queja', 1000753001, 'cambio producto', 'Se cambia el producto', 1101758678, '2023-12-02'),
+(6, 'reclamo', 1101758678, 'devolución medicamento', '', NULL, '2023-12-08');
 
 -- --------------------------------------------------------
 
@@ -281,7 +298,12 @@ CREATE TABLE `recepciontecnica` (
 INSERT INTO `recepciontecnica` (`Idrecepcion`, `codigo`, `nomproducto`, `observaciones`, `Idempleado`, `fecha`) VALUES
 (1, 1, 'acetaminofen', 'ninguna', 'E2', '2023-11-27'),
 (2, 2, 'amoxicilina', 'ninguna', 'E2', '2023-11-27'),
-(3, 25, 'advil max', 'caja de 100 cap', 'E3', '2023-11-27');
+(3, 25, 'advil max', 'ninguna', 'E3', '2023-11-27'),
+(4, 2, 'amoxicilina', 'ninguna', 'e2', '2023-12-08'),
+(5, 4, 'azitromicina', 'ninguna', 'e2', '2023-12-08'),
+(6, 32, 'diclofenaco', 'sin caja', 'e3', '2023-12-08'),
+(8, 2, '2', 'ninguna', 'E3', '2023-12-08'),
+(9, 7, '7', 'sin caja', 'E1', '2023-12-08');
 
 -- --------------------------------------------------------
 
@@ -303,7 +325,10 @@ CREATE TABLE `residuos` (
 --
 
 INSERT INTO `residuos` (`Idresiduos`, `fecha`, `tiporesiduo`, `cantidad`, `infogeneracionresiduos`, `Idempleados`) VALUES
-(1, '2023-09-17', 'biosanitario', '2 Kg', 'caneca verde', 'E3');
+(1, '2023-09-17', 'biosanitario', '2 Kg', 'caneca verde', 'E3'),
+(7, '2023-12-08', 'sanitario', '4 kg', 'residuos baño', 'E2'),
+(8, '2023-12-08', 'biosanitario', '1 kg', 'bolsa verde', 'e3'),
+(9, '2023-12-08', 'peligroso', '1 kg', 'bolsa roja', 'E2');
 
 -- --------------------------------------------------------
 
@@ -346,7 +371,8 @@ CREATE TABLE `satisfaccioncliente` (
 INSERT INTO `satisfaccioncliente` (`Idsatisfaccion`, `cedulacliente`, `calificacion`, `sugerencias`, `fecha`) VALUES
 (1, 28477248, 'Buena', 'ninguna', '2023-12-02'),
 (2, 1101758678, 'Buena', 'ninguna', '2023-12-02'),
-(6, 1101758678, 'excelente', 'ninguna', '2023-12-02');
+(6, 1101758678, 'excelente', 'ninguna', '2023-12-02'),
+(12, 28477248, 'excelente', 'ninguna', '2023-12-08');
 
 -- --------------------------------------------------------
 
@@ -369,7 +395,9 @@ CREATE TABLE `temperaturahumedad` (
 
 INSERT INTO `temperaturahumedad` (`Idtemhum`, `fecha`, `jornada`, `temperatura`, `humedad`, `Idempleados`) VALUES
 (1, '2023-09-17', 'mañana', '18°C', '56%', 'E1'),
-(2, '2023-09-17', 'tarde', '17°C', '45%', 'E3');
+(2, '2023-09-17', 'tarde', '17°C', '45%', 'E3'),
+(10, '2023-12-08', 'tarde', '18°C', '55%', 'e2'),
+(12, '2023-12-08', 'tarde', '18°C', '55%', 'E2');
 
 -- --------------------------------------------------------
 
@@ -433,7 +461,7 @@ ALTER TABLE `empleados`
 --
 ALTER TABLE `inyectologia`
   ADD PRIMARY KEY (`Idinyectologia`),
-  ADD KEY `cedulacliente` (`cedulacliente`) USING BTREE,
+  ADD KEY `cedulacliente` (`cedula`) USING BTREE,
   ADD KEY `Idempleados` (`Idempleados`) USING BTREE,
   ADD KEY `codigo` (`codigo`) USING BTREE;
 
@@ -512,52 +540,58 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `auditoriainterna`
+--
+ALTER TABLE `auditoriainterna`
+  MODIFY `Idauditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `devolucion`
 --
 ALTER TABLE `devolucion`
-  MODIFY `Iddevolucion` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Iddevolucion` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `educacionpaciente`
 --
 ALTER TABLE `educacionpaciente`
-  MODIFY `Ideducacionpac` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Ideducacionpac` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `inyectologia`
 --
 ALTER TABLE `inyectologia`
-  MODIFY `Idinyectologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Idinyectologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `limpieza`
 --
 ALTER TABLE `limpieza`
-  MODIFY `Idlimpieza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Idlimpieza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `quejasreclamos`
 --
 ALTER TABLE `quejasreclamos`
-  MODIFY `Idqr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Idqr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `recepciontecnica`
 --
 ALTER TABLE `recepciontecnica`
-  MODIFY `Idrecepcion` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Idrecepcion` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `residuos`
 --
 ALTER TABLE `residuos`
-  MODIFY `Idresiduos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Idresiduos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -569,19 +603,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `satisfaccioncliente`
 --
 ALTER TABLE `satisfaccioncliente`
-  MODIFY `Idsatisfaccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Idsatisfaccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `temperaturahumedad`
 --
 ALTER TABLE `temperaturahumedad`
-  MODIFY `Idtemhum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Idtemhum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- Restricciones para tablas volcadas
@@ -618,7 +652,7 @@ ALTER TABLE `empleados`
 -- Filtros para la tabla `inyectologia`
 --
 ALTER TABLE `inyectologia`
-  ADD CONSTRAINT `fk_clienteiny` FOREIGN KEY (`cedulacliente`) REFERENCES `persona` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_clienteiny` FOREIGN KEY (`cedula`) REFERENCES `persona` (`cedula`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_empleadosiny` FOREIGN KEY (`Idempleados`) REFERENCES `empleados` (`Idempleados`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_productoiny` FOREIGN KEY (`codigo`) REFERENCES `producto` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE;
 

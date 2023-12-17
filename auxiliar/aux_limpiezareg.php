@@ -25,16 +25,15 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-<img src="imagen/LogoSGC.png" align="left" height="100">
+<img src="../imagen/LogoSGC.png" align="left" height="100">
 		<h2>Drogueria punto express</h2>
         <br>
 			<div id="superior">
             
-                <a id="inicio" href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a>
+                <a id="inicio" href="../u_auxiliar.php">Inicio</a>
                 <a id="superior1" href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a>
                 <a id="superior1" href="aux_sistemainf.php">Informaci&oacute;n del sistema</a>
-                <a id="cerrar" href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
-            
+                <a id="cerrar" href="../u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
 </header>
 
 <div id="contenido">
@@ -57,23 +56,45 @@ if(!isset($_SESSION['usuario'])){
 <fieldset class="form-group border p-3">
 <h3>REGISTRO PROCESO DE LIMPIEZA</h3>
 <div class="mb-3 row">
-    <div class="form-group">
+<div class="form-group">
 
-<form action="aux_limpieza.php" method="post">
+<form action="aux_limpieza.php" method="post" class="row g-3 needs-validation" novalidate>
 
-<label for="" class="col-sm-3 col-form-label">Id limpieza</label>
-<input type="hidden" name="Idlimpieza" id=""><br>
-<label for="" class="col-sm-3 col-form-label">Digite el producto de aseo: </label>
-<input type="text" name="productoaseo" id="" required><br>
-<label for="" class="col-sm-3 col-form-label">Digite la zona de aseo: </label>
-<input type="text" name="zona" id="" required><br>
-<label for="" class="col-sm-3 col-form-label">Informaci&oacute;n proceso de limpieza: </label>
-<input type="text" name="infoprocesolimpieza" id="" required><br>
-<label for="Idempleados" class="col-sm-3 col-form-label">Id empleados: </label>
-        <select class="col-sm-3 col-form-label" class="form-select" name="Idempleados" required>
-            <option selected disabled>--Seleccionar empleado--</option>
+<div class="col-md-1"></div>
+
+<div class="col-md-5">
+<label for="validationCustom01" class="form-label">Digite el producto de aseo: </label>
+<input type="text" name="productoaseo" id="validationcustom01" class="form-control" placeholder="Ej. Jabón" required>
+<div class="invalid-feedback">Por favor, validar producto aseo</div>
+<div class="valid-feedback">Correcto</div>
+</div>
+
+<div class="col-md-5">
+<label for="validationCustom02" class="form-label">Digite la zona de aseo: </label>
+<input type="text" name="zona" id="validationcustom02" class="form-control" placeholder="Ej. Inyectología" required>
+<div class="invalid-feedback">Por favor, validar zona aseo</div>
+<div class="valid-feedback">Correcto</div>
+</div>
+
+<div class="col-md-1"></div>
+<div class="col-md-2"></div>
+
+<div class="col-md-8">
+<label for="validationCustom03" class="form-label">Informaci&oacute;n proceso de limpieza: </label>
+<input type="text" name="infoprocesolimpieza" id="validationcustom03" class="form-control" placeholder="Ej. Barrido" required>
+<div class="invalid-feedback">Por favor, validar proceso limpieza</div>
+<div class="valid-feedback">Correcto</div>
+</div>
+
+<div class="col-md-2"></div>
+<div class="col-md-1"></div>
+
+<div class="col-md-5">
+<label for="validationCustom04" class="form-label">Id empleados: </label>
+        <select class="form-select" id="validationCustom04" name="Idempleados" required>
+            <option selected disabled value="">--Seleccionar empleado--</option>
                 <?php
-                include_once("conexion.php");
+                include_once("../conexion.php");
                 $sql = mysqli_query($conn, "SELECT * FROM empleados");
                 if($sql!==false){
                 while($resultado=mysqli_fetch_assoc($sql)){
@@ -81,16 +102,27 @@ if(!isset($_SESSION['usuario'])){
                 }}
                 ?>
         </select>
-        <br>
-<label for="" class="col-sm-3 col-form-label">Digite la fecha informaci&oacute;n: </label>
-<input type="date" name="fecha" id="" required><br><BR>
+<div class="invalid-feedback">Por favor, seleccione empleado</div>
+<div class="valid-feedback">Correcto</div>
+</div>
+        
+<div class="col-md-5">
+<label for="validationCustom05" class="form-label">Digite la fecha informaci&oacute;n: </label>
+<input type="date" name="fecha" id="validationcustom05" class="form-control" required>
+<div class="invalid-feedback">Por favor, validar fecha</div>
+<div class="valid-feedback">Correcto</div>
+</div>
+    
+<center><div class="col-md-11">
 <input type="submit" value="Registrar proceso limpieza">
+</div></center>
+
 </form>
 </fieldset>
 </center>
 
     <br>
-    <form action="http://localhost/sgcdrogueria/auxiliar/moduloentorno.php">
+    <form action="moduloentorno.php">
         <button type="submit">Volver</button>
     </form> <br>
    
@@ -105,5 +137,27 @@ if(!isset($_SESSION['usuario'])){
 		</tr></table>
        </center>
 </footer>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
 </body>
 </html>

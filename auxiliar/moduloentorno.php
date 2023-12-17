@@ -25,14 +25,14 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-        <img src="imagen/LogoSGC.png" align="left" height="100">
+        <img src="../imagen/LogoSGC.png" align="left" height="100">
 		<h2>Drogueria punto express</h2>
         <br>
 			<div id="superior">
-            <a id="inicio" href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a>
+            <a id="inicio" href="../u_auxiliar.php">Inicio</a>
             <a id="superior1" href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a>
             <a id="superior1" href="aux_sistemainf.php">Informaci&oacute;n del sistema</a>
-            <a id="cerrar" href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
+            <a id="cerrar" href="../u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
           
 </header>
 
@@ -63,7 +63,7 @@ if(!isset($_SESSION['usuario'])){
     </ol> 
 </p>
 <br />
-<form action="http://localhost/sgcdrogueria/u_auxiliar.php">
+<form action="../u_auxiliar.php">
 <button type="submit">Volver</button>
 </form>
 <br>

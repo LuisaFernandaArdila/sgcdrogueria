@@ -28,7 +28,7 @@ if(!isset($_SESSION['usuario'])){
 		<h2>Drogueria punto express</h2>
         <br>
 			<div id="superior">
-            <a id="inicio" href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a>
+            <a id="inicio" href="u_auxiliar.php">Inicio</a>
 			<a id="superior1" href="auxiliar/aux_resolucion1407.php">Resoluci&oacute;n 1407</a>
 			<a id="superior1" href="auxiliar/aux_sistemainf.php">Informaci&oacute;n del sistema</a>
             <a id="cerrar" href="u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
@@ -44,13 +44,13 @@ if(!isset($_SESSION['usuario'])){
 <center><table>
     <tr>
         <td>
-        <a href="auxiliar/moduloatencion.php"><img src="auxiliar/imagen/atencion.jpg" alt="Modulo atencion al cliente" height="95" width="95"></a>
+        <a href="auxiliar/moduloatencion.php"><img src="imagen/atencion.jpg" alt="Modulo atenci&oacute;n al cliente" height="95" width="95"></a>
         </td>
         <td>
-        <a href="auxiliar/moduloentorno.php"><img src="auxiliar/imagen/entorno.jpg" alt="Modulo Entorno" height="90" width="90"></a>
+        <a href="auxiliar/moduloentorno.php"><img src="imagen/entorno.jpg" alt="Modulo Entorno" height="90" width="90"></a>
         </td>
         <td>
-        <a href="auxiliar/moduloproducto.php"><img src="auxiliar/imagen/producto.jpg" alt="Modulo Recepcion y devoluciones" height="90" width="90"></a>
+        <a href="auxiliar/moduloproducto.php"><img src="imagen/producto.jpg" alt="Modulo Recepci&oacute;n y devoluci&oacute;n medicamentos" height="90" width="90"></a>
         </td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@ if(!isset($_SESSION['usuario'])){
         <td>
             <label for="">Modulo Entorno</label></td>
         <td>
-            <label for="">Modulo Recepci&oacute;n y devoluciones</label></td>
+            <label for="">Modulo Recepci&oacute;n y devoluci&oacute;n medicamentos</label></td>
     </tr>
 </table></center>
 <br />

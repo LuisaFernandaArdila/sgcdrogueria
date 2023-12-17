@@ -25,16 +25,15 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-<img src="imagen/LogoSGC.png" align="left" height="100">
-		<h2>Drogueria punto express</h2>
-        <br>
-			<div id="superior">
-            
-                <a id="inicio" href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a>
-                <a id="superior1" href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a>
-                <a id="superior1" href="aux_sistemainf.php">Informaci&oacute;n del sistema</a>
-                <a id="cerrar" href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
-            
+<img src="../imagen/LogoSGC.png" align="left" height="100">
+<h2>Droguería Punto Express</h2>
+<br>
+<div id="superior">
+<a id = "inicio" href="u_inicio.php">Inicio</a>
+<a id = "superior1" href="u_resolucion1407.php">Resolución 1407</a>
+<a id= "superior1" href="u_sistemainf.php">Información del sistema</a>
+<a id="cerrar" href="u_cerrarsesion.php">Cerrar sesión</a>
+
 </header>
 
 <div id="contenido">
@@ -59,23 +58,42 @@ if(!isset($_SESSION['usuario'])){
 <div class="mb-3 row">
     <div class="form-group">
 
-    <form action="aux_residuos.php" method="post">
-
-        <label for="" class="col-sm-3 col-form-label">Id residuos</label>
-        <input type="hidden" name="Idresiduos" id=""><br>
-        <label for="" class="col-sm-3 col-form-label">Digite la fecha información: </label>
-        <input type="date" name="fecha" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el tipo residuo: </label>
-        <input type="text" name="tiporesiduo" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite la cantidad residuos: </label>
-        <input type="text" name="cantidad" id="" required placeholder="Kg"><br>
-        <label for="" class="col-sm-3 col-form-label">Informacion generación de residuos: </label>
-        <input type="text" name="infogeneracionresiduos" id="" required><br>
-        <label for="Idempleados" class="col-sm-3 col-form-label">Id empleados: </label>
-        <select class="col-sm-3 col-form-label" class="form-select" name="Idempleados" required>
-            <option selected disabled>--Seleccionar empleado--</option>
+    <form action="aux_residuos.php" method="post" class="row g-3 needs-validation" novalidate>
+        
+        <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Digite la fecha información: </label>
+        <input type="date" name="fecha" id="validationCustom01" class="form-control" required>
+        <div class="invalid-feedback">Por favor, validar la fecha</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Digite el tipo residuo: </label>
+        <input type="text" name="tiporesiduo" id="validationCustom02" class="form-control" pattern="[a-zA-Z0-9\s]{1,20}" placeholder="Ej. Biosanitario" required>
+        <div class="invalid-feedback">Por favor, validar el tipo residuo</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-4">
+        <label for="validationCustom03" class="form-label">Digite la cantidad residuos: </label>
+        <input type="text" name="cantidad" id="validationCustom03" class="form-control" required pattern="[a-zA-Z0-9\s\-]{1,6}" placeholder="Ej. 8 Kg">
+        <div class="invalid-feedback">Por favor, validar la cantidad residuos</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-7">
+        <label for="validationCustom04" class="form-label">Informacion generación de residuos: </label>
+        <input type="text" name="infogeneracionresiduos" id="validationCustom01" class="form-control" placeholder="Ej. Bolsa verde" required>
+        <div class="invalid-feedback">Por favor, validar información de residuos</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom05" class="form-label">Id empleados: </label>
+        <select class="form-select" id="validationCustom05" name="Idempleados" required>
+            <option selected disabled value="">--Seleccionar empleado--</option>
                 <?php
-                include_once("conexion.php");
+                include_once("../conexion.php");
                 $sql = mysqli_query($conn, "SELECT * FROM empleados");
                 if($sql!==false){
                 while($resultado=mysqli_fetch_assoc($sql)){
@@ -83,18 +101,23 @@ if(!isset($_SESSION['usuario'])){
                 }}
                 ?>
         </select>
-        <br>
-
-        <input type="submit" value="Registrar residuos">
+        <div class="invalid-feedback">Por favor, seleccione empleado</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <center><div class="col-md-11">
+        <input type="submit" value="Crear registro">
+        </div></center>
+        
     </form>
 </fieldset>
 </center>
 <br>
 
-    <form action="http://localhost/sgcdrogueria/auxiliar/moduloentorno.php">
+    <form action="residuos.php">
         <button type="submit">Volver</button>
-        </form>
-   
+    </form>
+       
 </main>
 </div>
 <footer id="footer">
@@ -106,5 +129,27 @@ if(!isset($_SESSION['usuario'])){
 		</tr></table>
        </center>
 </footer>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
 </body>
 </html>

@@ -25,15 +25,15 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-<img src="imagen/LogoSGC.png" align="left" height="100">
+<img src="../imagen/LogoSGC.png" align="left" height="100">
 		<h2>Drogueria punto express</h2>
         <br>
 			<div id="superior">
             
-                <a id="inicio" href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a>
+                <a id="inicio" href="../u_auxiliar.php">Inicio</a>
                 <a id="superior1" href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a>
                 <a id="superior1" href="aux_sistemainf.php">Informaci&oacute;n del sistema</a>
-                <a id="cerrar" href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
+                <a id="cerrar" href="../u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
             
 </header>
 <div id="contenido">
@@ -54,19 +54,20 @@ if(!isset($_SESSION['usuario'])){
 
 <center>
 <fieldset class="form-group border p-3">
-<h3>REGISTRO RECEPCIÓN DE PRODUCTOS</h3>c
+<h3>REGISTRO RECEPCI&Oacute;N DE MEDICAMENTOS Y/O DISPOSITIVOS MÉDICOS</h3>
 <div class="mb-3 row">
     <div class="form-group">
 
-    <form action="aux_recepcion.php" method="post">
+    <form action="aux_recepcion.php" method="post" class="row g-3 needs-validation" novalidate onsubmit='return validar();'>
 
-        <label for="" class="col-sm-3 col-form-label">Id recepci&oacute;n t&eacute;cnica</label>
-        <input type="hidden" name="Idrecepcion" id=""><br>
-        <label for="codigo" class="col-sm-3 col-form-label">Codigo de producto </label>
-        <select class="col-sm-3 col-form-label" class="form-select" name="codigo" required>
-            <option selected disabled>--Seleccionar producto--</option>
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom01" class="form-label">Codigo de producto </label>
+        <select class="form-select" id="validationCustom01" name="codigo" required>
+            <option selected disabled value="">--Seleccionar producto--</option>
                 <?php
-                include_once("conexion.php");
+                include_once("../conexion.php");
                 $sql = mysqli_query($conn, "SELECT * FROM producto");
                 if($sql!==false){
                 while($resultado=mysqli_fetch_assoc($sql)){
@@ -74,12 +75,17 @@ if(!isset($_SESSION['usuario'])){
                 }}
                 ?>
         </select>
+        <div class="invalid-feedback">Por favor, seleccione el medicamento</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
         <br>
-        <label for="nomproducto" class="col-sm-3 col-form-label">Nombre del producto: </label>
-        <select class="col-sm-3 col-form-label" class="form-select" name="nomproducto" required>
-            <option selected disabled>--Seleccionar producto--</option>
+        <div class="col-md-5">
+        <label for="validationCustom02" class="form-label">Nombre del producto: </label>
+        <select class="form-select" id="validationCustom02" name="nomproducto" required>
+            <option selected disabled value="">--Seleccionar producto--</option>
                 <?php
-                include_once("conexion.php");
+                include_once("../conexion.php");
                 $sql = mysqli_query($conn, "SELECT * FROM producto");
                 if($sql!==false){
                 while($resultado=mysqli_fetch_assoc($sql)){
@@ -87,14 +93,31 @@ if(!isset($_SESSION['usuario'])){
                 }}
                 ?>
         </select>
+        <div class="invalid-feedback">Por favor, seleccione nombre del medicamento</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        
         <br>
-        <label for="" class="col-sm-3 col-form-label">Digite las observaciones del producto: </label>
-        <input type="text" name="observaciones" id="" required><br>
-        <label for="Idempleados" class="col-sm-3 col-form-label">Id empleados: </label>
-        <select class="col-sm-3 col-form-label" class="form-select" name="Idempleados" required>
-            <option selected disabled>--Seleccionar empleado--</option>
+        <div class="col-md-10">
+        <label for="validationCustom03" class="form-label">Digite las observaciones del producto: </label>
+        <input type="text" class="form-control" id="validationCustom03" name="observaciones" placeholder="Ej. Sin caja" required>
+        <div class="invalid-feedback">Por favor, digite las observaciones</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>        
+        
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        
+        <br>
+        <div class="col-md-5">
+        <label for="validationCustom04" class="form-label">Id empleados: </label>
+        <select class="form-select" id="validationCustom04" name="Idempleados" required>
+            <option selected disabled value="">--Seleccionar empleado--</option>
                 <?php
-                include_once("conexion.php");
+                include_once("../conexion.php");
                 $sql = mysqli_query($conn, "SELECT * FROM empleados");
                 if($sql!==false){
                 while($resultado=mysqli_fetch_assoc($sql)){
@@ -102,15 +125,28 @@ if(!isset($_SESSION['usuario'])){
                 }}
                 ?>
         </select>
+        <div class="invalid-feedback">Por favor, seleccione el empleado</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
         <br>
-        <label for="" class="col-sm-3 col-form-label">Digite la fecha información: </label>
-        <input type="date" name="fecha" id="" required><br><br>
+        <div class="col-md-5">
+        <label for="validationCustom05" class="form-label">Digite la fecha información: </label>
+        <input type="date" name="fecha" class="form-control" id="validationCustom05" required>
+        <div class="invalid-feedback">Por favor, selecione la fecha</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        <br>
+        
+        <div class="col-md-11">
         <input type="submit" value="Registrar recepci&oacute;n productos">
+        </div>
+        
     </form>
 </fieldset>
 </center>
     <br>
-    <form action="http://localhost/sgcdrogueria/auxiliar/moduloproducto.php">
+    <form action="moduloproducto.php">
         <button type="submit">Volver</button>
         </form>
     <br>
@@ -126,5 +162,27 @@ if(!isset($_SESSION['usuario'])){
 		</tr></table>
        </center>
 </footer>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
 </body>
 </html>

@@ -62,10 +62,10 @@ if(!isset($_SESSION['usuario'])){
         </nav>
         <nav>
             <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
+		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de medicamentos</h4>
 			<li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
-            <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
-            <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
+            <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica medicamentos</a></li>
+            <li><a href="devolucion.php">Formulario Control devoluci&oacute;n medicamentos</a></li>
 			</ul>
             </ol>
         </nav>
@@ -116,7 +116,6 @@ while($row=mysqli_fetch_assoc($sql)){?>
 <button type="submit">Crear registro</button>
 </center>
 </form> <br>
-
 <form action="u_inicio.php">
 <button type="submit">Volver</button>
 </form>

@@ -25,15 +25,15 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-<img src="imagen/LogoSGC.png" align="left" height="100">
+<img src="../imagen/LogoSGC.png" align="left" height="100">
 		<h2>Drogueria punto express</h2>
         <br>
 			<div id="superior">
             
-                <a id="inicio" href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a>
+                <a id="inicio" href="../u_auxiliar.php">Inicio</a>
                 <a id="superior1" href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a>
                 <a id="superior1" href="aux_sistemainf.php">Informaci&oacute;n del sistema</a>
-                <a id="cerrar" href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
+                <a id="cerrar" href="../u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
             
 </header>
 <div id="contenido">
@@ -54,28 +54,54 @@ if(!isset($_SESSION['usuario'])){
 
 <center>
 <fieldset class="form-group border p-3">
-<h3>REGISTRO NUEVO PRODUCTO</h3>
+<h3>REGISTRO NUEVO MEDICAMENTO Y/O DISPOSITIVO M&Eacute;DICO</h3>
 <div class="mb-3 row">
     <div class="form-group">
 
-    <form action="aux_producto.php" method="post">
+    <form action="aux_producto.php" method="post" class="row g-3 needs-validation" novalidate>
 
-        <label for="" class="col-sm-3 col-form-label">Codigo de producto </label>
-        <input type="hidden" name="codigo" id=""><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el nombre del producto: </label>
-        <input type="text" name="nomproducto" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el lote del producto: </label>
-        <input type="text" name="lote" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el laboratorio del producto: </label>
-        <input type="text" name="laboratorio" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite la fecha de vencimiento del producto: </label>
-        <input type="date" name="fechavenc" id="" required><br><br>
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom01" class="form-label">Digite el nombre del medicamento y/o dispositivo médico: </label>
+        <input type="text" class="form-control" id="validationCustom01" name="nomproducto" placeholder="Ej. Acetaminofen" pattern="[a-zA-Z0-9\s\-]{1,40}" required>
+        <div class="invalid-feedback">Por favor, valide nombre del medicamento</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-5">    
+        <label for="validationCustom02" class="form-label">Digite el lote del medicamento y/o dispositivo médico: </label>
+        <input type="text" class="form-control" id="validationCustom02" name="lote" pattern="\d{6,10}" placeholder="010101" name="lote" required>
+        <div class="invalid-feedback">Por favor, valide lote del medicamento</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom03" class="form-label">Digite el laboratorio del medicamento y/o dispositivo médico: </label>
+        <input type="text" class="form-control" id="validationCustom03" name="laboratorio" placeholder="Colmed" pattern="[a-zA-Z0-9\s\-]{1,40}" required>
+        <div class="invalid-feedback">Por favor, valide laboratorio del medicamento</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom04" class="form-label">Digite la fecha de vencimiento del medicamento y/o dispositivo médico: </label>
+        <input class="form-control" id="validationCustom04" type="date" name="fechavenc" required>
+        <div class="invalid-feedback">Por favor, valide la fecha de vencimiento del medicamento</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <center><div class="col-md-1">
         <input type="submit" value="Registrar nuevo producto">
+        </div></center>
+        
     </form>
 </fieldset>
 </center>
     <br>
-    <form action="http://localhost/sgcdrogueria/auxiliar/moduloproducto.php">
+    <form action="moduloproducto.php">
         <button type="submit">Volver</button>
         </form>
     <br>
@@ -91,5 +117,28 @@ if(!isset($_SESSION['usuario'])){
 		</tr></table>
        </center>
 </footer>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+
 </body>
 </html>

@@ -16,15 +16,15 @@ if(!isset($_SESSION['usuario'])){
 <?php
     include_once ("../conexion.php");
     error_reporting(0);
-    $Idresiduos = $_POST["Idresiduos"];
+
     $fecha = $_POST["fecha"];
     $tiporesiduo = $_POST["tiporesiduo"];
     $cantidad = $_POST["cantidad"];
     $infogeneracionresiduos = $_POST["infogeneracionresiduos"];
     $Idempleados = $_POST["Idempleados"];
 
-    $residuos = "INSERT INTO residuos (Idresiduos, fecha, tiporesiduo, cantidad, infogeneracionresiduos, Idempleados)
-    VALUES ('$Idresiduos', '$fecha', '$tiporesiduo', '$cantidad', '$infogeneracionresiduos', '$Idempleados')";
+    $residuos = "INSERT INTO residuos (fecha, tiporesiduo, cantidad, infogeneracionresiduos, Idempleados)
+    VALUES ('$fecha', '$tiporesiduo', '$cantidad', '$infogeneracionresiduos', '$Idempleados')";
     if (mysqli_query($conn, $residuos)) {
     echo "<script>alert('Nuevo registro almacenado exitosamente'); window.location='moduloentorno.php';</script>";
     } else {

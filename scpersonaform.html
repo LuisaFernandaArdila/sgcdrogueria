@@ -14,10 +14,10 @@
             <h2>Drogueria punto express</h2> 
             <br>
                 <div id="superior">
-                <a id="inicio" href="INDEX.php">Inicio</a>
+                <a id="inicio" href="INDEX.PHP">Inicio</a>
                 <a id="superior1" href="indexres1407.html">Resolución 1407</a>
                 <a id="superior1" href="indexsisinf.html">Información del sistema</a>
-                <a id="login" href="u_login.html">Login</a>
+                <a id="login" href="u_login.html">Login</a></div>
                
     </header>
 
@@ -32,22 +32,47 @@
             <div class="mb-3 row">
             <div class="form-group">
     
-    <form action="scpersonareg.php" method="post">
+    <form action="scpersonareg.php" method="post" class="row g-3 needs-validation" novalidate>
+        
+        <div class="col-md-1"></div>
 
-        <label for="" class="col-sm-3 col-form-label" name="Idsatisfaccion"></label>
-        <input type="hidden" name="Idsatisfaccion" id=""><br>
-        <label for="" class="col-sm-3 col-form-label">Digite su cedula:</label>
-        <input type="text" name="cedulacliente" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label" name="calificacion">Calificación</label>
-        <input type="text" name="calificacion" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite sus sugerencias:</label>
-        <input type="text" name="sugerencias" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Fecha información</label>
-        <input type="date" name="fecha" id="" required><br><br>
-        <br>
+        <div class="col-md-5">
+        <label for="validationCustom01" class="form-label">Digite su cedula:</label>
+        <input type="text" class="form-control" id="validationCustom01" name="cedulacliente" maxlength="10" pattern="\d{6,10}" placeholder="Ej. 1123123123" required>
+        <div class="invalid-feedback">Por favor, valide la cedula</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom02" class="form-label">Calificación</label>
+        <input type="text" class="form-control" id="validationCustom02" name="calificacion" placeholder="Ej. Bueno" required>
+        <div class="invalid-feedback">Por favor, valide la calificación</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>        
+        
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+            
+        <div class="col-md-5">
+        <label for="validationCustom03" class="form-label">Digite sus sugerencias:</label>
+        <input type="text" class="form-control" id="validationCustom03" name="sugerencias" placeholder="Ej. Ninguna" required>
+        <div class="invalid-feedback">Por favor, valide la calificación</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>        
+        
+        <div class="col-md-5">
+        <label for="validationCustom04" class="form-label">Fecha información</label>
+        <input type="date" name="fecha" class="form-control" id="validationCustom04" required>
+        <div class="invalid-feedback">Por favor, valide la calificación</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>        
+        
+        <div class="col-md-11">
         <input type="submit" value="Registrar respuesta">
+        </div>
+        
     </form>
-    
+    </div></div>
 </fieldset>
 </center>
     <br>
@@ -68,5 +93,28 @@
 		</tr></table>
        </center>
 </footer>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+
 </body>
 </html>

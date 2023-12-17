@@ -22,7 +22,7 @@ if(isset($_SESSION['usuario'])){
 		<h2>Drogueria punto express</h2> 
         <br>
 			<div id="superior">
-            <a id="inicio" href="INDEX.php">Inicio</a>
+            <a id="inicio" href="INDEX.PHP">Inicio</a>
 			<a id="superior1" href="indexres1407.html">Resolución 1407</a>
 			<a id="superior1" href="indexsisinf.html">Información del sistema</a>
             <a id="login" href="u_login.html">Login</a>
@@ -44,7 +44,7 @@ if(isset($_SESSION['usuario'])){
 <button type="submit">Encuesta Satisfacción al cliente</button>
 </p>
 </form>
-<form action="qrpersonaform.html">
+<form action="qrpersonainf.html">
 <p>Para quejas y reclamos puede dearlos en el siguiente formulario y nuestro personal lo contactara para dar pronta respuesta.<br /><br>
 <button type="submit">Quejas y/o Reclamos</button>
 </p>

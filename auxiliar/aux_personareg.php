@@ -25,15 +25,15 @@ if(!isset($_SESSION['usuario'])){
 <body>
 
 <header id="header">
-<img src="imagen/LogoSGC.png" align="left" height="100">
+<img src="../imagen/LogoSGC.png" align="left" height="100">
 		<h2>Drogueria punto express</h2>
         <br>
 			<div id="superior">
             
-                <a id="inicio" href="http://localhost/sgcdrogueria/u_auxiliar.php">Inicio</a>
+                <a id="inicio" href="../u_auxiliar.php">Inicio</a>
                 <a id="superior1" href="aux_resolucion1407.php">Resoluci&oacute;n 1407</a>
                 <a id="superior1" href="aux_sistemainf.php">Informaci&oacute;n del sistema</a>
-                <a id="cerrar" href="http://localhost/sgcdrogueria/u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
+                <a id="cerrar" href="../u_cerrarsesion.php">Cerrar sesi&oacute;n</a>
             
 </header>
 
@@ -58,27 +58,70 @@ if(!isset($_SESSION['usuario'])){
 <h3>REGISTRO PACIENTE</h3>
 <div class="mb-3 row">
     <div class="form-group">
-
-    <form action="aux_persona.php" method="post">
-
-        <label for="" class="col-sm-3 col-form-label">Digite la cedula de la persona: </label>
-        <input type="text" name="cedula" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el nombre de la persona: </label>
-        <input type="text" name="nombre" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite el telefono de la persona: </label>
-        <input type="text" name="telefono" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite la direccion de la persona: </label>
-        <input type="text" name="direccion" id="" required><br><br>
-        <input type="submit" value="Registrar paciente">
+<form action="aux_persona.php" method="post" class="row g-3 needs-validation" novalidate onsubmit='return validar();'>
+        
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom01" class="form-label">Digite la cedula de la persona: </label>
+        <input type="text" class="form-control" id="validationCustom01" maxlength="10" pattern="\d{6,10}" placeholder="Ej. 1123123123" required name="cedula">
+            <div class="invalid-feedback">
+            Por favor, valide la cedula
+            </div>
+            <div class="valid-feedback">
+            Correcto
+            </div>
+        </div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom02" class="form-label">Digite el nombre de la persona: </label>
+        <input type="text" class="form-control" id="validationCustom02" name="nombre" pattern="[a-zA-ZÀ-ÿ\s]{1,40}" placeholder="Ej. Maria Perez" required>
+            <div class="invalid-feedback">
+            Por favor, valide el nombre
+            </div>
+            <div class="valid-feedback">
+            Correcto
+            </div>
+        </div>
+        
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom03" class="form-label">Digite el telefono de la persona: </label>
+        <input type="text" class="form-control" id="validationCustom03" maxlength="10" pattern="\d{7,10}" placeholder="Ej. 3144564323" name="telefono" required>
+            <div class="invalid-feedback">
+            Por favor, valide el telefono
+            </div>
+            <div class="valid-feedback">
+            Correcto
+            </div>
+        </div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom04" class="form-label">Digite la direccion de la persona: </label>
+        <input type="text" class="form-control" id="validationCustom04" name="direccion" pattern="[a-zA-Z0-9\s\-]{1,40}" placeholder="Ej. Calle 00 # 00 - 00" required>
+            <div class="invalid-feedback">
+            Por favor, valide la dirección
+            </div>
+            <div class="valid-feedback">
+            Correcto
+            </div>
+        </div>
+        
+        <br>
+        <div class="col-md-11">
+        <input type="submit" value="Registrar">
+        </div>
+        
     </form>
 </fieldset>
 </center>
     <br>
-    <form action="http://localhost/sgcdrogueria/auxiliar/moduloatencion.php">
+    <form action="moduloatencion.php">
         <button type="submit">Volver</button>
-        </form>
+    </form>
     <br>
-   
 </main>
 </div>
 <footer id="footer">
@@ -90,5 +133,53 @@ if(!isset($_SESSION['usuario'])){
 		</tr></table>
        </center>
 </footer>
+
+<script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+
+<script type='text/javascript'>
+function validar(){
+
+var todo_correcto = true;
+
+if(document.getElementById('validationCustom01').value.length < 6 ){
+    todo_correcto = false;
+}
+if(document.getElementById('validationCustom02').value.length < 10 ){
+    todo_correcto = false;
+}
+if(document.getElementById('validationCustom03').value.length < 10 ){
+    todo_correcto = false;
+}
+if(document.getElementById('validationCustom04').value.length < 10 ){
+    todo_correcto = false;
+}
+if(!todo_correcto){
+    alert('Algunos campos no están correctos, vuelva a revisarlos');
+}
+
+return todo_correcto;
+}
+</script>
+
 </body>
 </html>

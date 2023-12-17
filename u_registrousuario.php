@@ -60,10 +60,10 @@ if(!isset($_SESSION['usuario'])){
         </nav>
         <nav>
             <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
-			<li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
-            <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
-            <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
+            <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de medicamentos</h4>
+            <li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
+            <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica medicamentos</a></li>
+            <li><a href="devolucion.php">Formulario Control devoluci&oacute;n medicamentos</a></li>
 			</ul>
             </ol>
         </nav>
@@ -77,18 +77,51 @@ if(!isset($_SESSION['usuario'])){
 <div class="mb-3 row">
     <div class="form-group">
 
-    <form action="u_registrarusuario.php" method="post">
-       
+    <form action="u_registrarusuario.php" method="post" class="row g-3 needs-validation" novalidate>
 
-        <label for="" class="col-sm-3 col-form-label">ID usuario </label>
-        <input type="hidden" name="Id" id=""><br>  
-        <label for="" class="col-sm-3 col-form-label">Digite usuario: </label>
-        <input type="text" name="usuario" id="" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite contraseña: </label>
-        <input type="text" name="clave" id="" required><br><br>
-        <label for="" class="col-sm-3 col-form-label">Selecione rol </label>
-        <input type="text" name="Idrol" id="" required><br><br>
+        <div class="col-md-3"></div>
+        
+        <div class="col-md-6">
+        <label for="validationCustom01" class="form-label">Digite usuario: </label>
+        <input type="text" class="form-control" id="validationCustom01" name="usuario" pattern="[a-zA-ZÀ-ÿ0-9]{1,40}" placeholder="Ej. Maria" required>
+        <div class="invalid-feedback">Por favor, valide usuario</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>        
+        
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        
+        <div class="col-md-6">
+        <label for="validationCustom02" class="form-label">Digite contraseña: </label>
+        <input type="text" class="form-control" id="validationCustom02" name="clave" pattern="[a-zA-Z0-9\-]{1,40}" placeholder="Ej. Ma123-" required>
+        <div class="invalid-feedback">Por favor, valide contraseña</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        
+        <div class="col-md-6">
+        <label for="validationCustom03" class="form-label">Selecione rol </label>
+        <select class="form-select" id="validationCustom03" name="Idrol" required>
+            <option selected disabled value="">--Seleccionar rol--</option>
+                <?php
+                include_once("conexion.php");
+                $sql = mysqli_query($conn, "SELECT * FROM roles");
+                if($sql!==false){
+                while($resultado=mysqli_fetch_assoc($sql)){
+                    echo "<option value='".$resultado['Idrol']."'style='color:black'>".$resultado['rol']."</option>";
+                }}
+                ?>
+        </select>
+        <div class="invalid-feedback">Por favor, valide el rol</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <center><div class="col-md-11">
         <input type="submit" value="Crear usuario">
+        </div></center>
+        
     </form>
     </fieldset> 
     </center>
@@ -110,5 +143,27 @@ if(!isset($_SESSION['usuario'])){
 		</tr></table>
        </center>
 </footer>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
 </body>
 </html>

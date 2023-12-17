@@ -14,7 +14,7 @@
             <h2>Drogueria punto express</h2> 
             <br>
                 <div id="superior">
-                <a id="inicio" href="INDEX.php">Inicio</a>
+                <a id="inicio" href="INDEX.PHP">Inicio</a>
                 <a id="superior1" href="indexres1407.html">Resolución 1407</a>
                 <a id="superior1" href="indexsisinf.html">Información del sistema</a>
                 <a id="login" href="u_login.html">Login</a>
@@ -26,28 +26,54 @@
     <center>
         <div class="mb-3 row">
         <fieldset class="form-group border p-3">
-    
-            <div class="form-group">
+        <div class="form-group">
 
-    <form action="qrpersonareg.php" method="post">
-
-        <label for="" class="col-sm-3 col-form-label" name="Idqr"></label>
-        <input type="hidden" name="Idqr" id=""><br>
-        <label for="" name="tiposolicitud">Tipo solicitud</label>
-        <input type="text" name="tiposolicitud" id="" required><br>
-        <label for=""class="col-sm-3 col-form-label">Digite su cedula: </label>
-        <input type="text" name="cedula" id="" required><br>
-        <label for=""class="col-sm-3 col-form-label">Digite su solicitud:</label>
-        <input type="text" name="solicitud" id="" required><br>
-        <label for="" name="Digite la respuesta"></label>
-        <input type="hidden" name="respuesta" id="" placeholder="Pronto recibira respuesta"><br>
-        <label for=""class="col-sm-3 col-form-label">Fecha información</label>
-        <input type="date" name="fecha" id="" required><br>
-        <br>
+        <form action="qrpersonareg.php" method="post" class="row g-3 needs-validation" novalidate>
+            
+            <div class="col-md-1"></div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom01" class="form-label">Tipo solicitud</label>
+        <input type="text" class="form-control" id="validationCustom01" placeholder="Ej. queja/reclamo" name="tiposolicitud" required><br>
+        <div class="invalid-feedback">Por favor, valide tipo solicitud</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>        
+        
+        <div class="col-md-5">
+        <label for="validationCustom02" class="form-label">cédula</label>
+        <input type="text" class="form-control" id="validationCustom02" placeholder="Ej. 1000111000"  name="cedula" required>
+        <div class="invalid-feedback">Por favor, valide la cédula</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>         
+        
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom03" class="form-label">Digite su solicitud</label>
+        <input type="text" name="solicitud" class="form-control" id="validationCustom03" placeholder="Ej. Requiero..." required>
+        <div class="invalid-feedback">Por favor, valide su solicitud</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <input type="hidden" class="col-sm-3 col-form-label" name="respuesta" id="" placeholder="Pronto recibira respuesta">
+        
+        <div class="col-md-5">
+        <label for="validationCustom04" class="form-label">Fecha información</label>
+        <input type="date" class="form-control" id="validationCustom04" name="fecha" required>
+        <div class="invalid-feedback">Por favor, valide la fecha</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <center><div class="col-md-11">
         <input type="submit" value="Registrar queja/reclamo">
+        </div></center>
+        
     </form>
-    </fieldset>
-    </center>
+    </div>
+</fieldset>
+</div>
+</center>
     <br>
     <form action="qrpersonainf.html">
         <button type="submit">Volver</button>
@@ -65,5 +91,27 @@
 		</tr></table>
        </center>
 </footer>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
 </body>
 </html>

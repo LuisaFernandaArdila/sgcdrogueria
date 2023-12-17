@@ -65,10 +65,10 @@ if(!isset($_SESSION['usuario'])){
         </nav>
         <nav>
             <ol>
-		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de productos</h4>
+		    <ul><h4>Modulo Recepci&oacute;n y devoluci&oacute;n de medicamentos</h4>
 			<li><a href="producto.php">Medicamento y/o dispositivos m&eacute;dicos</a></li>
-            <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica</a></li>
-            <li><a href="devolucion.php">Formulario Control devoluci&oacute;n productos</a></li>
+            <li><a href="recepcion.php">Formulario Control recepci&oacute;n t&eacute;cnica medicamentos</a></li>
+            <li><a href="devolucion.php">Formulario Control devoluci&oacute;n medicamentos</a></li>
 			</ul>
             </ol>
         </nav>
@@ -81,19 +81,38 @@ if(!isset($_SESSION['usuario'])){
 <div class="mb-3 row">
     <div class="form-group">
 
-    <form action="auditoriaregu.php" method="post">
+    <form action="auditoriaregu.php" method="post" class="row g-3 needs-validation" novalidate>
 
-       <label for="" class="col-sm-3 col-form-label">Id auditoria</label>
-        <input type="hidden" name="Idauditoria" id=""><br>
-        <label for=""class="col-sm-3 col-form-label">Digite Fecha Informaci&oacute;n: </label>
-        <input type="date" name="fecha" required><br>
-        <label for="" class="col-sm-3 col-form-label">Digite los hallazgos encontrados: </label>
-        <input type="text" name="hallazgos" id="" required><br>
-        <label for=""class="col-sm-3 col-form-label">Digite las acciones a realizar: </label>
-        <input type="text" name="acciones" id="" required><br>
-        <label for=""class="col-sm-3 col-form-label">Id empleados: </label>
-        <select class="col-sm-3 col-form-label" class="form-select" name="Idempleados" required>
-            <option selected disabled>--Seleccionar empleado--</option>
+        <div class="col-md-1"></div>
+
+        <div class="col-md-5">
+        <label for="validationCustom01" class="form-label">Digite Fecha Informaci&oacute;n: </label>
+        <input type="date" name="fecha" class="form-control" id="validationCustom01" required>
+        <div class="invalid-feedback">Por favor, seleccione fecha</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom02" class="form-label">Digite los hallazgos encontrados: </label>
+        <input type="text" name="hallazgos" class="form-control" id="validationCustom02" required>
+        <div class="invalid-feedback">Por favor, validar hallazgos</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom03" class="form-label">Digite las acciones a realizar: </label>
+        <input type="text" name="acciones" class="form-control" id="validationCustom03" required>
+        <div class="invalid-feedback">Por favor, validar acciones</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+        
+        <div class="col-md-5">
+        <label for="validationCustom04" class="form-label">Id empleados: </label>
+        <select class="form-select" id="validationCustom04" name="Idempleados" required>
+            <option selected disabled value="">--Seleccionar empleado--</option>
                 <?php
                 include_once("conexion.php");
                 $sql = mysqli_query($conn, "SELECT * FROM empleados");
@@ -103,8 +122,14 @@ if(!isset($_SESSION['usuario'])){
                 }}
                 ?>
         </select>
-        <br>
+        <div class="invalid-feedback">Por favor, seleccione empleado</div>
+        <div class="valid-feedback">Correcto</div>
+        </div>
+
+        <center><div class="col-md-1">
         <input type="submit" value="Registrar">
+        </div></center>
+        
     </form>
 </fieldset>
 </center>
@@ -125,5 +150,27 @@ if(!isset($_SESSION['usuario'])){
 		</tr></table>
        </center>
 </footer>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
 </body>
 </html>

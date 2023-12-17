@@ -5,46 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="EstiloLogin.css">
-</head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
 <body>
-<div class="container">
-  <img src="imagen/LogoSGC.png" alt="Logo de la empresa" class="logo">
-<fieldset>
-        <h1>Login de Usuario</h1>
-        <br />
-    <form id="" method="POST" action="u_loginusuario.php">
-        <table>
-      <tr>
-    <td><label for="usuario">Usuario:</label></td>
-    <td><input type="text" name="usuario" id="" placeholder="Ingrese usuario" required></td>
-      </tr>
-      
-      <tr>
-    <td><label for="clave">Contraseña:</label></td>
-    <td><input type="password" name="clave" id="" placeholder="Ingrese contraseña" required></td>
-      </tr>
-      </table>
-      <center>
-        <table>
-        
-      <tr>
-          <td>
-            <button type="submit">Ingresar</button></td>
-      </tr>
-         </table>
-         </center>
-  </form>
+ <div class="contenedor">
+    <div class="container">
+      <img src="imagen/LogoSGC.png" alt="Logo de la empresa" class="logo">
+      <fieldset>
+          <h1>Login de Usuario</h1>
+          <form class="needs-validation" method="POST" action="u_loginusuario.php" novalidate>
+ 
+             
+              <div class="form-group">
+                  <label for="usuario">Usuario:</label>
+                  <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Ingrese usuario" required>
+                  <div class="invalid-feedback">
+                      Por favor, ingrese un usuario.
+                  </div>
+             
+ 
+           
+              <div class="form-group">
+                  <label for="clave">Contraseña:</label>
+                  <input type="password" class="form-control" name="clave" id="clave" placeholder="Ingrese contraseña" required>
+                  <div class="invalid-feedback">
+                      Por favor, ingrese una contraseña.
+                  </div>
+              </div>
+           
+
+
+       
+     <form>
+        <button type="submit">Ingresar</button>
+      </form>
+         
+ 
+ 
   <form action="INDEX.PHP" method="post"><br>
-
-  <center>
-  <table>
-      <tr>
-          <td><button type="submit">Regresar</button></td>
-      </tr>
-    </table>
-    </center>
+        <button type="submit">Regresar</button>
+ 
   </form>
-</fieldset></div>
+  </div>
+ 
+</fieldset>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+   
+    (function () {
+        'use strict';
+
+        var forms = document.querySelectorAll('.needs-validation');
+
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    var inputs = form.querySelectorAll('input');
+                    var isEmpty = false;
+
+                    inputs.forEach(function (input) {
+                        if (input.value.trim() === '') {
+                            isEmpty = true;
+                            input.classList.add('is-invalid');
+                        } else {
+                            input.classList.remove('is-invalid');
+                        }
+                    });
+
+                    if (isEmpty) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+    })();
+</script>
 </body>
 </html>
